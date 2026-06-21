@@ -1,6 +1,6 @@
 # HANDOFF — training-assistant
 
-_Last updated: 2026-06-21_ · **This is the working source of truth.** Read it before
+_Last updated: 2026-06-21 (operating domain added)_ · **This is the working source of truth.** Read it before
 building; update it the same session after any meaningful change (then bump the date).
 A stale source of truth is worse than none.
 
@@ -23,7 +23,7 @@ Static site, no build step.
 **L0 done:** schema, validator, defs domain (12 CROR definitions), reference shell
 (search + list→detail + trust/citation chips + related-links, hash routing), rail-ops theme.
 
-**L1 mostly done — signals + full definitions + switching:**
+**L1 done — signals + definitions + switching + operating:**
 - **Signals** (`content/signals.js`) — all CROR 405–440 indications (42, 38 drawn) + the SVG
   renderer (`js/signal.js`); detail renders the aspect + study notes.
 - **Definitions** (`content/defs.js`) — full CROR Definitions section: equipment/movements,
@@ -32,12 +32,17 @@ Static site, no build step.
 - **Switching** (`content/switching.js`) — CROR 104 / 104.1 / 104.2 / 104.4 / 104.5 / 105 /
   112 / 113.0–113.7 / 114 / 115 (17 entries, faithful cited condensations; GP specifics flagged
   as S.I./SME, not invented).
+- **Operating** (`content/operating.js`) — signal-handling & communication rules: hand/bell/
+  whistle (12/13/14), headlight (17), blue-signal protection (26), signal imperfectly displayed
+  (27), speed compliance (33), fixed-signal recognition (34), emergency protection & flagging
+  (35/36), track-work protection (41), crew rules (106/108/109/110), and the radio block
+  (122/123/123.1/123.2/125/126/142/147) — 23 entries, faithful cited condensations.
 - Detail view renders SVG aspects + study notes + SME notes; list has a **domain filter**.
-- **126 entries, validator green.** Sourced from the Jan 2025 CROR PDF + the audited cn-conductor-trainer.
+- **149 entries, validator green.** Sourced from the Jan 2025 CROR PDF + the audited cn-conductor-trainer.
 
 ## 4. Roadmap (next)
-- **Optional L1 extra — operating rules:** a few core operating/communication rules (hand
-  signals, radio/communication, Rule 41 end-of-track) if wanted → `content/operating.js`.
+- **L1 content is complete** across all four domains (defs/signals/switching/operating, 149
+  entries). Further entries are additive — drop them into the relevant `content/*.js`.
 - **L2 — drills (derived):** generate recall / multiple-choice / signal-aspect questions from
   the entries; pick a domain/tag to quiz. The content's ready for it.
 - Then L3 progress/gaps · L4 adaptive study-next + recert mode · L5 polish.

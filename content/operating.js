@@ -1,0 +1,106 @@
+// ==========================================================================
+// CONTENT · OPERATING — general operating, signal-handling, and radio/comms
+// rules (CROR), cited (trust:rulebook). Faithful condensations / quotes of the
+// operative clauses; the citation points to the full rule. Source: CROR Jan 28 2025.
+// ==========================================================================
+
+const SRC = 'Canadian Rail Operating Rules — Jan 28, 2025';
+const O = (id, rule, title, body, tags = [], related = [], extra = {}) =>
+  ({ id, domain: 'operating', ref: 'CROR ' + rule, source: SRC, trust: 'rulebook', title, body, tags, related, ...extra });
+
+export const operating = [
+  // ----- visual / audible signals -----
+  O('op-12', '12', 'Hand Signals',
+    'Indications (hand, lantern or flag): STOP — swung from side to side at right angle to the track; MOVE BACKWARD — swung in a circle at right angle to the track (speed proportional); MOVE FORWARD — raised and lowered (speed proportional); APPLY AIR BRAKES — raised and swung horizontally above the head; RELEASE AIR BRAKES — raised and held at arm\'s length above the head; REDUCE SPEED — held horizontally at arm\'s length. Any object waved violently by anyone on or near the track is a signal to STOP. A signal must be given in time and from where it can be plainly seen; if there is doubt as to its meaning or for whom it is intended, it must be regarded as a STOP signal. Forward/backward are relative to the front of the controlling locomotive. The disappearance from view of the crew member (or the lights) giving the signals must be regarded as a STOP signal.',
+    ['signals', 'hand-signals', 'switching'], ['op-123-1', 'op-123-2']),
+
+  O('op-13', '13', 'Engine Bell',
+    'Ring the engine bell when: an engine is about to move (except when switching requires frequent stop/start after the initial move); passing any movement standing on an adjacent track; approaching/passing/moving about station facilities or shop track areas; and from one-quarter mile from every public crossing at grade until the crossing is fully occupied (except where 14(l) whistle applies or as special instructions prescribe).',
+    ['audible', 'crossings'], ['op-14']),
+
+  O('op-14', '14', 'Engine Whistle Signals',
+    'Sounded as prescribed; unnecessary use is prohibited ("engine whistle" includes "engine horn"). Key signals — one short ("o"): when standing, braking system is equalized (angle cock may be closed). Two short ("oo"): answer to a stop signal (except a fixed signal) or to any signal not otherwise provided for (not used when switching). Succession of short sounds: alarm for persons or animals on or near the track. Public crossing at grade — 14(l): sound the whistle at the whistle post (1/4 mile) so as to give at least 20 seconds warning, prolonged or repeated until the crossing is fully occupied (standard pattern: two long, one short, one long). On engine whistle failure, ring the bell continuously and limit speed entering unprotected crossings.',
+    ['audible', 'crossings'], ['op-13']),
+
+  O('op-17', '17', 'Headlight',
+    'A movement headed by equipment with a headlight must display it at full power in the direction of travel approaching all public crossings at grade until occupied, and while moving on the main track; on both ends of the engine while on non-main track (may be extinguished on the end coupled to cars). May be dimmed/extinguished (when not approaching a crossing) for an opposing movement, oncoming road vehicles at night, etc.',
+    ['lights']),
+
+  O('op-26', '26', 'Blue Signal Protection',
+    'A blue flag by day (plus a blue light by night or when day signals can\'t be plainly seen), at one or both ends of equipment — or, on a track entered from one end only, between the equipment and the entry switch — indicates workmen are in the vicinity. When displayed, the equipment must NOT be coupled to or moved. Only the same class of workmen that displayed the blue signal may remove it; its removal indicates no workmen are in the vicinity. Don\'t block the view of a blue signal without notifying the workmen. Where kicking is permitted (113.5(a)), protection is by a special-locked switch preventing entry, or a blue signal plus a derail locked in the derailing position.',
+    ['blue-flag', 'protection', 'securing'], ['sw-113-5']),
+
+  O('op-27', '27', 'Signal Imperfectly Displayed',
+    'A fixed signal imperfectly displayed — or the absence of a fixed signal where one is usually displayed — must be regarded as the MOST RESTRICTIVE indication that signal is capable of displaying, and reported to the proper authority as soon as possible. If a block/interlocking signal shows one or more lights out but at least one green or yellow remains, movements may proceed reducing to SLOW through turnouts, prepared to stop at the next signal (special exception for a solid yellow on the bottom = treat as RESTRICTING). A signal known/suspected damaged is regarded as its most restrictive indication.',
+    ['signals'], ['op-34', 'def-spd-restricted']),
+
+  O('op-33', '33', 'Speed Compliance',
+    'If speed requirements are exceeded, crew members must remind one another. If no action is taken, or the locomotive engineer is observed non-responsive or incapacitated, other crew members must take immediate action to ensure the safety of the movement — including stopping it in emergency if required.',
+    ['speed', 'crew'], ['op-34']),
+
+  O('op-34', '34', 'Fixed Signal Recognition and Compliance',
+    'The crew on the controlling engine must know the indication of each fixed signal (including switches where practicable) before passing it. Crew members within physical hearing range must communicate to each other, clearly and audibly, the indication BY NAME of each fixed signal they must identify — called out as soon as positively identified, and any change of indication promptly communicated and acted on. Must be communicated: block & interlocking signals; Rule 42/43 signals; mile signs to interlocking / hot box detector / Cautionary Limit; Stop signs; OCS-begins; a red signal between the rails; a flagman\'s stop signal; a switch not properly lined for the movement; Cautionary Limit signs; advance PSO signs; and zone-speed reductions. If prompt compliance isn\'t taken, remind one another; if still nothing, take immediate action (stop in emergency if required).',
+    ['signals', 'crew'], ['op-33', 'op-27']),
+
+  O('op-35', '35', 'Emergency Protection',
+    'Any employee discovering a hazardous condition that may affect the safe passage of a movement must, by flags, lights, fusees, radio, telephone or other means, make every possible effort to stop and/or instruct any affected movement. Flag protection is required on main track unless/until relieved. A flagman goes the required distance from the condition (unless otherwise provided, at least two miles to a point with an unobstructed view), displays a red flag by day / lighted red fusee by night until the movement acknowledges (two short — 14(b)), stops, or reaches the flagman. A movement stopped by a flagman must not proceed until instructed by the flagman. A flagman must carry a red flag and eight red fusees. (This rule does not authorize main track occupancy or track work.)',
+    ['emergency', 'protection', 'flagging'], ['op-36', 'op-14']),
+
+  O('op-36', '36', 'Decreased Flagging Distance',
+    'On a subdivision specified in special instructions where maximum speed is not greater than 30 MPH, the "at least two miles" distance in Rules 35, 42/842 and 43/843 is decreased to at least one mile.',
+    ['emergency', 'flagging'], ['op-35']),
+
+  O('op-41', '41', 'Protection of Track Work — Non-Main Track & Cautionary Limits',
+    'A movement required to operate on a track protected by a red signal between the rails, or a switch locked with a special lock, must STOP before passing it and be governed by any instructions from the foreman. Only the foreman (or an employee authorized by the foreman) may remove the red signal and/or special lock. (Not applicable on main tracks outside cautionary limits, signalled sidings/other signalled tracks, or tracks specified in special instructions.)',
+    ['protection', 'track'], ['def-cautionary-limits', 'def-foreman']),
+
+  // ----- crew / movement -----
+  O('op-106', '106', 'Crew Responsibilities',
+    'All crew members are responsible for the safe operation of movements and equipment in their charge and for the observance of the rules. Under conditions not provided for by the rules, they must take every precaution for protection. A utility employee becomes a crew member when working with any movement.',
+    ['crew'], ['def-conductor', 'def-employee']),
+
+  O('op-108', '108', 'Precautions While Switching',
+    'When switching is performed, crew members must take precautions to prevent unintended rollbacks and/or fouling of other tracks and equipment.',
+    ['switching', 'crew'], ['sw-114']),
+
+  O('op-109', '109', 'Locomotive Engineer Precautions',
+    'When duties require the locomotive engineer to temporarily exit the controlling cab on a standing movement: fully apply the independent brake; apply the automatic brake if required; remove the reverser (unless not equipped with high idle); after stepping away, visually verify the gauges don\'t indicate a possible air-brake release and that the brake valve handles remain in the selected positions; and verbally confirm the measures with another employee.',
+    ['crew', 'securing'], ['sw-112']),
+
+  O('op-110', '110', 'Inspecting Passing Trains and Transfers',
+    'When duties and terrain permit, at least two crew members of a standing train/transfer position themselves on the ground on both sides to inspect passing trains/transfers (the locomotive engineer inspects the near side). Broadcast the inspection results when possible. Every effort must be made to stop a passing train/transfer if a dangerous condition is detected; a report states only the location and what was observed — never speculation as to cause.',
+    ['inspection', 'crew']),
+
+  // ----- radio / communication -----
+  O('op-122', '122', 'Content of Radio Communications',
+    'Radio communications must be brief and to the point and contain only essential instructions or information.',
+    ['radio', 'comms']),
+
+  O('op-123', '123', 'Verification Procedures',
+    'Except when transmitted by an automated device (or as otherwise provided), when verbal instructions or information affecting the safety of a movement are received by radio, such information must be REPEATED to the sender. Required repetitions/acknowledgements may be checked and confirmed to the RTC by another crew member. Written authorities received by radio are verified by their specific rules.',
+    ['radio', 'comms'], ['op-123-1', 'def-rtc']),
+
+  O('op-123-1', '123.1', 'Radio or Hand Signals',
+    'Before changing between radio and hand signals, a definite understanding as to the method of communication must be established between the crew members giving or receiving instructions. In an emergency, either method may be used in addition to the one previously arranged.',
+    ['radio', 'hand-signals', 'comms'], ['op-12', 'op-123-2']),
+
+  O('op-123-2', '123.2', 'Switching by Radio',
+    'When radio controls switching, after positive identification: (i) give direction relative to the front of the controlling locomotive in the initial instruction and whenever direction changes; (ii) give distance to travel with each communication (increments under two car lengths need not be repeated); (iii) if the movement has travelled half the last distance given with no further communication, it must STOP; (iv) communicate block/interlocking signal indications while switching; (v) doubt as to meaning or for whom intended = a STOP signal; (vi) a car length = 50 feet unless otherwise arranged.',
+    ['radio', 'switching', 'comms'], ['op-12', 'op-123-1']),
+
+  O('op-125', '125', 'Emergency Communication Procedures',
+    'Transmit the word "EMERGENCY" three times at the start of the transmission to report: an accident with injury; a condition that may be a hazard to persons; a condition that may endanger the passage of movements; or a derailment on or fouling a main track. An emergency communication has absolute priority; if one directed to a specific person/movement isn\'t acknowledged, any employee hearing it relays it if practicable, and others must not interfere.',
+    ['radio', 'emergency', 'comms']),
+
+  O('op-126', '126', 'Restricted Use of Radio',
+    'In addition to the restrictions in Rules 14 and 602, radio must NOT be used to: give advance information about the indication of a block or interlocking signal; or give information that may influence a crew to consider speed restrictions are diminished.',
+    ['radio', 'signals', 'comms'], ['op-122']),
+
+  O('op-142', '142', 'Understanding Between Crew Members',
+    'Every conductor, locomotive engineer, pilot and snow plow foreman must read and properly understand all GBO and clearances as soon as possible after receiving them, and make them available to other crew members so each has read and understands them (and any protection arrangements). Crew members within physical hearing range must remind one another of GBO/clearance restrictions in sufficient time to ensure compliance.',
+    ['crew', 'bulletins'], ['def-gbo', 'op-147']),
+
+  O('op-147', '147', 'Transfer Between Crews',
+    'When a conductor and/or locomotive engineer is changed off or relieved, all GBO, DOB, clearances, authorities, TGBO and other written instructions and necessary information still in effect must be transferred personally to the relieving crew, and known to be understood. If a personal transfer isn\'t practicable, contact the RTC about disposition (a signed list of items left for the relieving crew, who compare with the RTC before proceeding). Taking control of a movement on CTC track where the last signal indication can\'t be ascertained → RESTRICTED speed applies to the next signal. Verbal instructions from a foreman must not be passed between crews — the relieving crew contacts the foreman directly.',
+    ['crew', 'bulletins'], ['op-142', 'def-rtc']),
+];

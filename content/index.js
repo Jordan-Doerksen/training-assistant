@@ -7,6 +7,6 @@
 import { defs } from './defs.js';
 import { signals } from './signals.js';
 import { switching } from './switching.js';
-// import { operating } from './operating.js'; // later
+import { operating } from './operating.js';
 
-export const ENTRIES = [...defs, ...signals, ...switching];
+export const ENTRIES = [...defs, ...signals, ...switching, ...operating];

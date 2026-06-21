@@ -2,6 +2,18 @@
 
 Phase log, newest first.
 
+## L1 (operating + comms) — 2026-06-21
+- **Operating domain** (`content/operating.js`, 23) — signal-handling & comms rules:
+  hand signals (12), bell/whistle (13/14), headlight (17), blue-signal protection (26),
+  signal imperfectly displayed (27), speed compliance (33), fixed-signal recognition (34),
+  emergency protection (35), decreased flagging distance (36), track-work protection (41),
+  crew responsibilities/precautions (106/108/109/110), and the full radio block —
+  content (122), repeat-back verification (123), radio-or-hand (123.1), switching by radio
+  (123.2), emergency comms (125), restricted use (126), understanding & transfer (142/147).
+- Faithful cited condensations of the operative clauses; cross-linked to defs & switching
+  (e.g. blue-flag ↔ 113.5, switching-by-radio ↔ hand signals, Rule 41 ↔ foreman/cautionary limits).
+- New domain filter chip **Operating 23**. **149 entries, validator green.**
+
 ## L1 (definitions + switching) — 2026-06-21
 - **Definitions filled out** (`content/defs.js`, 12 → 67) — the full CROR Definitions section:
   equipment/movements, track & territory, control systems (CTC/OCS/ABS/interlocking),
