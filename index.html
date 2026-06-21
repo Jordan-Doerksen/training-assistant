@@ -34,40 +34,12 @@
   <main id="view" class="view" aria-live="polite"></main>
 
   <footer class="foot">
-    <svg class="rail-emblem" viewBox="0 0 100 92" role="img" aria-label="Railway track running endlessly toward the horizon">
-      <defs>
-        <radialGradient id="reGlow" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stop-color="#ffe9bd" stop-opacity=".95" />
-          <stop offset="45%" stop-color="#ffba52" stop-opacity=".45" />
-          <stop offset="100%" stop-color="#ffba52" stop-opacity="0" />
-        </radialGradient>
-        <linearGradient id="reGround" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#161f2b" />
-          <stop offset="100%" stop-color="#0a0e14" />
-        </linearGradient>
-        <clipPath id="reClip"><circle cx="50" cy="46" r="45" /></clipPath>
-      </defs>
-      <g clip-path="url(#reClip)">
-        <rect x="0" y="0" width="100" height="92" fill="url(#reGround)" />
-        <line x1="50" y1="46" x2="3" y2="92" stroke="#46586e" stroke-width="2.6" />
-        <line x1="50" y1="46" x2="97" y2="92" stroke="#46586e" stroke-width="2.6" />
-        <g class="re-track" fill="#9fadbf">
-          <rect class="re-tie" x="24" y="44.3" width="52" height="3.4" rx="1" />
-          <rect class="re-tie" x="24" y="44.3" width="52" height="3.4" rx="1" />
-          <rect class="re-tie" x="24" y="44.3" width="52" height="3.4" rx="1" />
-          <rect class="re-tie" x="24" y="44.3" width="52" height="3.4" rx="1" />
-          <rect class="re-tie" x="24" y="44.3" width="52" height="3.4" rx="1" />
-          <rect class="re-tie" x="24" y="44.3" width="52" height="3.4" rx="1" />
-        </g>
-        <circle class="re-light" cx="50" cy="46" r="8" fill="url(#reGlow)" />
-        <circle cx="50" cy="46" r="1.9" fill="#fff7e6" />
-      </g>
-      <circle cx="50" cy="46" r="45" fill="none" stroke="#2c3340" stroke-width="2" />
-    </svg>
+    <canvas class="footer-train" data-train aria-hidden="true"></canvas>
     <span class="foot-text">Reference + drill assistant · built from the Jan 28 2025 CROR ·
     <strong>study aid, not the official rulebook</strong> — verify against the CROR &amp; your SME.</span>
   </footer>
 
   <script type="module" src="js/main.js"></script>
+  <script type="module" src="js/footer-train.js"></script>
 </body>
 </html>

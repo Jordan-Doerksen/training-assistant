@@ -3,10 +3,12 @@
 Phase log, newest first.
 
 ## Polish pass + footer motif — 2026-06-21
-- **Footer motif** — a clean "down the line forever" emblem: a circular medallion with rails
-  converging to a center vanishing point, ties rushing toward the viewer, and a pulsing
-  headlight. Pure SVG + CSS, contained in the footer, sitewide; honors prefers-reduced-motion
-  (freezes to a static perspective ladder).
+- **Footer motif** — an endless side-profile train (`js/footer-train.js`, canvas): charcoal
+  steam loco + a CN-red boxcar + a slate car with side-rod wheels, subtle smoke, scrolling
+  rail/ties, distant pines, and the occasional passing signal (green/amber/red — on theme).
+  Daytime + professional, descended from the portfolio night-train but restrained (no
+  moon/stars/critters). Contained to content width; runs only on screen; reduced motion =
+  one static frame. (Replaced an earlier SVG "infinity emblem" that didn't land.)
 - **Validator** gained a drill-integrity lint — warns if two entries in a domain share an
   identical title/body (which would make a multiple-choice question ambiguous). Currently clean.
 - **a11y** — `aria-current="page"` on the active nav tab, `aria-label` on the footer emblem,
