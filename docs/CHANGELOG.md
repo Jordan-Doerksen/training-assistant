@@ -2,6 +2,12 @@
 
 Phase log, newest first.
 
+## L5: switch-list cross-link — 2026-06-21
+- **Companion-sim link** — a "take it to the yard" callout on the Guide page (and a contextual
+  one-line note on the Switching domain view) linking to Switch List
+  (jordan-doerksen.github.io/switch-list/, new tab). Reinforces the division: reference + drill
+  here, live switching practice there. Hidden in print.
+
 ## L5: printable cheat-sheets — 2026-06-21
 - **Print what you've filtered** (`js/reference.js` + print CSS) — a "⎙ Print cheat-sheet" button
   on the reference list prints the current domain/topic/search selection as a clean, compact

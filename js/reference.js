@@ -100,6 +100,7 @@ export function renderList(view, results, q) {
       ${results.length ? `<button class="print-btn" data-print title="Print this selection as a cheat-sheet">⎙ Print cheat-sheet</button>` : ''}
     </div>
     <div class="print-head">CROR cheat-sheet — ${esc(scope)}${q ? ` · “${esc(q)}”` : ''} · ${results.length} ${results.length === 1 ? 'entry' : 'entries'} · study aid, not the official rulebook</div>
+    ${refState.domain === 'switching' ? `<a class="xlink-note" href="https://jordan-doerksen.github.io/switch-list/" target="_blank" rel="noopener">Practice these live in <b>Switch List</b>, the switching sim →</a>` : ''}
     <ul class="list">${results.map((e) => `
       <li><a class="card" href="#/e/${encodeURIComponent(e.id)}">
         <span class="card-head"><span class="card-title">${esc(e.title)}</span>${chip(e)}</span>

@@ -68,6 +68,17 @@ export function renderGuide(view) {
           <li><b>It\'s a study aid, not the rulebook.</b> Every entry is cited — when it counts, verify against the CROR itself.</li>
         </ul>
       </div>
+
+      <div class="ds-group">
+        <span class="ds-label">When you\'re ready, take it to the yard</span>
+        <div class="gd-link-card">
+          <div class="gd-link-b">
+            <h3>Switch List — the switching sim</h3>
+            <p>Read the yard, line the road, call PULL / SPOT / KICK. The companion sim where the switching rules you study here turn into muscle memory — every mechanic cites a CROR rule.</p>
+          </div>
+          <a class="dbtn dbtn-go gd-go" href="https://jordan-doerksen.github.io/switch-list/" target="_blank" rel="noopener">Play the sim →</a>
+        </div>
+      </div>
     </div>`;
 
   view.querySelector('[data-tour-start]').onclick = startGuideTour;

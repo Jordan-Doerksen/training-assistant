@@ -256,6 +256,16 @@ a.dbtn { display: inline-flex; align-items: center; text-decoration: none; }
 .gd-tips { margin: 0; padding-left: 18px; display: grid; gap: 8px; }
 .gd-tips li { line-height: 1.5; color: var(--muted); }
 .gd-tips b { color: var(--ink); }
+.gd-link-card { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; padding: 16px 18px; background: #fbf3f0; border: 1px solid #ecd9d3; border-left: 3px solid var(--rail); border-radius: 10px; }
+.gd-link-b { flex: 1; min-width: 220px; }
+.gd-link-b h3 { margin: 0 0 4px; font-size: 1.05rem; }
+.gd-link-b p { margin: 0; color: var(--muted); font-size: .95rem; line-height: 1.5; }
+
+/* contextual switch-list link on the Switching domain view */
+.xlink-note { display: block; margin: -4px 0 14px; padding: 10px 14px; background: #fbf3f0; border: 1px solid #ecd9d3; border-left: 3px solid var(--rail); border-radius: 8px; font-size: .92rem; color: var(--muted); }
+.xlink-note:hover { border-color: var(--rail); color: var(--ink); }
+.xlink-note b { color: var(--rail); }
+@media print { .gd-link-card, .xlink-note { display: none !important; } }
 
 /* ---- tour overlay ---- */
 .tour-root { position: fixed; inset: 0; z-index: 1000; pointer-events: none; }

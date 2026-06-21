@@ -91,8 +91,9 @@ Gaps, by priority for when content is pulled:
 - **Content pull COMPLETE (conductor scope).** Done: grade crossings, GBO/DOB/TGBO + Forms,
   general procedures, SCT, signal description 401–404, CTC 577/578, Interlocking 620, and the
   conductor-relevant TOP/800s subset. Only the foreman-role rest of the 800s is intentionally out.
-- Tag sub-filter shipped (contextual topic chips). **Next is L5 polish** (PWA/offline, printable
-  cheat-sheets, switch-list link) and confirming the footer-train motion.
+- Tag sub-filter, printable cheat-sheets, and the switch-list cross-link all shipped; footer-train
+  motion confirmed. **Only L5 item left: PWA/offline — deliberately LAST** (a service worker
+  caches stale copies and masks whether changes work; build once stable). Then the tool is done.
 - **P2 — territory operating (BIGGEST gap):** OCS 300–315 → CTC 560–578 → ABS 500s →
   Interlocking 600–620. We have the *definitions* of every control system but **none of the
   operating rules** for working on them.
