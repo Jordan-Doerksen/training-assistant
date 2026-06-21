@@ -67,8 +67,23 @@ Static site, no build step.
   (`cror-seen-guide`). **Guide is the 5th nav tab** (Reference/Study/Drills/Progress/Guide).
 - Stays valid as long as no NEW study *mode* is added (content + polish are additive).
 
+## 3a. Content gap map (audited 2026-06-21 vs Jan 2025 CROR — MAP ONLY, not yet pulled)
+Covered: **Definitions** (67) ✅ · **Signal indications 405–440** (38 drawn) ✅ · **Hand
+switches 104–115** ✅ · partial **General Rules** (12/13/14/17/26/27) · partial **Protection of
+track work** (33/34/35/36/41) · partial **Movement/comms** (106/108/109/110/122/123/123.1/
+123.2/125/126/142/147).
+Gaps, by priority for when content is pulled:
+- **P1 — backbone:** General Rules 1–29 (everyday conduct/signals/protection) + the
+  Movement/Communication gaps (121, 124, 127, 137/138, 153, 40/42/43).
+- **P2 — territory operating (BIGGEST gap):** OCS 300–315 → CTC 560–578 → ABS 500s →
+  Interlocking 600–620. We have the *definitions* of every control system but **none of the
+  operating rules** for working on them.
+- **P3:** GBO/TGBO procedures (160s), track-unit/track-work protection (800s), signal
+  description 401–404.
+Discipline unchanged: never from memory, cite + trust-flag, `npm run validate` green.
+
 ## 4. Roadmap (next)
-- **L0–L4 + Guide done + deployed** (live at jordan-doerksen.github.io/training-assistant/).
+- **L0–L4 + Guide + polish/motif done + deployed** (live at jordan-doerksen.github.io/training-assistant/).
 - **L5 — polish:** PWA/offline (works with no signal), printable cheat-sheets, a switch-list
   cross-link. A signal-aspect-ID drill format is a small additive follow-on.
 - Then L3 progress/gaps · L4 adaptive study-next + recert mode · L5 polish.

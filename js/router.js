@@ -15,8 +15,11 @@ const view = () => document.getElementById('view');
 function syncNav(h) {
   const active = h.startsWith('/guide') ? 'guide' : h.startsWith('/study') ? 'study'
     : h.startsWith('/drills') ? 'drills' : h.startsWith('/progress') ? 'progress' : 'ref';
-  document.querySelectorAll('[data-nav]').forEach((a) =>
-    a.classList.toggle('is-on', a.getAttribute('data-nav') === active));
+  document.querySelectorAll('[data-nav]').forEach((a) => {
+    const on = a.getAttribute('data-nav') === active;
+    a.classList.toggle('is-on', on);
+    if (on) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
+  });
 }
 
 export function route() {

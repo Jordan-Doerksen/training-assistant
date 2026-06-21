@@ -63,6 +63,7 @@ async function show() {
   els.prev.style.visibility = idx === 0 ? 'hidden' : 'visible';
   els.next.textContent = idx === steps.length - 1 ? 'Got it' : 'Next';
   position();
+  els.next.focus();                                        // keyboard lands on the primary action
 }
 
 function position() {

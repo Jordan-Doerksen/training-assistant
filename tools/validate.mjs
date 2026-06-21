@@ -21,5 +21,17 @@ for (const e of ENTRIES) for (const r of (e.related || [])) {
   if (!ids.has(r)) { fails += 1; console.error(`  x ${e.id}: related "${r}" not found`); }
 }
 
+// Drill integrity: within a domain, an identical title or body makes a multiple-choice
+// question ambiguous (two right answers). Warn so it can be disambiguated, don't block.
+let warns = 0;
+for (const key of ['title', 'body']) {
+  const seen = new Map();
+  for (const e of ENTRIES) {
+    const k = `${e.domain}::${(e[key] || '').trim()}`;
+    if (seen.has(k)) { warns++; console.warn(`  ! drill clash: ${e.id} shares ${key} with ${seen.get(k)} (same domain)`); }
+    else seen.set(k, e.id);
+  }
+}
+
 if (fails) { console.error(`\nFAIL - ${fails} problem(s) across ${ENTRIES.length} entries.`); process.exit(1); }
-console.log(`OK - ${ENTRIES.length} entries valid; citations present; related links resolve.`);
+console.log(`OK - ${ENTRIES.length} entries valid; citations present; related links resolve${warns ? ` (${warns} drill warning(s))` : ''}.`);

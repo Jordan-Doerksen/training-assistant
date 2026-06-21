@@ -2,6 +2,21 @@
 
 Phase log, newest first.
 
+## Polish pass + footer motif — 2026-06-21
+- **Footer motif** — a clean "down the line forever" emblem: a circular medallion with rails
+  converging to a center vanishing point, ties rushing toward the viewer, and a pulsing
+  headlight. Pure SVG + CSS, contained in the footer, sitewide; honors prefers-reduced-motion
+  (freezes to a static perspective ladder).
+- **Validator** gained a drill-integrity lint — warns if two entries in a domain share an
+  identical title/body (which would make a multiple-choice question ambiguous). Currently clean.
+- **a11y** — `aria-current="page"` on the active nav tab, `aria-label` on the footer emblem,
+  and the tour now moves keyboard focus to its primary action each step.
+- **Quick wins** — inline SVG favicon (red signal lamp) + `theme-color` for mobile chrome.
+- **Review (this pass):** systems audit clean (architecture additive, validator green);
+  citation spot-checks vs the Jan 2025 CROR all faithful (R26/R113.5/R123/R123.2/R125);
+  content gap map captured in HANDOFF — biggest gap is the control-system *operating* rules
+  (OCS/ABS/CTC/Interlocking — only their definitions exist so far).
+
 ## Guide / onboarding — 2026-06-21
 - **Guide tab** (`js/guide.js`, route `#/guide`) — teaches the *workflow*, not the rules:
   the 4-mode learning loop (Reference → Drills → Study → Exam), a worked "a week with the
