@@ -2,6 +2,15 @@
 
 Phase log, newest first.
 
+## Content pull: OCS (Occupancy Control System) — 2026-06-21
+- **Full OCS section** (`content/operating.js`, +18) — the first P2 territory-operating block:
+  301 Application/Supervision, 302 Clearance Required (+302.1/.2/.3 in-effect/superseding/
+  cancelling), 303 Protection Against Following (+303.1 radio), 304 Restriction Before Leaving
+  (+304.1 stopping clear), 305, 306 Track Use, 308 Work Clearance (+308.1 changing direction),
+  309 Moving Through Working Limits, 310 Multiple Work Authorities, 311 Protecting Against a
+  Foreman, 314 (optional), 315 Radio Broadcast Requirements. All tagged `ocs`, cited,
+  cross-linked. **207 entries, validator green.**
+
 ## Content pull: Operation of Movements — 2026-06-21
 - **Operation of Movements section** (`content/operating.js`, +18) — 62 Unattended Engines,
   63 Freight Train / 64 Transfer / 65 Engine-in-Yard-Service Requirements, 66 Securing After

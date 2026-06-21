@@ -265,4 +265,77 @@ export const operating = [
   O('op-147', '147', 'Transfer Between Crews',
     'When a conductor and/or locomotive engineer is changed off or relieved, all GBO, DOB, clearances, authorities, TGBO and other written instructions and necessary information still in effect must be transferred personally to the relieving crew, and known to be understood. If a personal transfer isn\'t practicable, contact the RTC about disposition (a signed list of items left for the relieving crew, who compare with the RTC before proceeding). Taking control of a movement on CTC track where the last signal indication can\'t be ascertained → RESTRICTED speed applies to the next signal. Verbal instructions from a foreman must not be passed between crews — the relieving crew contacts the foreman directly.',
     ['crew', 'bulletins'], ['op-142', 'def-rtc']),
+
+  // ----- OCS · Occupancy Control System (301–315) -----
+  O('op-301', '301', 'OCS — Application and Supervision',
+    'On subdivisions, portions of subdivisions, or other tracks specified in special instructions, movements are governed by Occupancy Control System (OCS) rules. The RTC supervises OCS territory by means of clearances, TOPs, GBO and other instructions as required.',
+    ['ocs', 'authority'], ['op-302', 'def-ocs', 'def-rtc']),
+
+  O('op-302', '302', 'OCS — Clearance Required',
+    'Except within cautionary limits, a train or transfer must be authorized by a clearance to foul or enter a track where OCS rules apply. A clearance is sent direct to the crew addressed; before acting on it, the conductor and locomotive engineer must, as soon as possible, ensure each holds the clearance and their train/transfer is correctly designated, and the engine number must be verified visually.',
+    ['ocs', 'clearance', 'authority'], ['op-301', 'op-302-1', 'op-94']),
+
+  O('op-302-1', '302.1', 'OCS — Clearance in Effect',
+    'A clearance remains in effect until fulfilled, superseded or cancelled. Clearances authorizing a train or transfer to proceed must, unless cancelled, be fulfilled in the order they were issued on that subdivision.',
+    ['ocs', 'clearance'], ['op-302', 'op-302-2', 'op-302-3']),
+
+  O('op-302-2', '302.2', 'OCS — Superseding a Clearance',
+    'A clearance may be issued superseding one the crew already holds. When superseding a clearance that includes limits the train/transfer is occupying, the superseding clearance must include that section of track and must not require waiting for an opposing train/transfer. If it restricts the authority already held, the RTC must not take further action until the conductor and locomotive engineer acknowledge it.',
+    ['ocs', 'clearance'], ['op-302-1', 'op-302-3']),
+
+  O('op-302-3', '302.3', 'OCS — Cancelling Clearance',
+    'Before a clearance is cancelled, the train/transfer addressed must be clear of the limits, protected by Form T GBO, or within cautionary limits. A cancellation does not take effect until acknowledged by the conductor and locomotive engineer, who acknowledge by repeating the clearance number, "cancelled" and the RTC\'s initials to the RTC.',
+    ['ocs', 'clearance'], ['op-302-1', 'op-302-2', 'def-cautionary-limits']),
+
+  O('op-303', '303', 'OCS — Protection Against Following Trains or Transfers',
+    'Up to two trains/transfers may each be authorized to proceed in the same direction within the same limits, provided each is instructed on its clearance to protect against the other; before either moves within the limits, both crews must have a thorough written understanding of each one\'s operation and the protection to be provided (if communication between them fails, only the moves last arranged may be made). Within ABS territory, with the protection of at least two block signals to the rear, two or more may proceed in the same direction within the same limits, governed by block-signal indications.',
+    ['ocs', 'authority', 'movement'], ['op-303-1', 'op-305']),
+
+  O('op-303-1', '303.1', 'OCS — Radio Protection Against Following Trains/Transfers',
+    'Where specified in special instructions (not for work clearances): the RTC must not authorize a following train/transfer until its clearance restricts it — "Protect against (preceding) from (location)." The follower must not leave that location (or any identifiable location) until the preceding train/transfer reports leaving an identifiable location ahead (recorded in writing by the follower; the report may come from the RTC; use Rule 82 identifiable locations). If no report is received, the follower may operate at REDUCED speed to a maximum 25 MPH, and must not pass the preceding train/transfer. If the preceding one has stopped, the crews may arrange in writing to "close up"; when it resumes, the follower is again governed as above. Once the preceding train/transfer leaves the location the follower is authorized to, Rule 303.1 no longer applies.',
+    ['ocs', 'radio', 'movement'], ['op-303', 'op-82']),
+
+  O('op-304', '304', 'OCS — Restriction Before Leaving',
+    'A train/transfer restricted by clearance must not leave the named point until it is positively known that the opposing train(s)/transfer(s) named on the clearance have arrived. A train/transfer has not arrived until its designated engine and marker have arrived; one operating without a marker has not arrived until confirmed by direct communication with a crew member. If unable to observe arrival or to communicate with a crew member, the RTC must be contacted.',
+    ['ocs', 'authority', 'movement'], ['op-304-1', 'op-305']),
+
+  O('op-304-1', '304.1', 'OCS — Stopping Clear of Fouling Point',
+    'A train/transfer required to stop at a meeting, clearing or waiting point, or at the end of authority, must stop clear of the route to be used by another train or transfer.',
+    ['ocs', 'movement'], ['op-304']),
+
+  O('op-305', '305', 'OCS — Before Issuing Clearance Authority',
+    'Before issuing clearance authority, the RTC must provide protection against all conflicting trains, transfers and TOPs within the limits stated.',
+    ['ocs', 'authority'], ['op-302', 'def-rtc']),
+
+  O('op-306', '306', 'OCS — Track Use',
+    'In multi-track OCS, a clearance must specify the track(s) to be used.',
+    ['ocs', 'authority', 'track'], ['op-302', 'op-81']),
+
+  O('op-308', '308', 'OCS — Work Clearance Authority',
+    'When authorized to work by clearance, a train/transfer may move in either direction within the limits named. A work clearance remains in effect until superseded or cancelled.',
+    ['ocs', 'clearance', 'authority'], ['op-308-1', 'op-309']),
+
+  O('op-308-1', '308.1', 'OCS — Changing Direction (Proceed Clearance)',
+    'Unless otherwise provided, a train/transfer authorized to proceed by clearance must move only in the specified direction. Provided the track has not been released (or, in ABS, a block is not re-entered), it may reverse 300 feet or less; in ABS a crew member must be positioned to see the section to be used is clear and will remain clear of equipment or a track unit.',
+    ['ocs', 'movement'], ['op-308']),
+
+  O('op-309', '309', 'OCS — Moving Through Working Limits',
+    'To enter or move within the working limits of one or more trains/transfers, a train/transfer must be restricted by its clearance — e.g. "Protect against Work 5748 (and Work 9460) between Exeter and Jasper." It must not enter or move within those limits until a thorough written understanding is established with the conductor and locomotive engineer of each work train/transfer, covering the specific operation and the protection to be provided, which must continue until the train/transfer has left the working limits.',
+    ['ocs', 'authority', 'protection'], ['op-310', 'op-314']),
+
+  O('op-310', '310', 'OCS — Multiple Work Authorities',
+    'Two or more work authorities may be issued within the same or overlapping limits; each train/transfer must be restricted by its clearance to protect against the others, and the conductors and locomotive engineers must have a thorough written understanding of each one\'s operation and the protection to be provided.',
+    ['ocs', 'authority', 'protection'], ['op-309', 'op-314']),
+
+  O('op-311', '311', 'OCS — Protecting Against a Foreman',
+    'A train/transfer must not be authorized to enter or move within the limits of a TOP until restricted — "Protect against foreman (name) between (location) and (location)." It must not enter or move within the TOP limits until instructions are obtained from the named foreman, repeated to and acknowledged by that foreman before being acted upon.',
+    ['ocs', 'protection', 'authority'], ['op-309', 'def-foreman']),
+
+  O('op-314', '314', 'OCS — Proceeding Through / Working Within Work Limits (Optional)',
+    'Optional alternative to Rules 309/310 where in effect: a train/transfer may be authorized to proceed through or work within the limits of one or more work trains/transfers, provided its clearance restricts it — "Protect against work (number) between (location) and (location)." It must not enter or move within the working limits until a thorough written understanding is established with each work train/transfer\'s conductor and locomotive engineer (intended operation + protection), maintained until the work train(s)/transfer(s) have left the limits.',
+    ['ocs', 'authority', 'protection'], ['op-309', 'op-310']),
+
+  O('op-315', '315', 'OCS — Radio Broadcast Requirements',
+    'A crew member on every train/transfer must broadcast on the designated standby channel 1 to 3 miles from the next station or interlocking, including the next requirement to protect against another train, transfer or foreman if the restriction lies between the upcoming station and the next station/interlocking. A crew member off the engine must confirm the broadcast was made; if unable to contact the engine crew to confirm, immediate action must be taken to stop the movement before it reaches the next point of restriction.',
+    ['ocs', 'radio', 'movement'], ['op-122', 'op-309']),
 ];
