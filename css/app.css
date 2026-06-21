@@ -110,6 +110,15 @@ a { color: inherit; text-decoration: none; }
 .fchip .fn { opacity: .6; margin-left: 3px; }
 .fchip.is-on .fn { opacity: .75; }
 
+/* ---- contextual topic sub-filter (lighter, only for the active domain) ---- */
+.subfilters { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: -4px 0 14px; }
+.sf-label { font: 11px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--faint); margin-right: 4px; }
+.sfchip { font: 600 11px/1 var(--mono); color: var(--muted); background: transparent; border: 1px solid var(--line); border-radius: 999px; padding: 6px 10px; cursor: pointer; transition: border-color .12s, color .12s; }
+.sfchip:hover { border-color: var(--line-strong); color: var(--ink); }
+.sfchip.is-on { background: var(--rail); color: #fff; border-color: #000; }
+.sfchip .fn { opacity: .6; margin-left: 2px; }
+.sfchip.is-on .fn { opacity: .85; }
+
 /* ---- signal aspect in detail ---- */
 .aspect { margin: 4px 0 18px; padding: 16px; display: flex; flex-direction: column; align-items: center; gap: 8px; background: #11151b; border: 1px solid var(--line-strong); border-radius: 10px; }
 .aspect svg { display: block; }

@@ -2,6 +2,15 @@
 
 Phase log, newest first.
 
+## Browse: contextual topic chips — 2026-06-21
+- **Progressive topic filter** (`js/reference.js`) — the 250-entry list was overwhelming on
+  "All". Domain chips stay (5); selecting a domain now reveals a SECOND, lighter row of a few
+  curated topic chips for that domain only (e.g. Operating → Control systems · Signals ·
+  Communication · Protection · Authority & movement · Switching & securing · Crews & admin).
+  All shows just the 5; chips with no entries are hidden; counts shown. Topics map to tags; a
+  `TOPICS` taxonomy is defined per domain (defs/signals/switching/operating). Search unaffected.
+- Changing domain resets the topic; mobile-verified (rows wrap cleanly). No schema change.
+
 ## Content pull: Interlocking + SCS — P2 COMPLETE — 2026-06-21
 - **Full Interlocking section** (`content/operating.js`, +18, tag `interlocking`) — 601 Application,
   602 Proper Signal Indications, 604 Establishing/Changing Routes, 605 Timing Circuit, 606

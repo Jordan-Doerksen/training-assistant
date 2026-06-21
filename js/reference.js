@@ -7,9 +7,47 @@
 import { get, all } from './data.js';
 import { drawSignal } from './signal.js';
 
-export const refState = { domain: 'all' };
+export const refState = { domain: 'all', topic: 'all' };
 
 const DOMAIN_LABEL = { defs: 'Definitions', signals: 'Signals', switching: 'Switching', operating: 'Operating' };
+
+// Curated topic chips, shown only for the active domain (progressive disclosure —
+// never a wall). Each maps to one or more tags; chips with no matching entry are hidden.
+const TOPICS = {
+  defs: [
+    { key: 'equipment', label: 'Equipment', tags: ['equipment'] },
+    { key: 'track', label: 'Track & territory', tags: ['track', 'yard', 'grade'] },
+    { key: 'control', label: 'Control systems', tags: ['control'] },
+    { key: 'signals', label: 'Signals & blocks', tags: ['signals'] },
+    { key: 'switches', label: 'Switches', tags: ['switch'] },
+    { key: 'speed', label: 'Speeds', tags: ['speed'] },
+    { key: 'roles', label: 'Roles & bulletins', tags: ['roles', 'bulletins', 'comms', 'operations'] },
+  ],
+  signals: [
+    { key: 'clear', label: 'Clear', tags: ['clear'] },
+    { key: 'medium', label: 'Medium', tags: ['medium'] },
+    { key: 'limited', label: 'Limited', tags: ['limited'] },
+    { key: 'diverging', label: 'Diverging', tags: ['diverging'] },
+    { key: 'slow', label: 'Slow', tags: ['slow'] },
+    { key: 'adv', label: 'Advance', tags: ['adv'] },
+    { key: 'special', label: 'Special', tags: ['special'] },
+  ],
+  switching: [
+    { key: 'kicking', label: 'Kicking', tags: ['kicking'] },
+    { key: 'securing', label: 'Securing', tags: ['securing', 'hand-brakes', 'air-brakes'] },
+    { key: 'coupling', label: 'Coupling & shoving', tags: ['coupling', 'shoving', 'fouling'] },
+  ],
+  operating: [
+    { key: 'control', label: 'Control systems', tags: ['ocs', 'ctc', 'abs', 'interlocking', 'scs', 'clearance'] },
+    { key: 'signals', label: 'Signals', tags: ['signals', 'lights'] },
+    { key: 'comms', label: 'Communication', tags: ['radio', 'comms'] },
+    { key: 'protection', label: 'Protection', tags: ['protection', 'flagging', 'emergency'] },
+    { key: 'authority', label: 'Authority & movement', tags: ['authority', 'movement'] },
+    { key: 'switching', label: 'Switching & securing', tags: ['switching', 'securing'] },
+    { key: 'admin', label: 'Crews & admin', tags: ['crew', 'time', 'timetable', 'bulletins'] },
+  ],
+};
+const topicTags = (domain, key) => (TOPICS[domain] || []).find((t) => t.key === key)?.tags || null;
 const esc = (s) => (s || '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const chip = (e) => {
   const cls = e.trust === 'rulebook' ? 't-rule' : e.trust === 'S.I.' ? 't-si' : 't-sme';
@@ -22,15 +60,35 @@ function filterBar() {
   const counts = { all: all().length };
   for (const e of all()) counts[e.domain] = (counts[e.domain] || 0) + 1;
   const doms = ['all', ...Object.keys(DOMAIN_LABEL).filter((d) => counts[d])];
-  return `<div class="filters">${doms.map((d) => {
+  const domainRow = `<div class="filters">${doms.map((d) => {
     const on = refState.domain === d ? ' is-on' : '';
     const label = d === 'all' ? 'All' : DOMAIN_LABEL[d];
     return `<button class="fchip${on}" data-domain="${d}">${esc(label)} <span class="fn">${counts[d] || 0}</span></button>`;
   }).join('')}</div>`;
+
+  // contextual topic row — only for the active domain, only topics with entries
+  const d = refState.domain;
+  let topicRow = '';
+  if (d !== 'all' && TOPICS[d]) {
+    const domEntries = all().filter((e) => e.domain === d);
+    const chips = TOPICS[d]
+      .map((t) => ({ t, n: domEntries.filter((e) => (e.tags || []).some((x) => t.tags.includes(x))).length }))
+      .filter((c) => c.n);
+    if (chips.length) {
+      topicRow = `<div class="subfilters"><span class="sf-label">topic</span>` +
+        `<button class="sfchip${refState.topic === 'all' ? ' is-on' : ''}" data-topic="all">All</button>` +
+        chips.map(({ t, n }) =>
+          `<button class="sfchip${refState.topic === t.key ? ' is-on' : ''}" data-topic="${t.key}">${esc(t.label)} <span class="fn">${n}</span></button>`).join('') +
+        `</div>`;
+    }
+  }
+  return domainRow + topicRow;
 }
 
 export function renderList(view, results, q) {
   if (refState.domain !== 'all') results = results.filter((e) => e.domain === refState.domain);
+  const tt = refState.domain !== 'all' && refState.topic !== 'all' ? topicTags(refState.domain, refState.topic) : null;
+  if (tt) results = results.filter((e) => (e.tags || []).some((x) => tt.includes(x)));
   view.innerHTML = `
     ${filterBar()}
     <p class="count">${results.length} ${results.length === 1 ? 'entry' : 'entries'}${q ? ` · “${esc(q)}”` : ''}</p>

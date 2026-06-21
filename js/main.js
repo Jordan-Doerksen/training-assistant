@@ -22,9 +22,11 @@ function firstRunNudge() {
 
 function boot() {
   const q = document.getElementById('q');
-  document.getElementById('view').addEventListener('click', (e) => {   // domain filter chips
+  document.getElementById('view').addEventListener('click', (e) => {   // filter chips
+    const topic = e.target.closest('[data-topic]');
+    if (topic) { e.preventDefault(); refState.topic = topic.getAttribute('data-topic'); route(); return; }
     const chip = e.target.closest('[data-domain]');
-    if (chip) { e.preventDefault(); refState.domain = chip.getAttribute('data-domain'); route(); }
+    if (chip) { e.preventDefault(); refState.domain = chip.getAttribute('data-domain'); refState.topic = 'all'; route(); }
   });
   // clicking a link to the hash you're already on (e.g. the Study tab while a
   // study/exam session is showing) won't fire hashchange — force a re-render so
