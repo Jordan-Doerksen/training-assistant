@@ -1,0 +1,15 @@
+# dependencies / build / os
+node_modules/
+.DS_Store
+Thumbs.db
+*.log
+.run/
+
+# secrets
+.env
+.env.*
+!.env.example
+
+# no-redistribute source material — the cited DIGESTS are public; the binaries are not
+sources/*.pdf
+sources/*.PDF

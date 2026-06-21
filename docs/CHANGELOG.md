@@ -1,0 +1,13 @@
+# CHANGELOG — training-assistant
+
+Phase log, newest first.
+
+## L0 — scaffold + reference shell — 2026-06-21
+- Repo scaffolded: docs (SPEC/HANDOFF/DECISIONS/CHANGELOG), README, MIT license, .gitignore
+  (source PDFs gitignored), `package.json` (`type: module`).
+- **Content schema** locked (`js/schema.js`) — the keystone every feature reads.
+- **Definitions domain seeded** (`content/defs.js`) — 12 verbatim CROR definitions, each cited
+  (`trust: rulebook`), sourced from the Jan 28 2025 CROR Definitions section.
+- **Reference shell:** search (keyword + rule-number), list→detail, **trust + citation chips**,
+  related-links, hash routing; "clean rail-ops" theme (`css/app.css`).
+- **Validator** (`tools/validate.mjs`) — schema + duplicate-id + related-link lint; the content gate.

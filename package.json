@@ -1,0 +1,10 @@
+{
+  "name": "training-assistant",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "description": "Reference-first, CROR-cited training assistant for conductors.",
+  "scripts": {
+    "validate": "node tools/validate.mjs"
+  }
+}
