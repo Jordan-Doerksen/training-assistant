@@ -2,6 +2,15 @@
 
 Phase log, newest first.
 
+## Content pull: CTC (Centralized Traffic Control) — 2026-06-21
+- **Full CTC section** (`content/operating.js`, +17, tag `ctc`) — 560 Supervision, 561 Suspended,
+  563 Clearing Opposing Signals into Non-Signalled Sidings, 564 Authority to Pass Stop Signal,
+  565 CTC→ABS, 566 Work Authority (+566.1 signal suspended while switching), 567 Joint Work
+  Authority (+567.1 protect against foreman, 567.2 entering foreman's limits, 567.3 proceeding
+  through work limits), 568 Signal/Permission to Enter Main Track, 569 Cancelling Authorities,
+  570 Entering Between Signals, 571 Restoring Signals to Stop, 573 Reversing Direction,
+  576 Switching at a Controlled Location. Cited + cross-linked. **224 entries, validator green.**
+
 ## Content pull: OCS (Occupancy Control System) — 2026-06-21
 - **Full OCS section** (`content/operating.js`, +18) — the first P2 territory-operating block:
   301 Application/Supervision, 302 Clearance Required (+302.1/.2/.3 in-effect/superseding/

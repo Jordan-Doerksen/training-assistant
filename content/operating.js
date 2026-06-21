@@ -338,4 +338,73 @@ export const operating = [
   O('op-315', '315', 'OCS — Radio Broadcast Requirements',
     'A crew member on every train/transfer must broadcast on the designated standby channel 1 to 3 miles from the next station or interlocking, including the next requirement to protect against another train, transfer or foreman if the restriction lies between the upcoming station and the next station/interlocking. A crew member off the engine must confirm the broadcast was made; if unable to contact the engine crew to confirm, immediate action must be taken to stop the movement before it reaches the next point of restriction.',
     ['ocs', 'radio', 'movement'], ['op-122', 'op-309']),
+
+  // ----- CTC · Centralized Traffic Control (560–576) -----
+  O('op-560', '560', 'CTC — Supervision and Application',
+    'CTC applies within the limits specified in the time table or special instructions and is supervised by the RTC; block signals govern the operation of trains and transfers, and the RTC issues instructions as required.',
+    ['ctc', 'authority', 'signals'], ['op-561', 'def-ctc', 'def-rtc']),
+
+  O('op-561', '561', 'CTC Suspended',
+    'When all or part of the CTC is withdrawn from service, trains and transfers are governed by special instructions.',
+    ['ctc'], ['op-560']),
+
+  O('op-563', '563', 'CTC — Clearing Opposing Signals into Non-Signalled Sidings',
+    'When two opposing trains/transfers are to be lined into the same non-signalled siding, each locomotive engineer must be advised before the signal to operate either into the siding is requested. At meeting points the RTC must not line a train/transfer into a siding until the switch at the opposite end is set for the main track. (Not applicable where automated office control prevents opposing entry, or where SCT is in effect.)',
+    ['ctc', 'authority'], ['op-560']),
+
+  O('op-564', '564', 'CTC — Authority to Pass Stop Signal',
+    'A train/transfer must have authority to pass a block signal indicating Stop. The RTC may authorize it, but first must ensure no conflicting trains/transfers are within or authorized to enter the affected controlled block (other than ones under Rule 567/567.3/577) and provide protection against all opposing movements. The authorized movement need not stop at the signal but must positively identify it by number, operate at RESTRICTED speed to the next signal or Block End sign, and comply with the switch rules (104.1 spring, 104.2 dual-control, 104.3 power-operated, 611 automatic interlockings). Where a known condition prevents clearing signals into the block, the RTC may authorize REDUCED speed to the next signal/Block End sign (advising whether equipment is present; REDUCED speed begins once the lead equipment has passed entirely through the controlled location and remains until the block is known clear), approaching the next signal prepared to stop. The authority and instructions must be in writing and, where applicable, specify the route — the locomotive engineer must know the route before moving.',
+    ['ctc', 'signals', 'authority'], ['op-565', 'op-573', 'sw-104-2']),
+
+  O('op-565', '565', 'CTC — Stop Signal CTC to ABS',
+    'A train/transfer leaving CTC and entering ABS that must pass a signal indicating Stop is governed by Rule 564 within CTC and Rule 509 within ABS.',
+    ['ctc', 'signals'], ['op-564']),
+
+  O('op-566', '566', 'CTC — Work Authority',
+    'A train/transfer may be given work authority to move in either direction within specified limits. Before issuing it, the RTC must ensure no other trains/transfers are within or authorized to enter the limits and block at Stop all devices controlling signals into them, maintaining that blocking and not authorizing others to enter (except per 567.3) until the work authority is cancelled. If cancelled while the movement is inside, the crew informs the RTC of its intended direction and the RTC keeps opposing signals blocked until it clears the controlled block. Where the authority says "Call RTC ___," the crew communicates as instructed. The authority is in writing; the engineer must know the track limits before moving. Controlled signals within the limits (other than the entry/exit signals) showing STOP may be treated as "proceed at RESTRICTED speed".',
+    ['ctc', 'authority', 'signals'], ['op-566-1', 'op-567', 'op-576']),
+
+  O('op-566-1', '566.1', 'CTC — Signal Indication Suspended While Switching',
+    'A crew may be authorized to manually operate specific dual-control switches at a controlled location (per Rule 104.2(d)); this must be included with Rule 566/567 work authority. Signal indications governing operation over such switches may be considered suspended while the switches are in the "hand" position, but only while switching at the designated controlled location; signal indication or Rule 564 must first authorize the movement into the controlled location. Verbal permission may be given to hand-operate specific dual-control switches within 566/567 limits that didn\'t include 566.1 for them. Over a spring switch within work-authority limits the governing signal may be considered suspended if the switch is properly lined; at a controlled location with only a hand-operated switch, the governing signal may be considered suspended only while switching through that switch.',
+    ['ctc', 'switching', 'signals'], ['op-566', 'sw-104-2']),
+
+  O('op-567', '567', 'CTC — Joint Work Authority',
+    'More than one train/transfer may be given joint work authority to operate in either direction within specified limits, each instructed "Protecting against each other," with a thorough written understanding between all crews of each one\'s operation and the protection to be provided. Before issuing it, the RTC ensures no other movements are in the limits and blocks at Stop all signals governing entry, maintaining that blocking until cancelled; each must be clear before cancellation (exception: the last one may be cancelled while inside, informing the RTC of its direction, with opposing signals kept blocked until it clears). "Call RTC ___" is complied with as instructed; the authority is in writing and the engineer must know the limits before moving.',
+    ['ctc', 'authority', 'protection'], ['op-566', 'op-567-1']),
+
+  O('op-567-1', '567.1', 'CTC — Protect Against a Foreman',
+    'A train/transfer may be authorized to enter or move within TOP limits when instructed to protect against the foreman — "Protect against foreman (name) between (location) and (location)." Both conductor and engineer must know the authority and have the foreman\'s instructions (repeated to and acknowledged by the foreman) before moving. The RTC must not authorize another movement or TOP within those protected limits until fulfilled or cancelled. In addition, the movement must also be authorized to enter the TOP limits under Rule 105(a)/564/568 (or to reverse within them under Rule 566).',
+    ['ctc', 'protection', 'authority'], ['op-567', 'op-567-2', 'def-foreman']),
+
+  O('op-567-2', '567.2', 'CTC — Entering Foreman\'s Limits (Optional)',
+    'Optional alternative for entering a foreman\'s (TOP) limits: each time authorized, the movement is restricted "Protect against foreman (name) between (location) and (location)," provided when it is within two controlled blocks of the limits (or 25 miles where there is no controlled block prior), and the RTC ensures it is the only movement that will encounter the entry signal. No entry until both conductor and engineer know the authority/limits and have the foreman\'s instructions (repeated to and acknowledged by the foreman).',
+    ['ctc', 'protection', 'authority'], ['op-567-1']),
+
+  O('op-567-3', '567.3', 'CTC — Proceeding Through Work Limits',
+    'A train/transfer may be authorized to enter or move within the work limits of others, restricted "Protect against work (number) between (location) and (location)." It must not enter until a written understanding of each one\'s intended operation is established with both crews, kept until the affected movement has left the limits. It must also be authorized to enter by signal indication or under Rule 564/568; where entry is by signal indication, the restriction may be issued only within two controlled blocks (or 25 miles where none precedes), and the RTC ensures it is the only movement that will encounter the entry signal.',
+    ['ctc', 'protection', 'authority'], ['op-566', 'op-567']),
+
+  O('op-568', '568', 'CTC — Signal or Permission to Enter Main Track',
+    'A train/transfer must not foul, enter, or re-enter a main track except by signal indication or with RTC permission. Where entry is at a non-electrically-locked hand switch (or one with a broken seal on the electric switch lock), the RTC\'s permission must state the direction and route, be in writing, and the engineer must know the circumstances before moving; first the RTC ensures no conflicting movements are within or authorized into the controlled block and blocks at Stop all signals governing entry. The RTC maintains blocking and admits no opposing movement until the protected one clears; blocking against following movements isn\'t removed until the crew reports it has entered the main track and is moving in the authorized direction. Exception: permission isn\'t required to enter/re-enter at a hand switch within limits authorized by Rule 566/567/577.',
+    ['ctc', 'authority', 'switching'], ['op-564', 'op-569', 'sw-104-2']),
+
+  O('op-569', '569', 'CTC — Cancelling Authorities',
+    'Authority/permission under Rules 564, 567.3 or 568 may be cancelled provided the movement hasn\'t entered the affected controlled block. When authority under 564/566/567/567.1/567.2/567.3/577, or the written permission under 568, is cancelled, the cancellation takes effect only after it is correctly repeated and acknowledged by the conductor and locomotive engineer (who repeat the authority number, "cancelled" and the RTC\'s initials to the RTC).',
+    ['ctc', 'authority'], ['op-564', 'op-566', 'op-568']),
+
+  O('op-570', '570', 'CTC — Entering Between Signals',
+    'A train/transfer that has entered a block between signals at a hand switch with an electric switch lock must approach the next signal prepared to stop, unless/until the track is seen clear to that signal and it displays better than Stop or Stop-and-Proceed. Entry at a switch without an electric switch lock (or with a broken seal) → RESTRICTED speed to the next signal unless/until the track is seen clear and the signal permits otherwise. If the emergency release of an electric switch lock had to be used, move at RESTRICTED speed to the next signal.',
+    ['ctc', 'signals', 'switching'], ['op-568', 'op-573']),
+
+  O('op-571', '571', 'CTC — Restoring Signals to Stop',
+    'Signals must not be restored to Stop when the train/transfer for which they were first cleared is less than three blocks from the first of those signals, unless the engineer has acknowledged being stopped or able to stop without passing the controlled signal to be restored. In an emergency a signal may be restored to Stop at any time.',
+    ['ctc', 'signals'], ['op-560']),
+
+  O('op-573', '573', 'CTC — Reversing Direction',
+    'Having passed beyond a block\'s limits, a train/transfer must not back into that block until the RTC is informed and it is authorized by: a block-signal indication (other than a Restricting Signal with an "R" plate or a Stop-and-Proceed Signal); Rule 564/567.3; or Rule 566/567/577 (which doesn\'t dispense with Rule 564 at a Stop Signal except under 566(g)/577(f)). A movement that entered a controlled location on signal indication and stopped with its trailing end inside may move the opposite way within the controlled location only with RTC permission, complying with Rule 104.2(b) unless relieved (permission doesn\'t authorize occupancy outside the controlled location). Provided it won\'t re-enter a block it has cleared, a movement may reverse within a block without 566/567/577: ≤300 ft with a crew member positioned to see the section is and will remain clear; >300 ft with a flagman positioned beyond the farthest point, giving stop signals visible from at least 300 yards.',
+    ['ctc', 'movement', 'signals'], ['op-564', 'op-570', 'sw-104-2']),
+
+  O('op-576', '576', 'CTC — Switching at a Controlled Location',
+    'Switching at a controlled location. (a) Preferred — by signal indication: the RTC signals the movement over the controlled location with directional signals; if it can\'t clear when done, the RTC authorizes departure by Rule 566/577 (if the first move in was under Rule 564, operate to the next signal at RESTRICTED speed; Rule 566/577 isn\'t needed where the RTC verbally authorizes pulling ahead to the next signal with no dual-control switches). (b) Switching signals — a crew member requests the switching signal for multiple moves on a route; when done, advise the RTC to cancel it (first confirm all crew are and will remain clear of its limits); if unable to clear, the RTC verbally authorizes departure then cancels the signal, and the movement proceeds to the next signal at RESTRICTED speed. (c) With 566.1/577.1 signals suspended, the movement must be authorized into the block before the authority is issued, and must advise the RTC before leaving if it can\'t clear. (d) Taking head-room — provided the trailing end stays within non-main-track territory, a movement may accept a signal to enter a controlled location for that purpose.',
+    ['ctc', 'switching', 'signals'], ['op-566', 'op-566-1', 'sw-104-2']),
 ];
