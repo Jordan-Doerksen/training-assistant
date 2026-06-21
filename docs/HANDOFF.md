@@ -78,9 +78,12 @@ Gaps, by priority for when content is pulled:
 - **P1 — backbone:** ✅ done (General Rules, track-work protection, comms/foreman, operation
   of movements). Minor leftovers: crew 100/103/107/111/116–119, 131/139/140/154–156 (RTC
   recording/GBO admin) if wanted.
-- **P2 — territory operating (in progress):** ~~OCS 301–315~~ ✅ (`ocs`), ~~CTC 560–576~~ ✅
-  (`ctc`), ~~ABS 505–515~~ ✅ (`abs`, done 2026-06-21). Remaining: Interlocking 600–620
-  (`interlocking`) — last big block. Plus SCS 351–353 (short).
+- **P2 — territory operating ✅ COMPLETE (2026-06-21):** OCS (`ocs`), CTC (`ctc`), ABS (`abs`),
+  Interlocking 601–619 (`interlocking`), SCS 351–353 (`scs`). All methods of control now have
+  operating rules, not just definitions.
+- **Remaining (P3 / optional):** SCT 360–361 + track-unit/track-work protection 800s, highway
+  crossings, equipment/air-brake rules, signal description 401–404, minor crew/admin gaps.
+  Consider a tag-based sub-filter in Reference now that `operating` is large (search still scopes fine).
 - **P2 — territory operating (BIGGEST gap):** OCS 300–315 → CTC 560–578 → ABS 500s →
   Interlocking 600–620. We have the *definitions* of every control system but **none of the
   operating rules** for working on them.

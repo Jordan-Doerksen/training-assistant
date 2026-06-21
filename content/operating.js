@@ -428,4 +428,90 @@ export const operating = [
   O('op-515', '515', 'ABS — Delayed in the Block',
     'When a movement that entered a block on a signal indication permitting other than RESTRICTED speed is stopped or otherwise delayed in the block, it must move at REDUCED speed to the next signal — unless there are no switches between it and the next signal, or until the track is seen clear to the next signal — approaching the next signal prepared to stop and governed by the indication displayed.',
     ['abs', 'signals', 'movement'], ['op-505', 'op-509']),
+
+  // ----- Interlocking (601–619) -----
+  O('op-601', '601', 'Interlocking — Application',
+    'A movement is governed by interlocking rules within interlocking limits; interlocking signal indications govern the use of the routes within those limits. A signalman may issue instructions when necessary.',
+    ['interlocking', 'signals', 'authority'], ['op-602', 'op-607']),
+
+  O('op-602', '602', 'Interlocking — Proper Signal Indications Required',
+    'Except in emergency, radio or hand signals must not be used when the proper indication can be displayed by the interlocking signals. A movement stopped by the signalman other than by signal indication, while approaching or within an interlocking, must not move in either direction until the proper signal or instructions are received from the signalman. A movement that stops with its trailing end within interlocking limits must not reverse without the proper interlocking signal indication or the signalman\'s permission.',
+    ['interlocking', 'signals'], ['op-601', 'op-612']),
+
+  O('op-604', '604', 'Interlocking — Establishing and Changing Routes',
+    'Signals for an approaching movement must not be restored to Stop unless the locomotive engineer has acknowledged being stopped or able to stop without passing the interlocking signal to be restored (in emergency a signal may be restored to Stop at any time). No part of a route may be changed, nor signals cleared for a conflicting route, unless the engineer of the movement for which the route was cleared has acknowledged being able to comply with the new routing.',
+    ['interlocking', 'signals'], ['op-601']),
+
+  O('op-605', '605', 'Interlocking — Delayed in Timing Circuit',
+    'A movement approaching an automatic interlocking equipped with a timing circuit must approach the interlocking signal prepared to stop if it occupies the timing circuit longer than the time specified in special instructions. At automatic interlockings without a timing circuit, a movement occupying the track between the advance signal and the interlocking signal more than 5 minutes must approach the interlocking signal prepared to stop.',
+    ['interlocking', 'signals'], ['op-606', 'op-611']),
+
+  O('op-606', '606', 'Interlocking — Approaching Interlocking Limits',
+    'At a location not protected by an advance signal, a movement must approach interlocking limits prepared to comply with a signal indicating Stop.',
+    ['interlocking', 'signals'], ['op-605']),
+
+  O('op-607', '607', 'Interlocking — Rule Applicable at a Stop Signal',
+    'When an interlocking signal indicates Stop and no conflicting movement is evident, the applicable rule depends on the type of interlocking (as indicated in special instructions): Manual → Rule 608; Locally-Controlled → 609; Remotely-Controlled → 610; Automatic → 611.',
+    ['interlocking', 'signals'], ['op-608', 'op-609', 'op-610', 'op-611']),
+
+  O('op-608', '608', 'Interlocking — Manual Interlocking',
+    'Movements operating through the limits of a manual interlocking are governed by special instructions.',
+    ['interlocking'], ['op-607']),
+
+  O('op-609', '609', 'Interlocking — Locally-Controlled Signal Indicating Stop',
+    'A movement must have authority to pass a locally-controlled interlocking signal indicating Stop. With no conflicting movement evident, the signalman may authorize it after providing protection against all conflicting movements; the authorized movement need not stop but must positively identify the signal by number, operate at RESTRICTED speed to the next signal or Block End sign, and comply with the switch rules (104.1 spring, 104.2 dual-control, 104.3 power-operated). The engineer must be informed of the situation before moving. When the signalman is off duty, a movement stopped by such a signal is governed by special instructions.',
+    ['interlocking', 'signals', 'authority'], ['op-607', 'sw-104-2']),
+
+  O('op-610', '610', 'Interlocking — Remotely-Controlled Signal Indicating Stop',
+    'A movement must have authority to pass a remotely-controlled interlocking signal indicating Stop. The signalman may authorize it after ensuring no conflicting movement is in the route to be used and all devices controlling signals for conflicting movements are blocked at Stop; the authorization specifies the route and is in writing. The movement need not stop but must positively identify the signal by number, operate at RESTRICTED speed to the next signal or Block End sign, and comply with the switch rules (104.1/104.2/104.3). If there is a railway crossing at grade with a box marked "switches" within the interlocking, Rule 611 applies. The engineer must know the route before moving.',
+    ['interlocking', 'signals', 'authority'], ['op-607', 'op-611', 'sw-104-2']),
+
+  O('op-611', '611', 'Interlocking — Automatic Signal Indicating Stop',
+    'When stopped by an automatic interlocking signal indicating Stop, paragraphs (a)–(c) apply when no other movement or track work is evident; (d) applies when track work is evident. (a) Open the box marked "switches" and observe panel lights where provided: if the conflicting route\'s lights are lit and no conflicting movement is evident, open the knife switch and proceed; (multi-track) likewise also considering the adjacent same-railway track; where lights aren\'t provided or the conflicting route isn\'t lit, after opening the knife switch wait five minutes (or longer if posted) before proceeding — multi-track: if the adjacent same-railway track\'s lights aren\'t lit and no movement is approaching, contact the RTC before opening the knife switch. Then operate at RESTRICTED speed to the next signal or Block End sign; after occupying the crossing, close the switch and lock the box. (b) Where a pushbutton allows a reverse move over the crossing, open the box, press it and be governed by signal indication (if it won\'t clear, follow (a)). (c) When switching within or into automatic interlocking limits, after complying with (a)(iii) leave the knife switch open until done — signals governing the switching may be considered suspended only while switching. (d) When track work is evident (an "840.3 Protection" indicator or a special lock on the box), stop and do not proceed until the foreman instructs; when authorized, move at RESTRICTED speed to the next signal or Block End sign.',
+    ['interlocking', 'switching', 'signals'], ['op-607', 'op-618']),
+
+  O('op-612', '612', 'Interlocking — Stopped Foul of Signal',
+    'A movement that accepted an interlocking signal permitting it to proceed but stops before the leading locomotive or car has completely passed the signal may proceed only after receiving the signalman\'s permission or under Rule 611.',
+    ['interlocking', 'signals'], ['op-602', 'op-611']),
+
+  O('op-614', '614', 'Interlocking — Leaving Interlocking in ABS or CTC',
+    'Where an interlocking is located in ABS or CTC, the indication of the last interlocking signal in the direction of travel also governs the movement to the next signal or Block End sign. If it is necessary to pass that signal under Rule 609/610/611, then (unless special instructions provide otherwise) Rule 509 or 564 also applies beyond the interlocking limits.',
+    ['interlocking', 'signals'], ['op-509', 'op-564']),
+
+  O('op-615', '615', 'Interlocking — Single Unit of Equipment Restricted',
+    'A single unit of equipment must not be left standing on the movable portion of an interlocked drawbridge or within the interlocking limits of a railway crossing at grade.',
+    ['interlocking', 'securing'], ['op-601']),
+
+  O('op-616', '616', 'Interlocking — Damage to Interlocking',
+    'When it is known or suspected that a derailment has occurred, or that track, appliances or signals are damaged or malfunctioning, the signalman must block at Stop all controls for signals governing movements over the affected routes; no move is permitted until the signalman has established that it may pass safely.',
+    ['interlocking', 'protection'], ['op-617']),
+
+  O('op-617', '617', 'Interlocking — Disconnecting Track Parts or Locking Devices',
+    'Before any movement passes over a movable track part or locking device that has been disconnected, all affected movable parts must be spiked or secured in the required position and their controls blocked to prevent operation.',
+    ['interlocking', 'protection'], ['op-616']),
+
+  O('op-618', '618', 'Interlocking — Protecting Against a Foreman',
+    'A movement may be authorized to enter or move within TOP limits when instructed to protect against the foreman — "Protect against foreman (name) between (location) and (location)." Both conductor and engineer must know the authority and have the foreman\'s instructions (repeated to and acknowledged by the foreman) before moving. The signalman maintains signal blocking against all other movements and must not authorize another movement, or issue another TOP to apply, within the protected limits until cancelled; on cancellation, other crew members are advised immediately and all copies of the cancelled authority destroyed.',
+    ['interlocking', 'protection', 'authority'], ['op-618-1', 'def-foreman']),
+
+  O('op-618-1', '618.1', 'Interlocking — Protecting Against a Foreman (Optional, with system)',
+    'Optional alternative to Rule 618: each time authorized, the movement is restricted "Protect against foreman (name) between (location) and (location)," provided when within two controlled blocks of the limits (or 25 miles where none precedes), with the RTC ensuring it is the only movement that will encounter the entry signal. No entry until both conductor and engineer know the authority/limits and have the foreman\'s instructions (repeated to and acknowledged). In addition, the movement must also be authorized to enter the TOP limits by signal indication or Rule 609/610, or to reverse within them with the signalman\'s permission.',
+    ['interlocking', 'protection', 'authority'], ['op-618', 'def-foreman']),
+
+  O('op-619', '619', 'Interlocking — Transfer by Signalmen',
+    'Where an ECM or a computer-assisted system generates the required list, the relieving signalman signs into the system in the presence of the on-duty signalman and receives verbal and/or written transfer of other necessary instructions and information. Otherwise, before being relieved the signalman makes a written transfer (in a book or on a form) of TOPs and other authorities in effect, including the time and other necessary information, signed by both the relieved and the relieving signalman.',
+    ['interlocking', 'crew'], ['op-147']),
+
+  // ----- SCS · Special Control System (351–353) -----
+  O('op-351', '351', 'SCS — Application',
+    'On portions of the railway specified by special instructions, the use of the main track is governed by the Special Control System.',
+    ['scs', 'authority'], ['op-352', 'op-353']),
+
+  O('op-352', '352', 'SCS — Supervision',
+    'Movements and track-work protection under SCS are, unless otherwise provided, supervised by the RTC, who issues instructions as required.',
+    ['scs', 'authority'], ['op-351', 'def-rtc']),
+
+  O('op-353', '353', 'SCS — Special Instructions',
+    'Special instructions necessary to govern this method of operation will be issued; except as affected by those instructions and Rules 351 and 352, all Operating Rules remain in force.',
+    ['scs'], ['op-351', 'op-352']),
 ];

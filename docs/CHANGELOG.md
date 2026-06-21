@@ -2,6 +2,17 @@
 
 Phase log, newest first.
 
+## Content pull: Interlocking + SCS — P2 COMPLETE — 2026-06-21
+- **Full Interlocking section** (`content/operating.js`, +18, tag `interlocking`) — 601 Application,
+  602 Proper Signal Indications, 604 Establishing/Changing Routes, 605 Timing Circuit, 606
+  Approaching Limits, 607 Rule-applicable-at-stop table, 608 Manual, 609 Locally-Controlled,
+  610 Remotely-Controlled, 611 Automatic (the knife-switch/box procedure), 612 Stopped Foul,
+  614 Leaving in ABS/CTC, 615 Single Unit Restricted, 616 Damage, 617 Disconnecting Parts,
+  618 Protect Against Foreman (+618.1 optional), 619 Transfer by Signalmen.
+- **SCS section** (+3, tag `scs`) — 351 Application, 352 Supervision, 353 Special Instructions.
+- **250 entries, validator green. P2 (all four methods of control + SCS) COMPLETE** — OCS,
+  CTC, ABS, Interlocking now have operating rules, not just definitions.
+
 ## Content pull: ABS (Automatic Block Signal System) — 2026-06-21
 - **Full ABS section** (`content/operating.js`, +5, tag `abs`) — 505 Application, 507 Withdrawal
   of Signals, 509 Instructions to Pass Signal Indicating Stop, 513 Entering Main Track (the
