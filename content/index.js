@@ -5,8 +5,8 @@
 // ==========================================================================
 
 import { defs } from './defs.js';
-// import { signals } from './signals.js';     // L1
-// import { switching } from './switching.js'; // later
+import { signals } from './signals.js';
+// import { switching } from './switching.js'; // L1 (next)
 // import { operating } from './operating.js'; // later
 
-export const ENTRIES = [...defs];
+export const ENTRIES = [...defs, ...signals];

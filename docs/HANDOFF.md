@@ -20,14 +20,20 @@ Static site, no build step.
 - Full design + roadmap: `docs/SPEC.md`.
 
 ## 3. Status
-**L0 done** (this session): schema, validator, defs domain seeded (12 CROR definitions),
-reference shell (search + list→detail + trust/citation chips + related-links, hash routing),
-clean rail-ops theme. Static, validates clean.
+**L0 done:** schema, validator, defs domain (12 CROR definitions), reference shell
+(search + list→detail + trust/citation chips + related-links, hash routing), rail-ops theme.
+
+**L1 in progress — signals done:** ported the audited signal SVG renderer (`js/signal.js`)
++ all CROR 405–440 indications (`content/signals.js`, 42 entries, 38 with aspect drawings;
+names+meanings = rulebook, drawings reproduced + cross-checked). Detail view renders the SVG
+aspect + a study-notes block; the list got a **domain filter** (All / Definitions / Signals).
+**54 entries, validator green.** Source: the audited `cn-conductor-trainer` Signal Reading module.
 
 ## 4. Roadmap (next)
-- **L1 — reference core:** port content from the audited `cn-conductor-trainer` modules
-  (signals + the SVG renderer, switching 104/105/112/113/114, operating rules); each entry
-  cited + trust-flagged. This is the big content lift.
+- **L1 remaining — switching + operating rules:** port 104/105/112/113/114 (+ securing 112,
+  kicking 113.x, fouling 114, yard speed 105) and core operating rules into `content/switching.js`
+  / `content/operating.js`, each CROR-cited + trust-flagged. Reuse the audited cn-conductor-trainer
+  citations; verify against the PDF.
 - **L2** drills (derived) · **L3** progress/gaps · **L4** adaptive "study next" + recert prep ·
   **L5** polish (PWA, cheat-sheets, switch-list link, Observatory spoke).
 

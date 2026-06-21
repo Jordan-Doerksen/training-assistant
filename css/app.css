@@ -93,4 +93,22 @@ a { color: inherit; text-decoration: none; }
 .foot { text-align: center; color: var(--faint); font: 12px/1.5 var(--mono); padding: 22px 16px 30px; border-top: 1px solid var(--line); margin-top: 24px; }
 .foot strong { color: var(--si); }
 
-@media (prefers-reduced-motion: reduce) { .card { transition: none; } }
+/* ---- domain filter ---- */
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+.fchip { font: 600 12px/1 var(--mono); letter-spacing: .04em; color: var(--muted); background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 7px 12px; cursor: pointer; transition: border-color .12s, color .12s; }
+.fchip:hover { border-color: var(--line-strong); color: var(--ink); }
+.fchip.is-on { background: #1a1e24; color: #fff; border-color: #000; }
+.fchip .fn { opacity: .6; margin-left: 3px; }
+.fchip.is-on .fn { opacity: .75; }
+
+/* ---- signal aspect in detail ---- */
+.aspect { margin: 4px 0 18px; padding: 16px; display: flex; flex-direction: column; align-items: center; gap: 8px; background: #11151b; border: 1px solid var(--line-strong); border-radius: 10px; }
+.aspect svg { display: block; }
+.aspect figcaption { font: 11px/1.4 var(--mono); color: #9aa3b0; text-align: center; max-width: 42ch; }
+
+/* ---- detail notes ---- */
+.detail { margin-top: 16px; padding: 12px 14px; background: #f4f2ec; border: 1px solid var(--line); border-radius: 8px; }
+.detail h2 { font: 12px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 0 0 6px; }
+.detail p { margin: 0; font-size: .98rem; line-height: 1.55; }
+
+@media (prefers-reduced-motion: reduce) { .card, .fchip { transition: none; } }

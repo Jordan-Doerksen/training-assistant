@@ -3,12 +3,16 @@
 // router. Press "/" anywhere to jump to the search field.
 // ==========================================================================
 
-import { initRouter } from './router.js';
+import { initRouter, route } from './router.js';
 import { search } from './search.js';
-import { renderList } from './reference.js';
+import { renderList, refState } from './reference.js';
 
 function boot() {
   const q = document.getElementById('q');
+  document.getElementById('view').addEventListener('click', (e) => {   // domain filter chips
+    const chip = e.target.closest('[data-domain]');
+    if (chip) { e.preventDefault(); refState.domain = chip.getAttribute('data-domain'); route(); }
+  });
   q.addEventListener('input', () => {
     if (location.hash && location.hash !== '#/' && location.hash !== '#') {
       location.hash = '#/';                                  // leave a detail view; router re-renders the list using q
