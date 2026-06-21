@@ -9,6 +9,51 @@ const O = (id, rule, title, body, tags = [], related = [], extra = {}) =>
   ({ id, domain: 'operating', ref: 'CROR ' + rule, source: SRC, trust: 'rulebook', title, body, tags, related, ...extra });
 
 export const operating = [
+  // ----- general rules (time, watches, time tables, signals-general) -----
+  O('op-1', '1', 'Time',
+    'The 24-hour clock is used, expressed in four digits. Midnight is expressed as 2359 or 0001.',
+    ['time'], ['op-2']),
+
+  O('op-2', '2', 'Watches',
+    'Every conductor, assistant conductor, locomotive engineer, pilot, foreman and snow-plow foreman (and others the company directs) must, when on duty, use a reliable watch showing hours, minutes and seconds. They must: keep it within 30 seconds\' variation over 24 h; reset it if it varies more; and, before commencing work, compare it with a railway-approved time source — or, where none is accessible, get the correct time from the RTC or from another employee who has it. Crew members in train/transfer/yard service compare time with one another as soon as possible after commencing work.',
+    ['time', 'crew'], ['op-1', 'op-5', 'def-rtc']),
+
+  O('op-3', '3', 'Time in Effect',
+    'Special instructions indicate whether Standard Time, Daylight Saving Time, or other designated time is in effect.',
+    ['time'], ['op-5']),
+
+  O('op-4', '4', 'Notice of Time Change',
+    'Notice of a time change is given by operating bulletin posted at least 72 hours before it takes effect, and by GBO at least 24 hours before the change and for not less than 6 days after.',
+    ['time', 'bulletins'], ['op-7', 'def-gbo']),
+
+  O('op-5', '5', 'Employees on Duty When Time Changes',
+    'An employee on duty who must use a watch changes time as follows — Standard → Daylight Saving: at 0200 ST set ahead one hour to 0300 DST; Daylight Saving → Standard: at 0200 DST set back one hour to 0100 ST. Then immediately verify the correct time per Rule 2(iii).',
+    ['time'], ['op-2', 'op-3']),
+
+  O('op-6', '6', 'Time Tables',
+    'Each time table, from the moment it takes effect, supersedes the preceding one.',
+    ['time', 'timetable'], ['op-7']),
+
+  O('op-7', '7', 'Notice of New Time Table or Supplement',
+    'Notice is given by operating bulletin posted at least 72 hours before a new time table or supplement takes effect, and by GBO at least 24 hours before and for not less than 6 days after; it must also be communicated to all other affected employees.',
+    ['time', 'timetable', 'bulletins'], ['op-4', 'op-6', 'def-gbo']),
+
+  O('op-8', '8', 'Symbols and Diagrams',
+    'Time-table symbols: B operating bulletins · C cautionary limits · D report departure to RTC · S special derail · X crossover between main tracks · Y wye · * footnote · + interlocking (see footnotes). The method of control and the limits of single/multi-track are shown in the time table; each interlocking, non-interlocked drawbridge and non-interlocked railway crossing at grade is shown in subdivision footnotes or special instructions; siding capacity and the extent of Cautionary Limits / TGBO / DOB limits are shown in time-table columns or footnotes.',
+    ['timetable'], ['op-6']),
+
+  O('op-11', '11', 'Fusees',
+    'A movement approaching a red fusee burning on or near its track — or beyond the nearest rail of an adjacent track — must proceed at REDUCED speed to a point two miles beyond the fusee\'s location, reducing to that speed immediately if moving faster. A fusee must not be placed on a public crossing at grade or where it may cause fire. (Optional) Where the fusee is on the track of an approaching movement already at REDUCED or RESTRICTED speed for a reason other than Rule 11, it must stop before passing the fusee.',
+    ['signals', 'flagging'], ['op-35']),
+
+  O('op-18', '18', 'Headlight Failure',
+    'If the headlight fails and can\'t be repaired, ditch lights are used in lieu and the movement may proceed. If all headlights and ditch lights have failed, use whatever lights are available and proceed to the first point repairs can be made; at grade crossings not protected by automatic warning devices, do not exceed 10 MPH entering unless the crossing is known clear and will remain clear until occupied.',
+    ['lights', 'crossings'], ['op-17', 'op-19']),
+
+  O('op-19', '19', 'Ditch Lights',
+    'A train must display ditch lights continuously in the direction of travel whenever the headlight is required at full power. If a ditch light fails en route, the movement may proceed to the next point repairs can be made.',
+    ['lights'], ['op-17', 'op-18']),
+
   // ----- visual / audible signals -----
   O('op-12', '12', 'Hand Signals',
     'Indications (hand, lantern or flag): STOP — swung from side to side at right angle to the track; MOVE BACKWARD — swung in a circle at right angle to the track (speed proportional); MOVE FORWARD — raised and lowered (speed proportional); APPLY AIR BRAKES — raised and swung horizontally above the head; RELEASE AIR BRAKES — raised and held at arm\'s length above the head; REDUCE SPEED — held horizontally at arm\'s length. Any object waved violently by anyone on or near the track is a signal to STOP. A signal must be given in time and from where it can be plainly seen; if there is doubt as to its meaning or for whom it is intended, it must be regarded as a STOP signal. Forward/backward are relative to the front of the controlling locomotive. The disappearance from view of the crew member (or the lights) giving the signals must be regarded as a STOP signal.',

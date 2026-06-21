@@ -2,6 +2,16 @@
 
 Phase log, newest first.
 
+## Content pull: General Rules — 2026-06-21
+- **General Rules section completed** (`content/operating.js`, +11) — added the missing
+  CROR General Rules: 1 Time, 2 Watches, 3 Time in Effect, 4 Notice of Time Change,
+  5 Employees on Duty When Time Changes, 6 Time Tables, 7 Notice of New Time Table or
+  Supplement, 8 Symbols and Diagrams, 11 Fusees, 18 Headlight Failure, 19 Ditch Lights.
+  (12/13/14/17/26/27 + 33–36 were already present.)
+- Faithful condensations pulled from the Jan 2025 CROR source, cited (trust: rulebook),
+  tagged (time/timetable/lights/signals/flagging/crew) and cross-linked. **160 entries,
+  validator green.** Kept in the `operating` domain (no schema change) per the structure call.
+
 ## Polish pass + footer motif — 2026-06-21
 - **Footer motif** — an endless side-profile train (`js/footer-train.js`, canvas): charcoal
   steam loco + a CN-red boxcar + a slate car with side-rod wheels, subtle smoke, scrolling
