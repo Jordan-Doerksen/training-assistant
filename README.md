@@ -32,7 +32,7 @@ entry never ships.
 
 ## The rule that keeps it trustworthy
 **Never author rule content from memory.** Quote + cite from the CROR (Jan 28 2025)
-or confirm with the SME (Kourtney). Source PDFs live in `sources/` and are
+or confirm with an SME / firsthand. Source PDFs live in `sources/` and are
 gitignored — only the cited digests are public. This is a study aid, **not** the
 official rulebook.
 

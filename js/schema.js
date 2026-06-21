@@ -10,7 +10,7 @@
 //     domain    defs | signals | switching | operating
 //     ref       the citation               "CROR 113.5(a)"  | "CROR — Definitions"
 //     source    where ref lives            "Canadian Rail Operating Rules — Jan 28, 2025"
-//     trust     rulebook | S.I. | SME      (rulebook text · special instruction · Kourtney/firsthand)
+//     trust     rulebook | S.I. | SME      (rulebook text · special instruction · SME/firsthand)
 //     title     short name
 //     body      the text / digest
 //     tags?     string[]                   for filtering + drills

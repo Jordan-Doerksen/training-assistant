@@ -23,7 +23,7 @@ entry = {
   domain    defs | signals | switching | operating
   ref       citation                   "CROR 113.5(a)" | "CROR — Definitions"
   source    where ref lives            "Canadian Rail Operating Rules — Jan 28, 2025"
-  trust     rulebook | S.I. | SME      rulebook text · special instruction · Kourtney/firsthand
+  trust     rulebook | S.I. | SME      rulebook text · special instruction · SME/firsthand
   title     short name
   body      the text / digest
   tags?     string[]
@@ -78,7 +78,7 @@ L2–L5 are new modules over the **same fixed content** — no content rewrite, 
 
 ## 5. Correctness bar (non-negotiable; it's the moat)
 - **Never author rule content from memory.** Quote + cite from the CROR (Jan 28 2025) or
-  confirm with the SME (Kourtney). Stub + flag anything unverifiable; don't guess.
+  confirm with an SME / firsthand. Stub + flag anything unverifiable; don't guess.
 - Every entry carries `ref` + `source` + `trust`. The trust chip is always visible.
 - `tools/validate.mjs` is the gate (schema, unique ids, resolvable related-links).
 - Source PDFs are no-redistribute → gitignored; cited digests are public. **Study aid,

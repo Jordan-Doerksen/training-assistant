@@ -13,7 +13,7 @@ const DOMAIN_LABEL = { defs: 'Definitions', signals: 'Signals', switching: 'Swit
 const esc = (s) => (s || '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const chip = (e) => {
   const cls = e.trust === 'rulebook' ? 't-rule' : e.trust === 'S.I.' ? 't-si' : 't-sme';
-  const t = e.trust === 'rulebook' ? 'CROR rulebook text' : e.trust === 'S.I.' ? 'Special Instruction' : 'SME — verified by Kourtney / firsthand';
+  const t = e.trust === 'rulebook' ? 'CROR rulebook text' : e.trust === 'S.I.' ? 'Special Instruction' : 'SME — verified firsthand';
   return `<span class="chip ${cls}" title="${esc(t)}">${esc(e.trust)}</span>`;
 };
 const tags = (e) => ((e.tags || []).length ? `<span class="tags">${e.tags.map((t) => `<span class="tag">${esc(t)}</span>`).join('')}</span>` : '');

@@ -51,7 +51,7 @@ Static site, no build step.
 
 ## 5. Content discipline
 - **Never from memory.** Source from `sources/Jan_2025_Canadian_rail_operating_rules_EN.pdf`
-  (`pdftotext`/`pymupdf` available) or confirm with Kourtney; set `trust` accordingly.
+  (`pdftotext`/`pymupdf` available) or confirm with an SME / firsthand; set `trust` accordingly.
 - The audited citations in `C:\projects\CN Conductor Trainer` are the seed bank — re-house
   that verified work; don't re-derive it.
 - Run `npm run validate` after any content edit.

@@ -11,4 +11,4 @@ Drop these here to author/verify content:
 
 Rule of the project: **never author rule content from memory.** Open the PDF,
 quote/cite the rule, set `trust: 'rulebook' | 'S.I.' | 'SME'`. If it can't be
-verified, stub it and flag it for the SME (Kourtney) — don't guess.
+verified, stub it and flag it for an SME / firsthand check — don't guess.

@@ -3,7 +3,7 @@
 // (trust:rulebook). Bodies are faithful condensations / quotes of the operative
 // clauses; the citation points to the full rule. Site-specific numbers (kick
 // tonnage, kickable tracks, yard speed) live in SPECIAL INSTRUCTIONS — verify
-// those with the S.I. + SME (Kourtney), don't assume. Source: CROR Jan 28 2025.
+// those with the S.I. + an SME / firsthand, don't assume. Source: CROR Jan 28 2025.
 // ==========================================================================
 
 const SRC = 'Canadian Rail Operating Rules — Jan 28, 2025';
@@ -39,7 +39,7 @@ export const switching = [
   S('sw-112', '112', 'Securing Unattended Equipment',
     'When equipment is left unattended it must be secured to prevent it from moving unintentionally. Parking brakes count as hand brakes. Hand brakes must not be applied while equipment is being pulled or shoved. Before leaving, the employee securing it must confirm with another employee the manner in which it was secured. A single piece of equipment must always be left with the hand brake applied and tested for effectiveness; for two or more pieces, apply at least the minimum number of hand brakes from the (g) table (by total trailing tons and grade), tested for effectiveness. Equipment not connected to an air source also requires at least one additional securement method (e.g. a derail, end of rail, bowled terrain, or air brakes up to 2 hours).',
     ['securing', 'hand-brakes', 'yard'], ['def-spd-restricted', 'sw-113-1'],
-    { detail: 'Yard tracks (112(c)): secure by at least one of — hand brakes (min per (g), tested) · bowled terrain · retarders · wheel chocks or skates · air brakes (not connected to air) up to 2 h when there are 10+ cars · air maintained by continuous/auto-start with a Mechanical Emergency Device. The (g) minimum-hand-brake table is grade + tonnage based — read it, don\'t estimate.', smeNote: 'GP-specific securing numbers / kickable-track requirements come from special instructions — confirm with Kourtney.' }),
+    { detail: 'Yard tracks (112(c)): secure by at least one of — hand brakes (min per (g), tested) · bowled terrain · retarders · wheel chocks or skates · air brakes (not connected to air) up to 2 h when there are 10+ cars · air maintained by continuous/auto-start with a Mechanical Emergency Device. The (g) minimum-hand-brake table is grade + tonnage based — read it, don\'t estimate.', smeNote: 'GP-specific securing numbers / kickable-track requirements come from special instructions — confirm with an SME / firsthand.' }),
 
   S('sw-113-0', '113.0', 'Coupling to Equipment',
     'Before coupling, take precautions to prevent the equipment from moving unintentionally, and ensure at least one knuckle is open. Couple at the lowest speed necessary to make the coupling, not exceeding 6 MPH. A coupling made with equipment not released under its own momentum must, prior to leaving, be stretched using sufficient tractive effort to ensure a proper coupling.',
@@ -64,7 +64,7 @@ export const switching = [
   S('sw-113-5', '113.5', 'Kicking Equipment',
     'On tracks not listed in Rule 113.4, kicking is prohibited UNLESS permitted by special instructions. Where permitted: the walking surface where equipment is uncoupled must be clear; the track beyond must be flat and/or descend so cars don\'t roll back and foul a cleared track; equipment must be prevented from exiting either end; routing must prevent a kicked car from fouling a main track, siding, subdivision track or high risk location (switches, derails, leads, etc.); and special instructions indicate the maximum tonnage that may be kicked at one time. Once equipment is kicked, no additional equipment may be kicked until the route is properly lined AND the previously-kicked equipment is clear of the fouling point. Equipment kicked must not be left foul of the intended route; when kicking is completed, secure per Rule 112(b) or (c).',
     ['kicking', 'switching'], ['sw-113-4', 'def-kicking', 'sw-112'],
-    { smeNote: 'Grande Prairie kicking specifics — kickable tracks, max tonnage, "min 2 hand brakes on to kick" — are special instructions; confirm with Kourtney + the GP S.I.' }),
+    { smeNote: 'Grande Prairie kicking specifics — kickable tracks, max tonnage, "min 2 hand brakes on to kick" — are special instructions; confirm with an SME / the GP S.I.' }),
 
   S('sw-113-6', '113.6', 'Running Switch',
     'Verify the switch and hand brakes are in working order before commencing. A running switch must NOT be made: with or onto occupied equipment; with or onto equipment placarded for dangerous goods; where the switch is a dual control, power-operated or spring switch; or within the interlocking limits of a drawbridge or railway crossing at grade. At least 3 employees must be used to perform a running switch.',
