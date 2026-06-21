@@ -15,6 +15,17 @@ Phase log, newest first.
 - **This was deliberately last** (service workers cache stale copies and mask whether changes
   work). With it in, the training-assistant is feature-complete.
 
+## L5: PWA / offline — installable, works trackside (FINAL) — 2026-06-21
+- **Flipped on the PWA** now that content is frozen. Generated 192/512 PNG app icons,
+  wired them into `manifest.webmanifest` + the `sw.js` precache, pointed apple-touch-icon at
+  the PNG. The service worker (stale-while-revalidate, versioned cache, clean activation,
+  precaches the whole shell + all content) was scaffolded at L0; bumped cache to **cror-v2**
+  so prior visitors refresh to the full app. Install to home screen + full offline study.
+- **To push future content/code changes:** bump `CACHE` in `sw.js` (v3, v4 …) so clients update.
+- Verified: manifest parses (4 icons, standalone), icons 200, SW registers, fresh content after
+  a cache clear. **The assistant is feature-complete: reference · drills · spaced-repetition study ·
+  mock exam · progress · guide/tour · cheat-sheets · 305 CROR-cited entries · offline.**
+
 ## L5: switch-list cross-link — 2026-06-21
 - **Companion-sim link** — a "take it to the yard" callout on the Guide page (and a contextual
   one-line note on the Switching domain view) linking to Switch List
