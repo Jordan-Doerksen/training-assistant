@@ -2,6 +2,16 @@
 
 Phase log, newest first.
 
+## Content pull: Operation of Movements — 2026-06-21
+- **Operation of Movements section** (`content/operating.js`, +18) — 62 Unattended Engines,
+  63 Freight Train / 64 Transfer / 65 Engine-in-Yard-Service Requirements, 66 Securing After
+  an Emergency Brake Application on Grade, 70 Remote Control Operation, 80 Main Track
+  Authorization, 81 Designation of Multi-Track, 82 Limits of Authority, 83 Operating Bulletins,
+  84 Reporting Delays, 85 Track Release Reports, 85.1 Location Reports, 94 Cautionary Limits,
+  101 Protection Against Extraordinary Conditions, 101.1 Dimensional Traffic, 101.2 Equipment
+  Left on Main Track, 102 Emergency Stop Protection. Cited + cross-linked to switching/defs.
+  **189 entries, validator green.**
+
 ## Content pull: Radio / foreman comms — 2026-06-21
 - **Communication block completed** (`content/operating.js`, +6) — 120 Radio Terms,
   121 Positive Identification, 127 Conducting Emergency Radio Test, 137 Foreman's

@@ -119,6 +119,79 @@ export const operating = [
     'Except on a subdivision designated in special instructions, the signals required by Rules 42/842 and 43/843 must be placed to the outside of the outermost track(s), not between the main tracks.',
     ['protection', 'signals'], ['op-42', 'op-43']),
 
+  // ----- operation of movements (62–102) -----
+  O('op-62', '62', 'Unattended Engines',
+    'When an engine is left unattended outside an attended yard or terminal, the cab must be secured against unauthorized entry and the reverser must be removed — except that, during subzero temperatures, an engine without a high-idle feature is exempt from removing the reverser.',
+    ['securing', 'crew'], ['op-109', 'sw-112']),
+
+  O('op-63', '63', 'Freight Train Requirements',
+    'Freight trains with cars must operate with TIBS or a manned caboose. Exception: a freight train that must be separated to double, set off or lift cars, cut a crossing, or for similar situations may operate without TIBS or a manned caboose to the extent necessary, not exceeding 25 MPH while handling cars.',
+    ['movement', 'equipment'], ['op-64', 'op-65']),
+
+  O('op-64', '64', 'Transfer Requirements',
+    'Transfers must have air applied throughout the entire consist; the last three cars (if applicable) must be verified to have operative brakes. The locomotive engineer must verify there are sufficient operative brakes to control the transfer, confirmed by a running test as soon as possible. Remote-control locomotives in transfer service operate with two operative operator-controlled units (OCU).',
+    ['movement', 'equipment', 'securing'], ['op-63', 'op-70']),
+
+  O('op-65', '65', 'Engine in Yard Service Requirements',
+    'An engine in yard service required to enter main track to double over, take head room, or cross over a main track is not considered a train or transfer — except in the application of Rules 301–315 (OCS) and 560–578 (CTC).',
+    ['movement', 'switching'], ['op-63', 'def-ocs', 'def-ctc']),
+
+  O('op-66', '66', 'Securing After an Emergency Brake Application on Grade',
+    'After an emergency brake application on a heavy or mountain grade, the crew must immediately give the proper authority full details and follow any further instructions. If any part of the train is on mountain grade, the whole train is treated as on mountain grade. In a derailment or train separation on heavy/mountain grade, secure the portion at greatest risk of unintended movement first. On mountain grade, apply hand brakes immediately (per the hand-brake table) before attempting to recover the air. On heavy grade, secure immediately if any listed condition exists — e.g. ambient ≤ −20 °C; −15 to −19 °C with ≥3 in. snow above the rail; unusual braking or difficulty controlling speed; doubt about safe recovery; more than one emergency on the grade; or conditions don\'t permit a recovery attempt — otherwise attempt recovery, and if air won\'t recover, inspect for cause and secure if it can\'t be corrected. When securing per the hand-brake table: if there is less equipment than the table requires, apply hand brakes on all equipment; locomotive retarding force is not counted and must not reduce the requirement.',
+    ['securing', 'emergency'], ['op-35', 'op-62']),
+
+  O('op-70', '70', 'Remote Control Operation',
+    'A remote-control operation with two or more employees uses two operative OCU. If one fails: repair it as soon as possible, the tour may continue on one, and the movement may run on main track to the first repair point provided an employee other than the OCU holder is positioned to operate the emergency brake valve. No crew member other than the controlling-OCU holder may foul the equipment without verbal confirmation of positive protection. An OCU must not be operated while moving on anything but the movement being controlled. When an engine begins to move, a crew member must visually verify the direction; movements must not exceed 15 MPH; when coupling, the employee protecting the leading end holds the controlling OCU; and before stopping or coupling, the OCU is set to its lowest speed.',
+    ['movement', 'switching', 'securing'], ['op-64', 'op-108']),
+
+  O('op-80', '80', 'Main Track Authorization',
+    'A movement must not foul or enter a main track without authority. Authority is conveyed by — CTC: signal indication, RTC permission, or written authority; OCS: clearance; Cautionary Limits: Rule 94; SCS: special instructions. If a movement occupies or fouls a main track or controlled siding without authority, or passes a stop-indicating block/interlocking signal without authority, it must stop and initiate protection per Rules 35 and 125, advising the RTC or signalman as soon as practicable. The RTC/signalman issues instructions; if authorized to proceed or reverse (unless relieved), any dual-control or power-operated switch the movement occupies must be examined to confirm the points are properly lined for the route and undamaged, complying with Rule 104.2(b) at dual-control switches (the movement may first move only enough to clear the wheels from the switch points).',
+    ['movement', 'authority', 'signals'], ['op-94', 'sw-104-2', 'op-35', 'op-125', 'def-ctc', 'def-ocs']),
+
+  O('op-81', '81', 'Designation of Multi-Track',
+    'Where two main tracks are in service they are designated as directed (unless special instructions say otherwise). Where more than two are in service they are numbered: unless the time table specifies otherwise, with eastward/westward time-table directions number from the north ("No 1 track", "No 2 track", and so on); with northward/southward directions number from the east.',
+    ['movement', 'track'], ['op-80']),
+
+  O('op-82', '82', 'Limits of Authority',
+    'Specific limits in written authorities must be defined by identifiable locations (station names, name signs, switches, signals, mile posts, or other mileage-identified infrastructure). When a switch or signal defines the limit, the authority extends only to the switch\'s fouling point or to the signal location. When mile posts or mileages define it, only to the specific mileage. When station names define it, the authority does not include the main track between the siding switches at either named station (where there is no siding, it extends to the station name sign).',
+    ['authority', 'movement'], ['op-80', 'op-94']),
+
+  O('op-83', '83', 'Operating Bulletins',
+    'Operating bulletins are issued by the proper authority in the prescribed format and contain only information or instructions about the operation of movements; whoever posts or displays one records the time and date, and duplicate bulletin numbers must not be in effect at the same time. Before commencing work at a home location where they are posted, every employee responsible for operating or supervising movements must read and understand the bulletins applicable to their territory. A Summary bulletin (the number, date and contents of, or reference to, each bulletin still in effect) is issued at intervals set in special instructions; earlier bulletins not included or referenced become void; the current Summary must be accessible to such employees while on duty.',
+    ['bulletins'], ['op-142', 'def-gbo']),
+
+  O('op-84', '84', 'Reporting Delays',
+    'The conductor must ensure the RTC is promptly advised of any known condition which may delay their train or transfer.',
+    ['movement', 'crew'], ['op-85', 'def-rtc']),
+
+  O('op-85', '85', 'Track Release Reports',
+    'The conductor ensures the RTC is promptly advised when the movement has arrived at, left, or cleared a location (or at a time specified by the RTC, or after clearing the limits of the last proceed clearance for the subdivision). Before reporting, the conductor confirms the accuracy with other crew members. As it is transmitted, the RTC verifies the movement identification and records the location; if correct, the locomotive engineer confirms the report\'s correctness to the RTC.',
+    ['movement', 'crew'], ['op-84', 'op-85-1', 'def-rtc']),
+
+  O('op-85-1', '85.1', 'Location Reports (Optional)',
+    'Optional variant of Rule 85 where in effect: an employee ensures the RTC is promptly advised when the movement has arrived at, left, or cleared a location (or as specified by the RTC). The employee confirms accuracy with other crew members first; the RTC enters the report as received and repeats it from the computer screen, and the employee then confirms its correctness to the RTC.',
+    ['movement', 'crew'], ['op-85', 'def-rtc']),
+
+  O('op-94', '94', 'Cautionary Limits',
+    'Not applicable in CTC; does not authorize track work. A movement or track unit is authorized to use the main track within cautionary limits. Movements must comply with Rule 105(c) and, in addition, be prepared to stop short of a red signal prescribed by Rule 41 or a switch not properly lined. Each cautionary-limit sign and advance sign is reflectorized; an advance sign is placed at least one mile ahead of each cautionary-limit sign (where that distance isn\'t practicable, special instructions so indicate).',
+    ['authority', 'movement', 'protection'], ['op-80', 'op-41', 'sw-105', 'def-cautionary-limits']),
+
+  O('op-101', '101', 'Protection Against Extraordinary Conditions',
+    'A movement must be fully protected against any known or suspected condition that may interfere with its safe passage. It must stop at once and be fully inspected when it is known or suspected to have struck any object that may interfere with safe operation, and the RTC must be notified as quickly as possible. When a portion of a movement is left on the main track, the crew must take precautions to protect the remaining portion against the return move.',
+    ['protection', 'movement', 'emergency'], ['op-35', 'op-102', 'def-rtc']),
+
+  O('op-101-1', '101.1', 'Dimensional Traffic',
+    'When the dimensions of traffic require special arrangements to move past other movements, the wide traffic is protected by the RTC against other main-track movements, with advice of the protection given to the crew in writing or verbally. The RTC does not protect against equipment on non-main tracks — the crew handling the wide traffic must protect it from such equipment.',
+    ['protection', 'movement'], ['op-101', 'def-rtc']),
+
+  O('op-101-2', '101.2', 'Equipment Left on Main Track',
+    'Equipment may be left on the main track when protected by a clearance, a Form T GBO, or cautionary limits. Communication to the RTC must include the equipment\'s location, and the outer limits of Form T protection must be expressed in whole miles or by other identifiable locations. In CTC and controlled interlockings, once the RTC has been advised, Form T protection need not be provided. The RTC must inform each movement required to enter the occupied track of the unattended equipment\'s location.',
+    ['protection', 'securing'], ['op-101', 'op-94', 'def-gbo', 'def-cautionary-limits']),
+
+  O('op-102', '102', 'Emergency Stop Protection',
+    'A crew stopping from an emergency brake application or other abnormal condition that may obstruct an adjacent main track must: immediately broadcast on the standby channel — "EMERGENCY, EMERGENCY, EMERGENCY, (movement) on (designated track), stopped (stopping) in emergency between mile __ and mile __ (subdivision)"; as soon as possible advise the RTC of the emergency-stop location, indicating whether adjacent tracks (including other railways) are liable to be obstructed; and repeat the broadcast at intervals not exceeding 90 seconds until the RTC advises that all affected movements have been secured, stopped, or advised, or it is known the adjacent tracks are safe and clear.',
+    ['protection', 'emergency', 'radio'], ['op-35', 'op-101', 'op-125']),
+
   // ----- crew / movement -----
   O('op-106', '106', 'Crew Responsibilities',
     'All crew members are responsible for the safe operation of movements and equipment in their charge and for the observance of the rules. Under conditions not provided for by the rules, they must take every precaution for protection. A utility employee becomes a crew member when working with any movement.',

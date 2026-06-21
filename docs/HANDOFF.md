@@ -72,11 +72,14 @@ Covered: **Definitions** (67) ✅ · **Signal indications 405–440** (38 drawn)
 switches 104–115** ✅ · **General Rules 1–27** ✅ · **Protection of track work 33–45** ✅
 (33/34/35/36 + 40–45 — done 2026-06-21) · **Communication / foreman 120–153** ✅
 (120/121/122/123/123.1/123.2/125/126/127/137/138/142/147/153 — done 2026-06-21) ·
-partial **Movement** (106/108/109/110).
+**Operation of Movements 62–102** ✅ (62–66, 70, 80–85.1, 94, 101–102 — done 2026-06-21) ·
+**Movement/crew** 106/108/109/110.
 Gaps, by priority for when content is pulled:
-- **P1 — backbone:** ~~General Rules~~ ✅, ~~track-work protection~~ ✅, ~~comms/foreman~~ ✅.
-  Remaining: Operation of Movements 62–66 / 70 / 80–94 (movement requirements, securing,
-  main-track authorization, cautionary limits) + crew 100–103/107/111/116–119.
+- **P1 — backbone:** ✅ done (General Rules, track-work protection, comms/foreman, operation
+  of movements). Minor leftovers: crew 100/103/107/111/116–119, 131/139/140/154–156 (RTC
+  recording/GBO admin) if wanted.
+- **P2 — territory operating (NEXT, biggest remaining gap):** OCS 300–315 → CTC 560–578 →
+  ABS 500s → Interlocking 600–620. Only their definitions exist today.
 - **P2 — territory operating (BIGGEST gap):** OCS 300–315 → CTC 560–578 → ABS 500s →
   Interlocking 600–620. We have the *definitions* of every control system but **none of the
   operating rules** for working on them.
