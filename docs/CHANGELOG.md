@@ -2,6 +2,19 @@
 
 Phase log, newest first.
 
+## Content pull COMPLETE (conductor scope) — 2026-06-21
+The remaining CROR operating content, pulled in four batches (250 → 305 entries):
+- **A (+9):** grade crossings 103/103.1, passenger stops 107, inspection 111, radio 117/118/119;
+  switching 104.3, 105.1.
+- **B (+22):** general procedures 131–141/143/148, GBO 151–157 (incl. DOB 156, TGBO 157),
+  and the four GBO Forms S/T/V/Y.
+- **C (+15):** signal description 401–404 (+ a Description topic), SCT 360–364, CTC 577/577.1/578,
+  Interlocking 620.
+- **D (+9):** the conductor-relevant subset of the 800s (TOP) — 801/802/803/849/850/851/852/853/864.
+  (The rest of the 800s is the track-unit FOREMAN's section, deliberately out of scope.)
+- **305 entries, validator green. The rulebook is now conductor-complete** — every method of
+  control, plus general/protection/movement/comms/GBO/crossings/signals, is in.
+
 ## Browse: contextual topic chips — 2026-06-21
 - **Progressive topic filter** (`js/reference.js`) — the 250-entry list was overwhelming on
   "All". Domain chips stay (5); selecting a domain now reveals a SECOND, lighter row of a few

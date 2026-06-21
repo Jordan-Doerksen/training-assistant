@@ -20,6 +20,13 @@ Static site, no build step.
 - Full design + roadmap: `docs/SPEC.md`.
 
 ## 3. Status
+**CONTENT: conductor-complete — 305 entries (2026-06-21).** Definitions 67 · Signals 48
+(405–440 indications + 401–404/440 description) · Switching 19 (104–115) · Operating 171
+(general rules, track-work protection, operation of movements, grade crossings, crews,
+radio, general procedures, GBO/DOB/TGBO + Forms, and ALL methods of control:
+OCS/CTC/ABS/Interlocking/SCS/SCT, plus the conductor-relevant TOP/800s subset).
+The only deliberate omission is the rest of the 800s (track-unit FOREMAN role).
+
 **L0 done:** schema, validator, defs domain (12 CROR definitions), reference shell
 (search + list→detail + trust/citation chips + related-links, hash routing), rail-ops theme.
 
@@ -81,9 +88,11 @@ Gaps, by priority for when content is pulled:
 - **P2 — territory operating ✅ COMPLETE (2026-06-21):** OCS (`ocs`), CTC (`ctc`), ABS (`abs`),
   Interlocking 601–619 (`interlocking`), SCS 351–353 (`scs`). All methods of control now have
   operating rules, not just definitions.
-- **Remaining (P3 / optional):** SCT 360–361 + track-unit/track-work protection 800s, highway
-  crossings, equipment/air-brake rules, signal description 401–404, minor crew/admin gaps.
-  Consider a tag-based sub-filter in Reference now that `operating` is large (search still scopes fine).
+- **Content pull COMPLETE (conductor scope).** Done: grade crossings, GBO/DOB/TGBO + Forms,
+  general procedures, SCT, signal description 401–404, CTC 577/578, Interlocking 620, and the
+  conductor-relevant TOP/800s subset. Only the foreman-role rest of the 800s is intentionally out.
+- Tag sub-filter shipped (contextual topic chips). **Next is L5 polish** (PWA/offline, printable
+  cheat-sheets, switch-list link) and confirming the footer-train motion.
 - **P2 — territory operating (BIGGEST gap):** OCS 300–315 → CTC 560–578 → ABS 500s →
   Interlocking 600–620. We have the *definitions* of every control system but **none of the
   operating rules** for working on them.

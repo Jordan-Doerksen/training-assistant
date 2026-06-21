@@ -668,4 +668,41 @@ export const operating = [
   O('op-364', '364', 'SCT — Protection of Track Work and Operation of Track Units',
     'A foreman must hold a TOP for the protection of track work and operation of track units; Rule 41/841 is not applicable.',
     ['sct', 'protection'], ['op-360', 'op-41']),
+
+  // ----- TOP / track-work (800s) — conductor-relevant subset (foreman section otherwise) -----
+  O('op-801', '801', 'OCS Clearance in Lieu of TOP',
+    'A clearance may be issued in lieu of a TOP; the provisions of Rules 80(b), 82, 85, 302, 308.1, 311, 803(c) and 849 then apply.',
+    ['top', 'authority'], ['op-311', 'op-849']),
+
+  O('op-802', '802', 'Track Unit Speed',
+    'Unless otherwise authorized, track units must always be operated at track-unit speed.',
+    ['top'], ['op-803']),
+
+  O('op-803', '803', 'Track Unit and Track Work Authorization',
+    'How a track unit or track work is authorized to occupy track, by territory — OCS: Rule 842, TOP or clearance; CTC: Rule 842 or TOP; signalled track: Rule 842 or TOP; cautionary limits: Rule 94 (track units) / Rules 841, 842 or TOP (track work); non-main track: Rule 841 (or Rule 105(c)/known-clear, TOP where SCT applies, or other specified protection); where kicking is permitted (113.5(a)), the track must be protected by Rule 841(c)(i) or (iii). When no longer required, the foreman promptly cancels or removes the protection and advises the person responsible for the track. Before removal, cancellation or expiry — or before instructing a movement — the foreman must ensure (unless otherwise protected) the track is safe for normal-speed movement and that the employees/track units under their charge are clear.',
+    ['top', 'track-work', 'authority'], ['op-94', 'op-802', 'sw-113-5']),
+
+  O('op-849', '849', 'Before Issuing TOP Authority',
+    'Before issuing TOP authority, the RTC must ensure there is no conflicting movement within, or authorized to enter, the TOP limits unless it has been restricted under Rule 311/567.1/567.2/618/618.1, and — in CTC and controlled interlockings — block at Stop all devices controlling signals governing entry into the limits, maintaining that blocking until the TOP is cancelled to the foreman.',
+    ['top', 'authority', 'protection'], ['op-311', 'op-567-1', 'op-618']),
+
+  O('op-850', '850', 'Same or Overlapping TOP Limits',
+    'The RTC must not authorize a movement to enter overlapping TOP limits.',
+    ['top', 'authority'], ['op-849']),
+
+  O('op-851', '851', 'TOP Authority Within Cautionary Limits',
+    'A TOP must not be issued to apply within cautionary limits where movements operate that the RTC cannot control. The RTC must not authorize a movement to the cautionary-limit sign while a TOP is in effect within those limits.',
+    ['top', 'authority', 'protection'], ['op-94', 'op-849']),
+
+  O('op-852', '852', 'TOP Encompassing Controlled Locations',
+    'When a TOP authorizes occupying a track within a controlled location, the authority includes any track within the controlled location that connects to it — but only to a point on the connecting track where occupancy would require separate TOP authority.',
+    ['top', 'authority'], ['op-849']),
+
+  O('op-853', '853', 'TOP Remains in Effect',
+    'A TOP, once in effect, continues until superseded or cancelled.',
+    ['top', 'authority'], ['op-864']),
+
+  O('op-864', '864', 'TOP Cancellation',
+    'The foreman advises the RTC of the TOP number to cancel; the RTC states the TOP number and limits, which the foreman acknowledges as correct; the RTC states the TOP number, "cancelled" and the RTC initials, which the foreman repeats; the cancellation takes effect only once correctly repeated and acknowledged by the foreman.',
+    ['top', 'authority'], ['op-853', 'op-849']),
 ];
