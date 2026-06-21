@@ -6,6 +6,19 @@
 import { initRouter, route } from './router.js';
 import { search } from './search.js';
 import { renderList, refState } from './reference.js';
+import { startGuideTour } from './guide.js';
+
+function firstRunNudge() {
+  let seen = false;
+  try { seen = !!localStorage.getItem('cror-seen-guide'); } catch { /* ignore */ }
+  if (seen) return;
+  const bar = document.getElementById('firstrun');
+  if (!bar) return;
+  bar.hidden = false;
+  const close = () => { bar.hidden = true; try { localStorage.setItem('cror-seen-guide', '1'); } catch { /* ignore */ } };
+  document.getElementById('fr-dismiss').onclick = close;
+  document.getElementById('fr-tour').onclick = () => { close(); startGuideTour(); };
+}
 
 function boot() {
   const q = document.getElementById('q');
@@ -31,6 +44,7 @@ function boot() {
     if (e.key === '/' && document.activeElement !== q) { e.preventDefault(); q.focus(); q.select(); }
   });
   initRouter();
+  firstRunNudge();
 }
 
 if (document.readyState === 'loading') addEventListener('DOMContentLoaded', boot); else boot();

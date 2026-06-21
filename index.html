@@ -15,10 +15,19 @@
       <a class="navlink" data-nav="study" href="#/study">Study</a>
       <a class="navlink" data-nav="drills" href="#/drills">Drills</a>
       <a class="navlink" data-nav="progress" href="#/progress">Progress</a>
+      <a class="navlink" data-nav="guide" href="#/guide">Guide</a>
     </nav>
     <input id="q" type="search" placeholder="Search rules, signals, definitions…   ( press / )" autocomplete="off" spellcheck="false" aria-label="Search" />
     <span class="hint">Jan 2025 CROR · cited</span>
   </header>
+
+  <div id="firstrun" class="firstrun" hidden>
+    <span class="fr-text"><b>New here?</b> Take a 1-minute tour of how to actually study with this.</span>
+    <span class="fr-actions">
+      <button id="fr-tour" class="dbtn dbtn-go" type="button">Take the tour</button>
+      <button id="fr-dismiss" class="fr-x" type="button" aria-label="Dismiss">Not now</button>
+    </span>
+  </div>
 
   <main id="view" class="view" aria-live="polite"></main>
 

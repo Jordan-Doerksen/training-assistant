@@ -1,6 +1,6 @@
 # HANDOFF — training-assistant
 
-_Last updated: 2026-06-21 (L4 adaptive study + exam)_ · **This is the working source of truth.** Read it before
+_Last updated: 2026-06-21 (in-app Guide + tour)_ · **This is the working source of truth.** Read it before
 building; update it the same session after any meaningful change (then bump the date).
 A stale source of truth is worse than none.
 
@@ -60,8 +60,15 @@ Static site, no build step.
 - Mock exam: 30 auto-graded Qs (MCQ + rule-number), coverage-balanced, no peeking, 80%
   PASS banner + review report. Drills `runEntries` powers both; results reschedule next time.
 
+**Guide done — in-app teaching** (`js/guide.js` route `#/guide` + `js/tour.js`):
+- Teaches the WORKFLOW (the 4-mode loop), not the rules — so it stays true as content grows
+  (entry count is read live). Worked "a week with the assistant" example w/ deep links, 3 tips.
+- Interactive tour spotlights the real UI via stable hooks; dismissible first-run nudge
+  (`cror-seen-guide`). **Guide is the 5th nav tab** (Reference/Study/Drills/Progress/Guide).
+- Stays valid as long as no NEW study *mode* is added (content + polish are additive).
+
 ## 4. Roadmap (next)
-- **L0–L4 done + deployed** (live at jordan-doerksen.github.io/training-assistant/).
+- **L0–L4 + Guide done + deployed** (live at jordan-doerksen.github.io/training-assistant/).
 - **L5 — polish:** PWA/offline (works with no signal), printable cheat-sheets, a switch-list
   cross-link. A signal-aspect-ID drill format is a small additive follow-on.
 - Then L3 progress/gaps · L4 adaptive study-next + recert mode · L5 polish.

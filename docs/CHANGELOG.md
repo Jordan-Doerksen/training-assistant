@@ -2,6 +2,18 @@
 
 Phase log, newest first.
 
+## Guide / onboarding — 2026-06-21
+- **Guide tab** (`js/guide.js`, route `#/guide`) — teaches the *workflow*, not the rules:
+  the 4-mode learning loop (Reference → Drills → Study → Exam), a worked "a week with the
+  assistant" example with deep-link buttons into each mode, and three habit tips. Entry count
+  is read live ("149 cited entries and growing") so growing the content can't make it stale.
+- **Interactive tour** (`js/tour.js`) — a "Take the 1-minute tour" walkthrough that navigates
+  the real UI and spotlights each mode, built against STABLE hooks (nav `data-nav`, button
+  data-attrs) so cosmetic changes degrade gracefully instead of breaking it.
+- **First-run nudge** — a dismissible "New here? Take the tour" banner on first visit
+  (localStorage `cror-seen-guide`); taking or dismissing it sets the flag.
+- Designed to stay true as the system grows: it teaches the loop, and content is additive.
+
 ## L4 (adaptive study + exam mode) — 2026-06-21
 - **Spaced-repetition scheduler** (`js/progress.js`) — each Leitner box gets a wait
   (box0 now · box1 1d · box2 3d · box3 7d · box4 14d · box5 30d); a seen entry is "due" once
