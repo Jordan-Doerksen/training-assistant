@@ -13,6 +13,13 @@ function boot() {
     const chip = e.target.closest('[data-domain]');
     if (chip) { e.preventDefault(); refState.domain = chip.getAttribute('data-domain'); route(); }
   });
+  // clicking a link to the hash you're already on (e.g. the Study tab while a
+  // study/exam session is showing) won't fire hashchange — force a re-render so
+  // it returns to that view's home instead of doing nothing.
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest('a[href^="#"]');
+    if (a && a.getAttribute('href') === (location.hash || '#/')) route();
+  });
   q.addEventListener('input', () => {
     if (location.hash && location.hash !== '#/' && location.hash !== '#') {
       location.hash = '#/';                                  // leave a detail view; router re-renders the list using q

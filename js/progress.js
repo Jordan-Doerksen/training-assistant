@@ -10,6 +10,9 @@ import { all } from './data.js';
 
 const KEY = 'cror-progress-v1';
 const MAX_BOX = 5;
+const DAY = 86400000;
+const INTERVALS = [0, 1 * DAY, 3 * DAY, 7 * DAY, 14 * DAY, 30 * DAY];  // wait per Leitner box
+const shuffle = (a) => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
 
 let store = load();
 function load() { try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch { return {}; } }
@@ -92,3 +95,47 @@ export function weakSpots(n = 5) {
     .slice(0, n);
 }
 export function hasData() { return Object.keys(store).length > 0; }
+
+// ----- spaced repetition (L4) -----
+// A seen entry is "due" once it has waited the interval for its box. Unseen
+// entries are "new" (available to introduce, counted separately from due).
+export function isDue(id) {
+  const r = store[id];
+  if (!r || !r.seen) return false;
+  return Date.now() - r.last >= INTERVALS[Math.min(r.box, MAX_BOX)];
+}
+export function dueAt(id) {
+  const r = store[id];
+  if (!r || !r.seen) return Infinity;
+  return r.last + INTERVALS[Math.min(r.box, MAX_BOX)];
+}
+
+export function studyStats() {
+  const entries = all();
+  let due = 0, fresh = 0, learning = 0, soonest = Infinity;
+  for (const e of entries) {
+    const r = store[e.id];
+    if (!r || !r.seen) { fresh++; continue; }
+    if (isDue(e.id)) due++;
+    else soonest = Math.min(soonest, dueAt(e.id));
+    if (r.box > 0 && r.box < MAX_BOX) learning++;
+  }
+  return { due, fresh, learning, soonest, total: entries.length };
+}
+
+// the adaptive session: everything due (most overdue first), then a capped
+// number of new entries to introduce, topped up by weakest if still short.
+export function studyQueue(limit = 15, maxNew = 8) {
+  const entries = all();
+  const due = entries.filter((e) => isDue(e.id)).sort((a, b) => dueAt(a.id) - dueAt(b.id));
+  const fresh = shuffle(entries.filter((e) => !store[e.id]?.seen));
+  const out = [];
+  for (const e of due) { if (out.length >= limit) break; out.push(e); }
+  let added = 0;
+  for (const e of fresh) { if (out.length >= limit || added >= maxNew) break; out.push(e); added++; }
+  if (out.length < limit) {
+    const seen = new Set(out);
+    for (const e of orderByWeakness(entries.filter((x) => !seen.has(x)))) { if (out.length >= limit) break; out.push(e); }
+  }
+  return out;
+}

@@ -201,4 +201,21 @@ a { color: inherit; text-decoration: none; }
 .pg-tally { font: 12px/1 var(--mono); color: var(--muted); margin-left: auto; }
 .related a .pg-tally + .card-ref { margin-left: 12px; }
 
+/* ---- study dashboard ---- */
+.study-counts { display: flex; gap: 12px; margin: 22px 0 24px; flex-wrap: wrap; }
+.sc-cell { flex: 1; min-width: 96px; display: flex; flex-direction: column; gap: 4px; padding: 16px; background: var(--card); border: 1px solid var(--line); border-radius: 10px; box-shadow: var(--shadow); }
+.sc-n { font: 800 2rem/1 var(--mono); }
+.sc-l { font: 12px/1 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.sc-due { border-left: 3px solid var(--rail); } .sc-due .sc-n { color: var(--rail); }
+.sc-new { border-left: 3px solid var(--rule); } .sc-new .sc-n { color: var(--rule); }
+a.dbtn { display: inline-flex; align-items: center; text-decoration: none; }
+.study-exam-note { margin-top: 20px; padding: 12px 14px; background: #f4f2ec; border: 1px solid var(--line); border-radius: 8px; font-size: .92rem; color: var(--muted); line-height: 1.5; }
+.study-exam-note b { color: var(--ink); }
+
+/* ---- exam result banner ---- */
+.exam-result { display: flex; align-items: baseline; gap: 12px; font: 800 1.6rem/1 var(--sans); letter-spacing: .04em; padding: 14px 18px; border-radius: 10px; margin-bottom: 6px; }
+.exam-result span { font: 12px/1 var(--mono); letter-spacing: .06em; text-transform: uppercase; opacity: .85; }
+.exam-result.is-pass { background: #f0f7f2; color: var(--sme); border: 1px solid #bfe0cd; }
+.exam-result.is-fail { background: #fbf0ef; color: var(--rail); border: 1px solid #ecd0cc; }
+
 @media (prefers-reduced-motion: reduce) { .card, .fchip, .dchip, .dbtn, .q-opt, .drill-bar span, .pg-bar span { transition: none; } }

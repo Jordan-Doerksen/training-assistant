@@ -2,6 +2,20 @@
 
 Phase log, newest first.
 
+## L4 (adaptive study + exam mode) — 2026-06-21
+- **Spaced-repetition scheduler** (`js/progress.js`) — each Leitner box gets a wait
+  (box0 now · box1 1d · box2 3d · box3 7d · box4 14d · box5 30d); a seen entry is "due" once
+  it has waited its box's interval. `studyStats()` (due / new / in-rotation) and
+  `studyQueue()` (everything due, most-overdue first, + capped new, topped up by weakest).
+- **Study dashboard** (`js/study.js`, route `#/study`, new home tab) — due/new/in-rotation
+  counts + a one-tap **Study now** that builds the ideal mix, and a **Mock exam**.
+- **Mock exam** — 30 auto-graded questions (MCQ + rule-number only — no self-graded
+  flashcards), coverage-balanced across every domain, no running score (no peeking), and a
+  scored report with an 80% **PASS / NOT YET** banner + what to review.
+- Drills runner generalized (`runEntries`) so study/exam sessions reuse it; results still
+  write to the scheduler, so each session reschedules the next. Fix: a link to the hash
+  you're already on (e.g. the Study tab mid-session) now re-renders instead of doing nothing.
+
 ## L3 (progress + gaps) — 2026-06-21
 - **Progress model** (`js/progress.js`) — drill results persist to `localStorage`
   (`cror-progress-v1`) with a **Leitner box per entry** (0 new/missed … 5 mastered): a

@@ -23,7 +23,9 @@ const state = {
   formats: new Set(['flashcard', 'mcq', 'rulenum']),
   domain: 'all', tag: 'all', count: 10, focus: false,
   queue: [], i: 0, results: [], revealed: false, picked: null,
+  mode: 'manual', exam: false, label: '',           // mode: manual | study | exam
 };
+const PASS = 0.8;
 
 let host = null;
 
@@ -71,8 +73,22 @@ function build() {
   if (!formats.length) formats.push('flashcard');
   const src = state.focus ? orderByWeakness(pool()) : shuffle(pool());
   const take = state.count === 0 ? src.length : Math.min(state.count, src.length);
+  state.mode = 'manual'; state.exam = false; state.label = '';
   state.queue = src.slice(0, take).map((e) => makeQuestion(e, formats));
   state.i = 0; state.results = []; state.revealed = false; state.picked = null;
+}
+
+// build + start a session from an externally chosen entry list (study / exam).
+export function runEntries(view, entries, opts = {}) {
+  host = view;
+  const formats = opts.formats || ['flashcard', 'mcq', 'rulenum'];
+  state.mode = opts.mode || 'study';
+  state.exam = !!opts.exam;
+  state.label = opts.label || '';
+  state.queue = entries.map((e) => makeQuestion(e, formats));
+  state.i = 0; state.results = []; state.revealed = false; state.picked = null;
+  state.screen = entries.length ? 'run' : 'setup';
+  render();
 }
 
 // ----- rendering -----
@@ -149,11 +165,14 @@ function setupHTML() {
 
 function runHTML() {
   const q = state.queue[state.i];
+  const backLink = state.mode === 'manual'
+    ? `<a class="back" href="#/drills" data-quit>← drills</a>`
+    : `<a class="back" href="#/study">← ${esc(state.label || 'study')}</a>`;
   const head = `
     <div class="drill-top">
-      <a class="back" href="#/drills" data-quit>← drills</a>
+      ${backLink}
       <div class="drill-prog"><span>${state.i + 1} / ${state.queue.length}</span>
-        <span class="drill-score">${state.results.filter((r) => r.correct).length} correct</span></div>
+        ${state.exam ? '' : `<span class="drill-score">${state.results.filter((r) => r.correct).length} correct</span>`}</div>
     </div>
     <div class="drill-bar"><span style="width:${(state.i / state.queue.length) * 100}%"></span></div>`;
 
@@ -197,19 +216,25 @@ function doneHTML() {
   const total = state.results.length;
   const pct = total ? Math.round((correct / total) * 100) : 0;
   const missed = state.results.filter((r) => !r.correct).map((r) => get(r.id)).filter(Boolean);
+  const passed = pct >= PASS * 100;
+  const banner = state.exam
+    ? `<div class="exam-result ${passed ? 'is-pass' : 'is-fail'}">${passed ? 'PASS' : 'NOT YET'}
+         <span>${Math.round(PASS * 100)}% to pass</span></div>`
+    : '';
+  const buttons = state.mode === 'manual'
+    ? `<button class="dbtn dbtn-go" data-again>Run again</button><button class="dbtn" data-new>New quiz</button>`
+    : `<a class="dbtn dbtn-go" href="#/study">Back to study</a>`;
   return `
     <div class="drill-done">
+      ${banner}
       <h1 class="drill-h">${correct} / ${total}</h1>
-      <p class="drill-tag">${pct}% · ${pct >= 80 ? 'sharp.' : pct >= 50 ? 'getting there.' : 'worth another pass.'}</p>
+      <p class="drill-tag">${pct}% · ${state.exam ? (passed ? 'ready.' : 'keep drilling the gaps below.') : (pct >= 80 ? 'sharp.' : pct >= 50 ? 'getting there.' : 'worth another pass.')}</p>
       ${missed.length ? `
         <section class="related">
           <h2>Review these (${missed.length})</h2>
           <ul>${missed.map((e) => `<li><a href="#/e/${encodeURIComponent(e.id)}"><span>${esc(e.title)}</span><span class="card-ref">${esc(e.ref)}</span></a></li>`).join('')}</ul>
         </section>` : `<p class="drill-clean">No misses. Nothing to review.</p>`}
-      <div class="ds-start">
-        <button class="dbtn dbtn-go" data-again>Run again</button>
-        <button class="dbtn" data-new>New quiz</button>
-      </div>
+      <div class="ds-start">${buttons}</div>
     </div>`;
 }
 

@@ -1,6 +1,6 @@
 # HANDOFF — training-assistant
 
-_Last updated: 2026-06-21 (L3 progress added)_ · **This is the working source of truth.** Read it before
+_Last updated: 2026-06-21 (L4 adaptive study + exam)_ · **This is the working source of truth.** Read it before
 building; update it the same session after any meaningful change (then bump the date).
 A stale source of truth is worse than none.
 
@@ -54,12 +54,16 @@ Static site, no build step.
 - Progress page: overall mastery, bucket pills, per-domain bars, weakest entries (linked),
   Reset. Drills write to it and gained a **Focus weak spots** order + a setup "missing" panel.
 
+**L4 done — adaptive study + exam** (`js/study.js` + scheduler in `js/progress.js`, route `#/study`):
+- Spaced repetition: box intervals (0/1/3/7/14/30 d); `studyQueue` = due (most overdue) +
+  capped new + weakest top-up. Study dashboard: due/new/in-rotation + one-tap Study now.
+- Mock exam: 30 auto-graded Qs (MCQ + rule-number), coverage-balanced, no peeking, 80%
+  PASS banner + review report. Drills `runEntries` powers both; results reschedule next time.
+
 ## 4. Roadmap (next)
-- **L0–L3 done.** Content + drills + progress all shipped. Remaining content/format additions
-  are additive (e.g. a signal-aspect-ID drill format).
-- **L4 — adaptive "study next" + recert mode:** schedule off the Leitner boxes (spaced
-  repetition / due-today), and a focused interview/recert prep flow.
-- **L5 — polish:** PWA/offline, printable cheat-sheets, switch-list link, Observatory spoke.
+- **L0–L4 done + deployed** (live at jordan-doerksen.github.io/training-assistant/).
+- **L5 — polish:** PWA/offline (works with no signal), printable cheat-sheets, a switch-list
+  cross-link. A signal-aspect-ID drill format is a small additive follow-on.
 - Then L3 progress/gaps · L4 adaptive study-next + recert mode · L5 polish.
 - **L2** drills (derived) · **L3** progress/gaps · **L4** adaptive "study next" + recert prep ·
   **L5** polish (PWA, cheat-sheets, switch-list link, Observatory spoke).
