@@ -137,6 +137,14 @@ export const operating = [
     ['inspection', 'crew']),
 
   // ----- radio / communication -----
+  O('op-120', '120', 'Radio Terms',
+    'In radio communication: "STAND BY" — monitor this channel for my next transmission; "OVER" — transmission ended and a response is expected; "OUT" — transmission ended and no response expected. (Optional) Except for switching, when a transmission is complete and a response is expected or required, the transmitting employee ends it with the spoken word "OVER".',
+    ['radio', 'comms'], ['op-121', 'op-122']),
+
+  O('op-121', '121', 'Positive Identification',
+    'The person initiating a radio communication and the responding party must establish positive identification; the initial call commences with the railway-company initials of the person being called (a non-railway person on company channels uses their company name in the initial transmission). The initiator ends the initial call with "OVER"; each party ends their final transmission with "OUT". When requesting an authority from the RTC or signalman, the communication must include the information needed to issue it — e.g. name, location, movement designation, required limits, signal number and/or track(s) to be used or entered.',
+    ['radio', 'comms'], ['op-120', 'op-123', 'def-rtc']),
+
   O('op-122', '122', 'Content of Radio Communications',
     'Radio communications must be brief and to the point and contain only essential instructions or information.',
     ['radio', 'comms']),
@@ -160,6 +168,22 @@ export const operating = [
   O('op-126', '126', 'Restricted Use of Radio',
     'In addition to the restrictions in Rules 14 and 602, radio must NOT be used to: give advance information about the indication of a block or interlocking signal; or give information that may influence a crew to consider speed restrictions are diminished.',
     ['radio', 'signals', 'comms'], ['op-122']),
+
+  O('op-127', '127', 'Conducting Emergency Radio Test',
+    'To keep emergency channels working and crews familiar with the procedure, the RTC may direct a crew member (or an engineering field employee) to initiate an emergency test call on the RTC channel. Tests are made randomly; the employee initiates it on the applicable RTC channel, e.g. "Emergency test, Emergency test, Emergency test. ABC 1234 East at mile 12 Canada Sub, testing the Emergency call." The RTC then reports whether the test succeeded, and employees return to their designated standby channel.',
+    ['radio', 'emergency', 'comms'], ['op-125', 'def-rtc']),
+
+  O('op-137', '137', 'Foreman\'s Instructions',
+    'Instructions from a foreman must be in writing, except when the instructions permit unrestricted operation through the entire limits.',
+    ['crew', 'bulletins', 'protection'], ['op-138', 'op-153', 'def-foreman']),
+
+  O('op-138', '138', 'Foreman\'s Instructions (Optional)',
+    'Optional variant of Rule 137 where so designated: instructions from a foreman must be in writing (no exception).',
+    ['crew', 'bulletins', 'protection'], ['op-137', 'def-foreman']),
+
+  O('op-153', '153', 'Confirmation to a Foreman',
+    'Confirmation of protection must not be given to a foreman until all affected movements have received a copy of the GBO or are otherwise secured.',
+    ['crew', 'bulletins', 'protection'], ['op-137', 'def-gbo', 'def-foreman']),
 
   O('op-142', '142', 'Understanding Between Crew Members',
     'Every conductor, locomotive engineer, pilot and snow plow foreman must read and properly understand all GBO and clearances as soon as possible after receiving them, and make them available to other crew members so each has read and understands them (and any protection arrangements). Crew members within physical hearing range must remind one another of GBO/clearance restrictions in sufficient time to ensure compliance.',

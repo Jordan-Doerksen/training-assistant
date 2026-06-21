@@ -2,6 +2,13 @@
 
 Phase log, newest first.
 
+## Content pull: Radio / foreman comms — 2026-06-21
+- **Communication block completed** (`content/operating.js`, +6) — 120 Radio Terms,
+  121 Positive Identification, 127 Conducting Emergency Radio Test, 137 Foreman's
+  Instructions, 138 Foreman's Instructions (Optional), 153 Confirmation to a Foreman.
+  (122/123/123.1/123.2/125/126 + 142/147 already present; no rule 124 exists.) Cited +
+  cross-linked. **171 entries, validator green.**
+
 ## Content pull: Track-work protection — 2026-06-21
 - **Protection of Track Work & Track Conditions completed** (`content/operating.js`, +5) —
   added 40 General, 42 Planned Protection, 43 Slow Track Protection, 44 Unusual Track Signal
