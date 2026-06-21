@@ -273,3 +273,26 @@ a.dbtn { display: inline-flex; align-items: center; text-decoration: none; }
 .tour-next.dbtn-go { background: var(--rail); color: #fff; border-color: #000; }
 
 @media (prefers-reduced-motion: reduce) { .card, .fchip, .dchip, .dbtn, .q-opt, .drill-bar span, .pg-bar span, .tour-spot { transition: none; } }
+
+/* ---- cheat-sheet: print button + print-only header ---- */
+.list-top { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+.print-btn { font: 600 12px/1 var(--mono); color: var(--muted); background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 7px 11px; cursor: pointer; white-space: nowrap; transition: border-color .12s, color .12s; }
+.print-btn:hover { border-color: var(--rail); color: var(--rail); }
+.print-head { display: none; }
+
+/* ---- print: compact cheat-sheet of the current selection ---- */
+@media print {
+  .topbar, .foot, #firstrun, .filters, .subfilters, .list-top, .print-btn, .back, .empty, .tags, .card-head .chip { display: none !important; }
+  html, body { background: #fff !important; color: #000 !important; }
+  body { font-size: 10pt; }
+  .view { max-width: none; margin: 0; padding: 0; }
+  .print-head { display: block; font: 700 11pt/1.3 var(--sans); border-bottom: 1.5pt solid #000; padding-bottom: 4pt; margin-bottom: 8pt; }
+  .list { display: block; column-count: 2; column-gap: 16pt; margin: 0; }
+  .card { break-inside: avoid; border: none !important; box-shadow: none !important; background: none !important; border-left: none !important; padding: 0 0 6pt; margin: 0 0 6pt; border-radius: 0; transform: none !important; }
+  .card-head { display: block; }
+  .card-title { font-size: 10.5pt; font-weight: 700; }
+  .card-ref { font: 8.5pt var(--mono); color: #000 !important; }
+  .card-body { font-size: 9pt; color: #222 !important; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  a { color: #000 !important; text-decoration: none !important; }
+  @page { margin: 12mm; }
+}

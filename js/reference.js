@@ -90,9 +90,16 @@ export function renderList(view, results, q) {
   if (refState.domain !== 'all') results = results.filter((e) => e.domain === refState.domain);
   const tt = refState.domain !== 'all' && refState.topic !== 'all' ? topicTags(refState.domain, refState.topic) : null;
   if (tt) results = results.filter((e) => (e.tags || []).some((x) => tt.includes(x)));
+  const scope = refState.domain === 'all' ? 'All entries'
+    : DOMAIN_LABEL[refState.domain] + (refState.topic !== 'all'
+      ? ' · ' + ((TOPICS[refState.domain] || []).find((t) => t.key === refState.topic)?.label || '') : '');
   view.innerHTML = `
     ${filterBar()}
-    <p class="count">${results.length} ${results.length === 1 ? 'entry' : 'entries'}${q ? ` · “${esc(q)}”` : ''}</p>
+    <div class="list-top">
+      <p class="count">${results.length} ${results.length === 1 ? 'entry' : 'entries'}${q ? ` · “${esc(q)}”` : ''}</p>
+      ${results.length ? `<button class="print-btn" data-print title="Print this selection as a cheat-sheet">⎙ Print cheat-sheet</button>` : ''}
+    </div>
+    <div class="print-head">CROR cheat-sheet — ${esc(scope)}${q ? ` · “${esc(q)}”` : ''} · ${results.length} ${results.length === 1 ? 'entry' : 'entries'} · study aid, not the official rulebook</div>
     <ul class="list">${results.map((e) => `
       <li><a class="card" href="#/e/${encodeURIComponent(e.id)}">
         <span class="card-head"><span class="card-title">${esc(e.title)}</span>${chip(e)}</span>

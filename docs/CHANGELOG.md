@@ -2,6 +2,13 @@
 
 Phase log, newest first.
 
+## L5: printable cheat-sheets — 2026-06-21
+- **Print what you've filtered** (`js/reference.js` + print CSS) — a "⎙ Print cheat-sheet" button
+  on the reference list prints the current domain/topic/search selection as a clean, compact
+  two-column sheet (title + citation + a 3-line gist), no nav/chrome, with a scope+disclaimer
+  header line. Build any cheat-sheet by filtering first (e.g. Operating → Control systems → Print).
+  Screen-verified (button + dynamic scope label); printed layout is a `@media print` stylesheet.
+
 ## Content pull COMPLETE (conductor scope) — 2026-06-21
 The remaining CROR operating content, pulled in four batches (250 → 305 entries):
 - **A (+9):** grade crossings 103/103.1, passenger stops 107, inspection 111, radio 117/118/119;

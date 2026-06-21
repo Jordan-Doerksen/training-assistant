@@ -23,6 +23,7 @@ function firstRunNudge() {
 function boot() {
   const q = document.getElementById('q');
   document.getElementById('view').addEventListener('click', (e) => {   // filter chips
+    if (e.target.closest('[data-print]')) { e.preventDefault(); window.print(); return; }
     const topic = e.target.closest('[data-topic]');
     if (topic) { e.preventDefault(); refState.topic = topic.getAttribute('data-topic'); route(); return; }
     const chip = e.target.closest('[data-domain]');
