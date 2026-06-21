@@ -2,6 +2,13 @@
 
 Phase log, newest first.
 
+## Content pull: Track-work protection — 2026-06-21
+- **Protection of Track Work & Track Conditions completed** (`content/operating.js`, +5) —
+  added 40 General, 42 Planned Protection, 43 Slow Track Protection, 44 Unusual Track Signal
+  Conditions, 45 Signal Placement Multi-Track (41 was already present). Form Y / Form V
+  handling, the 30-minute Rule 42 window, and the yellow/green field-signal scheme, all cited
+  + cross-linked. **165 entries, validator green.**
+
 ## Content pull: General Rules — 2026-06-21
 - **General Rules section completed** (`content/operating.js`, +11) — added the missing
   CROR General Rules: 1 Time, 2 Watches, 3 Time in Effect, 4 Notice of Time Change,

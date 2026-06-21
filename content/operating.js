@@ -95,9 +95,29 @@ export const operating = [
     'On a subdivision specified in special instructions where maximum speed is not greater than 30 MPH, the "at least two miles" distance in Rules 35, 42/842 and 43/843 is decreased to at least one mile.',
     ['emergency', 'flagging'], ['op-35']),
 
+  O('op-40', '40', 'Track Work Protection — General',
+    'Special instructions specify when Rules 42/842, 43/843 and 849 apply on non-main track. Where time-table footnotes or special instructions designate that TGBO and/or DOB apply on a non-main track, protection of track work and track conditions may be provided as prescribed by Rules 42/842 and 43/843.',
+    ['protection', 'track', 'bulletins'], ['op-41', 'op-42', 'op-43']),
+
   O('op-41', '41', 'Protection of Track Work — Non-Main Track & Cautionary Limits',
     'A movement required to operate on a track protected by a red signal between the rails, or a switch locked with a special lock, must STOP before passing it and be governed by any instructions from the foreman. Only the foreman (or an employee authorized by the foreman) may remove the red signal and/or special lock. (Not applicable on main tracks outside cautionary limits, signalled sidings/other signalled tracks, or tracks specified in special instructions.)',
     ['protection', 'track'], ['def-cautionary-limits', 'def-foreman']),
+
+  O('op-42', '42', 'Planned Protection',
+    'Rule 42 signals must not be in place more than 30 minutes before or after the times stated in the GBO unless the GBO provides otherwise. A movement holding the Form Y must not pass the red signal at the identifiable location stated in the GBO, enter the GBO track limits, or make a reverse movement within those limits until it receives instructions from the foreman named in the GBO (when a specific track is involved, the foreman\'s instructions must specify which track). Those instructions must be repeated to and acknowledged by that foreman before being acted upon. Where a signalled turnout is within two miles of Rule 42 protection that doesn\'t apply on all tracks, every movement must approach prepared to comply with Rule 42 until the route is known.',
+    ['protection', 'flagging', 'bulletins'], ['op-40', 'op-44', 'def-gbo', 'def-foreman']),
+
+  O('op-43', '43', 'Slow Track Protection',
+    'Form V GBO slow-track protection is marked in the field by: (i) a YELLOW signal to the right of the track at least two miles out in each direction from the outermost GBO limits, and (ii) a GREEN signal to the right of the track in each direction immediately beyond the defect. A single mile-point restriction uses one green (either side); abutting limits within one GBO use a single green to each side per restriction. If signal placement is delayed, the Form V carries "Signals may not be in place." A movement must not exceed the GBO speed while at or between opposing green signals. Where a signalled turnout is within two miles of a restriction that doesn\'t apply on all tracks, approach prepared to comply until the route is known.',
+    ['protection', 'speed', 'flagging', 'bulletins'], ['op-40', 'op-44', 'def-gbo']),
+
+  O('op-44', '44', 'Unusual Track Signal Conditions',
+    'Handling missing or unexpected Rule 42/43 signals. (a) If a Rule 42 signal is absent between the Form Y times, proceed as though it is properly placed and tell the RTC as quickly as possible. (b) Within the 30-minute window of Rule 42(a): a yellow-over-red may be passed on the named foreman\'s instructions (if the foreman can\'t be reached, be prepared to stop at a red, and advise the RTC if no red is found at the GBO location); a red signal means STOP unless the foreman authorizes proceeding (if unreachable, contact the RTC and be governed by instructions). A yellow-over-red or red encountered OUTSIDE the 30-minute window — or without holding a Form Y requiring it — means STOP, then contact the RTC. (c) A movement inside Form Y limits when protection takes effect must stop unless the foreman instructs otherwise. (d) If a Rule 43 signal is missing, be governed by the Form V and tell the RTC ASAP. (e) A yellow or green signal with no GBO requiring it → reduce to 10 MPH and contact the RTC. The RTC may authorize normal speed where the TGBO/DOB system and the engineering supervisor confirm Rule 42/43 is not in effect; engineering arranges signal removal (which may include the crew picking them up).',
+    ['protection', 'signals', 'bulletins'], ['op-42', 'op-43', 'def-rtc']),
+
+  O('op-45', '45', 'Signal Placement — Multi-Track',
+    'Except on a subdivision designated in special instructions, the signals required by Rules 42/842 and 43/843 must be placed to the outside of the outermost track(s), not between the main tracks.',
+    ['protection', 'signals'], ['op-42', 'op-43']),
 
   // ----- crew / movement -----
   O('op-106', '106', 'Crew Responsibilities',
