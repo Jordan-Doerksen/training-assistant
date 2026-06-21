@@ -192,10 +192,22 @@ export const operating = [
     'A crew stopping from an emergency brake application or other abnormal condition that may obstruct an adjacent main track must: immediately broadcast on the standby channel — "EMERGENCY, EMERGENCY, EMERGENCY, (movement) on (designated track), stopped (stopping) in emergency between mile __ and mile __ (subdivision)"; as soon as possible advise the RTC of the emergency-stop location, indicating whether adjacent tracks (including other railways) are liable to be obstructed; and repeat the broadcast at intervals not exceeding 90 seconds until the RTC advises that all affected movements have been secured, stopped, or advised, or it is known the adjacent tracks are safe and clear.',
     ['protection', 'emergency', 'radio'], ['op-35', 'op-101', 'op-125']),
 
+  O('op-103', '103', 'Grade Crossings',
+    'Grade crossings with missing/damaged crossing signs, automatic warning devices not operating as intended, or external-power-off lights extinguished or flashing must be reported by the quickest means to the RTC (or the employee responsible for the track). The crossing is then protected (RTC blocking, or instructing affected movements to apply Rule 103(g)) and the repair authority notified. Where the leading equipment has no whistle and headlight, manual protection is required before occupying a public crossing (at one with automatic warning devices, unless a crew member on the leading equipment can warn people). On shared road/rail roadbed with no barrier, cars not headed by an engine (or headed by an RCO engine) need a crew member on the leading car or ground to warn people. Don\'t leave equipment standing within 100 ft of the travelled portion of a crossing (except for loading/unloading). Manual protection (103(g)): before occupying, a crew member is on the ground ahead displaying a hand stop signal (light or fusee at night) to hold traffic, and the movement doesn\'t enter until that employee instructs — unless the crossing is known clear and will stay clear until occupied. Crew members must NOT signal road or pedestrian traffic to proceed over a crossing.',
+    ['crossings', 'protection', 'movement'], ['op-103-1', 'op-13', 'op-14']),
+
+  O('op-103-1', '103.1', 'Grade Crossings With Warning Devices',
+    '"Minimum Required Time" — before occupying, the automatic warning devices must be observed operating: at least 20 seconds at crossings without gates (or longer per special instructions); at gated crossings, gates horizontal for at least 5 seconds when max speed is over 15 MPH, or simply observed horizontal at 15 MPH or less. A movement that has stopped or was switching near the crossing, is entering the main track near it, or was authorized past a stop signal within 300 ft of it must not exceed 10 MPH from 300 ft out until the crossing is fully occupied, and must not occupy it until the devices are known to have run the Minimum Required Time (for the stop-signal case, other crossings in the block: not over 15 MPH unless the time is known met). On non-main track over such a crossing, not over 10 MPH from 300 ft until fully occupied (not on subdivision track). Where special instructions require radio/pushbutton activation or stopping at signs, don\'t occupy until the time is met (pushbutton boxes closed and locked when not in use). With rusty-rail or other advisories, manually protect unless the time is known met. Don\'t increase speed by more than 5 MPH over the crossing unless the time is known met. Before reversing over an automatic-warning crossing, a crew member must manually protect it. A movement following another within 1500 ft may not properly activate the devices, so it must not obstruct the crossing until the time is known met or it is manually protected.',
+    ['crossings', 'protection', 'speed', 'movement'], ['op-103']),
+
   // ----- crew / movement -----
   O('op-106', '106', 'Crew Responsibilities',
     'All crew members are responsible for the safe operation of movements and equipment in their charge and for the observance of the rules. Under conditions not provided for by the rules, they must take every precaution for protection. A utility employee becomes a crew member when working with any movement.',
     ['crew'], ['def-conductor', 'def-employee']),
+
+  O('op-107', '107', 'Restrictions at Passenger Train Stops',
+    'Unless special instructions direct otherwise, a movement must operate with extreme care when passing alongside a train carrying passengers that is discharging or receiving traffic, and must not pass between such a train and the station or platform unless properly protected. Passengers may entrain or detrain only after positive protection has been provided against movements approaching on any main track they must cross between the station and the train.',
+    ['movement', 'protection', 'crew'], ['op-106', 'op-110']),
 
   O('op-108', '108', 'Precautions While Switching',
     'When switching is performed, crew members must take precautions to prevent unintended rollbacks and/or fouling of other tracks and equipment.',
@@ -209,7 +221,23 @@ export const operating = [
     'When duties and terrain permit, at least two crew members of a standing train/transfer position themselves on the ground on both sides to inspect passing trains/transfers (the locomotive engineer inspects the near side). Broadcast the inspection results when possible. Every effort must be made to stop a passing train/transfer if a dangerous condition is detected; a report states only the location and what was observed — never speculation as to cause.',
     ['inspection', 'crew']),
 
+  O('op-111', '111', 'Train and Transfer Inspection',
+    'The crew must know their train/transfer equipment is in good order before starting and inspect it whenever possible (equipment added en route is inspected with extra care). Crew on the rear of a moving train/transfer inspect the track behind for dragging or derailed equipment at every opportunity; all crew make frequent both-sides inspections. On completion of crew-planned inspections, and where special instructions require inspection, crew members voice-communicate the results to each other when possible. (Optional) The conductor first arriving at a meeting point arranges a walking inspection of their freight train/transfer as time and conditions permit.',
+    ['inspection', 'crew'], ['op-110', 'op-106']),
+
   // ----- radio / communication -----
+  O('op-117', '117', 'Reliability Tests',
+    'A crew with radios must carry out an intra-crew test of those radios before leaving the initial terminal, change-off or starting point. When a movement is equipped with a single radio, it must be voice-tested as soon as practicable after the crew comes on duty.',
+    ['radio', 'comms'], ['op-119', 'op-120']),
+
+  O('op-118', '118', 'Devices Used in Lieu of Radio',
+    'When a communication device is used in lieu of a radio, all radio rules apply.',
+    ['radio', 'comms'], ['op-117']),
+
+  O('op-119', '119', 'Continuous Monitoring',
+    'When not transmitting or receiving, receivers must be set to the appropriate standby channel at a volume ensuring continuous monitoring; when another channel is needed for other duties, at least one radio should — where practicable — stay on the designated standby channel for emergency communications. Keep volume at a level that avoids annoyance to the public in passenger cars and station facilities. Foremen named in a Form Y GBO, TOP or clearance must set their radio to "scan mode" when not communicating, otherwise monitoring the applicable designated standby channel.',
+    ['radio', 'comms'], ['op-117', 'op-125']),
+
   O('op-120', '120', 'Radio Terms',
     'In radio communication: "STAND BY" — monitor this channel for my next transmission; "OVER" — transmission ended and a response is expected; "OUT" — transmission ended and no response expected. (Optional) Except for switching, when a transmission is complete and a response is expected or required, the transmitting employee ends it with the spoken word "OVER".',
     ['radio', 'comms'], ['op-121', 'op-122']),

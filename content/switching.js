@@ -24,6 +24,10 @@ export const switching = [
     'A dual control switch must not be placed in hand position without permission from the RTC or signalman. To operate over one under a Stop indication (unless relieved): place the selector lever in "hand", operate the hand-throw lever until the points move in both directions, and line by hand for the route — restoring the selector to "power" and locking it only after the movement has occupied the switch points.',
     ['switch', 'switching'], ['def-switch-dual-control']),
 
+  S('sw-104-3', '104.3', 'Power-Operated Switches at a Stop Signal',
+    'When the crew of a movement is authorized to pass a stop signal to move over a power-operated switch, a crew member must observe that the switch points are lined for the authorized route.',
+    ['switch', 'signals'], ['sw-104-2', 'sw-104-4']),
+
   S('sw-104-4', '104.4', 'Semi-Automatic Switches',
     'Equipped with reflectorized targets (diamond-shaped). Movements operating in a facing-point direction must observe the position of the points in addition to the target before proceeding. After coupling to equipment at such a switch, or when reversing direction through it, a facing-point move must not be made unless one unit of equipment has trailed entirely through the switch, or it is known the points are properly lined.',
     ['switch', 'switching'], ['def-switch-semi-automatic']),
@@ -35,6 +39,10 @@ export const switching = [
   S('sw-105', '105', 'Operation on Non-Main Track',
     'Unless otherwise provided by signal indication, a movement using non-main track must operate at REDUCED speed and be prepared to stop short of the end of track or the red signal prescribed by Rule 41. Unless otherwise provided by signal indication or special instructions, movements on non-main tracks must not exceed fifteen (15) MPH. On a non-signalled siding (or other non-main tracks so designated), in addition to REDUCED speed, operate at a speed that will allow stopping within one-half the range of vision of a track unit. In CTC, movements may only enter a siding by signal indication or with RTC permission.',
     ['switching', 'speed', 'track'], ['def-spd-reduced', 'def-non-main-track']),
+
+  S('sw-105-1', '105.1', 'Equipment Left on Siding',
+    'Unless otherwise provided, the RTC must be advised before leaving equipment on a siding, and will notify other affected movements as soon as practicable. When occupied service equipment is placed on a siding, a GBO will be issued specifying its location; if the siding switches are locked with special locks, the GBO will state so.',
+    ['securing', 'track'], ['sw-105', 'def-gbo']),
 
   S('sw-112', '112', 'Securing Unattended Equipment',
     'When equipment is left unattended it must be secured to prevent it from moving unintentionally. Parking brakes count as hand brakes. Hand brakes must not be applied while equipment is being pulled or shoved. Before leaving, the employee securing it must confirm with another employee the manner in which it was secured. A single piece of equipment must always be left with the hand brake applied and tested for effectiveness; for two or more pieces, apply at least the minimum number of hand brakes from the (g) table (by total trailing tons and grade), tested for effectiveness. Equipment not connected to an air source also requires at least one additional securement method (e.g. a derail, end of rail, bowled terrain, or air brakes up to 2 hours).',
