@@ -2,6 +2,11 @@
 
 Phase log, newest first.
 
+## Content pull: ABS (Automatic Block Signal System) — 2026-06-21
+- **Full ABS section** (`content/operating.js`, +5, tag `abs`) — 505 Application, 507 Withdrawal
+  of Signals, 509 Instructions to Pass Signal Indicating Stop, 513 Entering Main Track (the
+  five-minute switch wait), 515 Delayed in the Block. Cited + cross-linked. **229 entries, green.**
+
 ## Content pull: CTC (Centralized Traffic Control) — 2026-06-21
 - **Full CTC section** (`content/operating.js`, +17, tag `ctc`) — 560 Supervision, 561 Suspended,
   563 Clearing Opposing Signals into Non-Signalled Sidings, 564 Authority to Pass Stop Signal,

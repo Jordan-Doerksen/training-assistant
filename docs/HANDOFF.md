@@ -78,9 +78,9 @@ Gaps, by priority for when content is pulled:
 - **P1 — backbone:** ✅ done (General Rules, track-work protection, comms/foreman, operation
   of movements). Minor leftovers: crew 100/103/107/111/116–119, 131/139/140/154–156 (RTC
   recording/GBO admin) if wanted.
-- **P2 — territory operating (in progress):** ~~OCS 301–315~~ ✅ (tag `ocs`), ~~CTC 560–576~~ ✅
-  (tag `ctc`, done 2026-06-21). Remaining: ABS 500s → Interlocking 600–620 (only their
-  definitions exist). Plus SCS 351–353 (short).
+- **P2 — territory operating (in progress):** ~~OCS 301–315~~ ✅ (`ocs`), ~~CTC 560–576~~ ✅
+  (`ctc`), ~~ABS 505–515~~ ✅ (`abs`, done 2026-06-21). Remaining: Interlocking 600–620
+  (`interlocking`) — last big block. Plus SCS 351–353 (short).
 - **P2 — territory operating (BIGGEST gap):** OCS 300–315 → CTC 560–578 → ABS 500s →
   Interlocking 600–620. We have the *definitions* of every control system but **none of the
   operating rules** for working on them.

@@ -407,4 +407,25 @@ export const operating = [
   O('op-576', '576', 'CTC — Switching at a Controlled Location',
     'Switching at a controlled location. (a) Preferred — by signal indication: the RTC signals the movement over the controlled location with directional signals; if it can\'t clear when done, the RTC authorizes departure by Rule 566/577 (if the first move in was under Rule 564, operate to the next signal at RESTRICTED speed; Rule 566/577 isn\'t needed where the RTC verbally authorizes pulling ahead to the next signal with no dual-control switches). (b) Switching signals — a crew member requests the switching signal for multiple moves on a route; when done, advise the RTC to cancel it (first confirm all crew are and will remain clear of its limits); if unable to clear, the RTC verbally authorizes departure then cancels the signal, and the movement proceeds to the next signal at RESTRICTED speed. (c) With 566.1/577.1 signals suspended, the movement must be authorized into the block before the authority is issued, and must advise the RTC before leaving if it can\'t clear. (d) Taking head-room — provided the trailing end stays within non-main-track territory, a movement may accept a signal to enter a controlled location for that purpose.',
     ['ctc', 'switching', 'signals'], ['op-566', 'op-566-1', 'sw-104-2']),
+
+  // ----- ABS · Automatic Block Signal System (505–515) -----
+  O('op-505', '505', 'ABS — Application',
+    'Block signals govern the use of the blocks. They do not dispense with the use or observance of other signals whenever and wherever required, and do not authorize main-track occupancy.',
+    ['abs', 'signals'], ['op-507', 'op-509']),
+
+  O('op-507', '507', 'ABS — Withdrawal of Signals',
+    'When ABS signals are withdrawn from service, movements are governed by instructions from the RTC or by special instructions.',
+    ['abs'], ['op-505', 'def-rtc']),
+
+  O('op-509', '509', 'ABS — Instructions to Pass Signal Indicating Stop',
+    'A movement must have RTC instructions to pass a block signal indicating Stop; if stopped at it with no conflicting movement evident, a crew member must immediately contact the RTC. (Exception: not required to re-enter a block occupied by a portion of the same movement, but proceed at REDUCED speed.) When able, the RTC informs the crew in writing "There is no conflicting movement" — then, after complying with Rule 513 where applicable, the movement need not stop but must positively identify the signal by number and may proceed at RESTRICTED speed to the next signal or Block End sign. If the RTC can\'t confirm there is no conflict and none is evident, the movement may (after Rule 513 where applicable) move forward and stop with its leading wheels 100 feet past the Stop signal; after waiting 10 minutes with still no evidence of a conflicting movement, it may proceed at RESTRICTED speed to the next signal or Block End sign.',
+    ['abs', 'signals', 'authority'], ['op-513', 'op-565', 'def-rtc']),
+
+  O('op-513', '513', 'ABS — Entering Main Track',
+    'Before entering or fouling a main track with no movement observed approaching, a crew member reverses the switch and waits five minutes (or longer if special instructions require) before letting the movement move foul, remaining at the switch until the movement has entered the track and quickly restoring it to normal if an approaching movement becomes evident. Through a crossover, only the switch in the track the movement is standing on is reversed for the waiting period. The waiting period need not be observed within cautionary limits, or when an opposing movement has passed the switch and still occupies the block, the entering crew holds a clearance to work, or the crew is relieved in writing by the RTC (who first ensures no movements in the block will approach the switch; the switch must be opened within 5 minutes of permission). A movement entering a block between signals moves at RESTRICTED speed to the next signal unless/until the track is seen clear and the signal permits otherwise.',
+    ['abs', 'switching', 'signals'], ['op-509', 'op-94']),
+
+  O('op-515', '515', 'ABS — Delayed in the Block',
+    'When a movement that entered a block on a signal indication permitting other than RESTRICTED speed is stopped or otherwise delayed in the block, it must move at REDUCED speed to the next signal — unless there are no switches between it and the next signal, or until the track is seen clear to the next signal — approaching the next signal prepared to stop and governed by the indication displayed.',
+    ['abs', 'signals', 'movement'], ['op-505', 'op-509']),
 ];
