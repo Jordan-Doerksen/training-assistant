@@ -2,6 +2,19 @@
 
 Phase log, newest first.
 
+## L5: PWA / offline — THE TOOL IS DONE — 2026-06-21
+- **Installable + fully offline** (`manifest.webmanifest`, `sw.js`, `icon.svg`, registration in
+  `js/main.js`). Add-to-home-screen gives it an icon + standalone (no browser chrome); the
+  service worker precaches the whole app shell + content (24 assets) and serves
+  stale-while-revalidate, so it opens with **zero signal** — yard, dead zone, head end.
+- **Clean updates:** bump `CACHE` in `sw.js` (v1 → v2 …) on any content/code change to force
+  every client to refresh on next load (activate deletes old caches; install skipWaiting +
+  clients.claim). Icon is a scalable SVG (red signal lamp).
+- Verified: SW registers + controls the page, cache `cror-v1` holds all 24 files, manifest valid,
+  no console errors. Real airplane-mode test is on-device.
+- **This was deliberately last** (service workers cache stale copies and mask whether changes
+  work). With it in, the training-assistant is feature-complete.
+
 ## L5: switch-list cross-link — 2026-06-21
 - **Companion-sim link** — a "take it to the yard" callout on the Guide page (and a contextual
   one-line note on the Switching domain view) linking to Switch List

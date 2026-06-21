@@ -51,3 +51,8 @@ function boot() {
 }
 
 if (document.readyState === 'loading') addEventListener('DOMContentLoaded', boot); else boot();
+
+// register the service worker (offline + installable); harmless if unsupported
+if ('serviceWorker' in navigator) {
+  addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(() => {}));
+}

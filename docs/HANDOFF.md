@@ -91,9 +91,11 @@ Gaps, by priority for when content is pulled:
 - **Content pull COMPLETE (conductor scope).** Done: grade crossings, GBO/DOB/TGBO + Forms,
   general procedures, SCT, signal description 401–404, CTC 577/578, Interlocking 620, and the
   conductor-relevant TOP/800s subset. Only the foreman-role rest of the 800s is intentionally out.
-- Tag sub-filter, printable cheat-sheets, and the switch-list cross-link all shipped; footer-train
-  motion confirmed. **Only L5 item left: PWA/offline — deliberately LAST** (a service worker
-  caches stale copies and masks whether changes work; build once stable). Then the tool is done.
+- **L5 COMPLETE — the tool is feature-complete.** Topic filters, cheat-sheets, switch-list link,
+  footer-train, and **PWA/offline** all shipped. Installable + works offline (`manifest.webmanifest`
+  + `sw.js`, registered in `js/main.js`).
+- **MAINTENANCE:** after editing content or code, **bump `CACHE` in `sw.js`** (v1 → v2 …) and
+  add any NEW files to its `ASSETS` precache list, so installed clients refresh.
 - **P2 — territory operating (BIGGEST gap):** OCS 300–315 → CTC 560–578 → ABS 500s →
   Interlocking 600–620. We have the *definitions* of every control system but **none of the
   operating rules** for working on them.
