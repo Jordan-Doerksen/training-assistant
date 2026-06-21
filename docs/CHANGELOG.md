@@ -2,6 +2,21 @@
 
 Phase log, newest first.
 
+## L2 (derived drills) — 2026-06-21
+- **Drills layer** (`js/drills.js`) — quiz questions generated straight from the same
+  `ENTRIES` (single source, zero duplicate content). Three formats:
+  **flashcard recall** (self-graded "Got it / Missed it"), **multiple choice** (stem = the
+  meaning/body, 3 distractors pulled from sibling entries in the same domain, auto-graded),
+  and **rule-number match** (given "CROR 122", pick the rule; auto-graded, skipped for
+  defs that have no rule number).
+- **Session scoping:** pick formats + domain + a tag + length (10 / 20 / All). A running
+  progress bar + score, an answer-marking state (correct green / wrong red), an "Open this
+  entry →" link on every answered question, and a results screen that lists exactly what to
+  review (each linking to its cited entry) with Run-again / New-quiz.
+- New **Reference / Drills** nav in the top bar (`#/drills` route); on mobile the search box
+  drops to its own full-width row so the nav no longer crowds it.
+- No new dependencies, no build step; verified end-to-end in the preview.
+
 ## L1 (operating + comms) — 2026-06-21
 - **Operating domain** (`content/operating.js`, 23) — signal-handling & comms rules:
   hand signals (12), bell/whistle (13/14), headlight (17), blue-signal protection (26),

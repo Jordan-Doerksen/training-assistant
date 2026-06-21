@@ -1,6 +1,6 @@
 # HANDOFF — training-assistant
 
-_Last updated: 2026-06-21 (operating domain added)_ · **This is the working source of truth.** Read it before
+_Last updated: 2026-06-21 (L2 drills added)_ · **This is the working source of truth.** Read it before
 building; update it the same session after any meaningful change (then bump the date).
 A stale source of truth is worse than none.
 
@@ -40,11 +40,18 @@ Static site, no build step.
 - Detail view renders SVG aspects + study notes + SME notes; list has a **domain filter**.
 - **149 entries, validator green.** Sourced from the Jan 2025 CROR PDF + the audited cn-conductor-trainer.
 
+**L2 done — derived drills** (`js/drills.js`, route `#/drills`):
+- Questions generated from the SAME `ENTRIES` (single source). Formats: **flashcard recall**
+  (self-graded), **multiple choice** (same-domain distractors, auto), **rule-number match**
+  (auto; skips defs with no number). Scope by **format + domain + tag + length**.
+- Progress bar + score, correct/wrong marking, per-question "open the entry" link, and a
+  results screen that lists what to review (linked). Reference / Drills nav in the top bar.
+- Signal-aspect-ID format was deliberately deferred (additive — the renderer's already there).
+
 ## 4. Roadmap (next)
-- **L1 content is complete** across all four domains (defs/signals/switching/operating, 149
-  entries). Further entries are additive — drop them into the relevant `content/*.js`.
-- **L2 — drills (derived):** generate recall / multiple-choice / signal-aspect questions from
-  the entries; pick a domain/tag to quiz. The content's ready for it.
+- **L1 content + L2 drills are done.** Further content entries are additive — drop them into
+  the relevant `content/*.js`. A signal-aspect-ID drill format is a small additive follow-on.
+- **L3 — progress/gaps:** persist drill results (localStorage), surface weak domains/tags.
 - Then L3 progress/gaps · L4 adaptive study-next + recert mode · L5 polish.
 - **L2** drills (derived) · **L3** progress/gaps · **L4** adaptive "study next" + recert prep ·
   **L5** polish (PWA, cheat-sheets, switch-list link, Observatory spoke).
