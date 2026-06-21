@@ -5,10 +5,10 @@
 // To force every client to refresh after a deploy, BUMP CACHE below.
 // ==========================================================================
 
-const CACHE = 'cror-v1';   // ← bump (v2, v3 …) whenever content/code changes, to push updates
+const CACHE = 'cror-v2';   // ← bump (v3, v4 …) whenever content/code changes, to push updates
 
 const ASSETS = [
-  './', './index.html', './manifest.webmanifest', './icon.svg', './css/app.css',
+  './', './index.html', './manifest.webmanifest', './icon.svg', './icon-192.png', './icon-512.png', './css/app.css',
   './js/main.js', './js/router.js', './js/reference.js', './js/search.js', './js/data.js',
   './js/signal.js', './js/drills.js', './js/progress.js', './js/progressview.js',
   './js/study.js', './js/guide.js', './js/tour.js', './js/footer-train.js', './js/schema.js',
