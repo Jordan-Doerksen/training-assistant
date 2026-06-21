@@ -178,4 +178,27 @@ a { color: inherit; text-decoration: none; }
 .drill-clean { color: var(--sme); font-weight: 600; margin: 8px 0 0; }
 .drill-done .related { margin-top: 22px; }
 
-@media (prefers-reduced-motion: reduce) { .card, .fchip, .dchip, .dbtn, .q-opt, .drill-bar span { transition: none; } }
+/* ---- drills: weak-spots panel on setup ---- */
+.ds-weak { margin: 22px 0 4px; padding: 14px 16px; background: #fbf3f0; border: 1px solid #ecd9d3; border-left: 3px solid var(--rail); border-radius: 8px; }
+.ds-weak .ds-label { color: var(--rail); }
+.ds-weak-list { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 6px; }
+.ds-weak-list a { display: flex; gap: 10px; align-items: baseline; }
+.ds-weak-list a:hover span:first-child { text-decoration: underline; }
+.ds-weak-list .card-ref { margin-left: auto; }
+
+/* ---- progress page ---- */
+.pg-buckets { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+.pg-pill { font: 700 11px/1 var(--mono); letter-spacing: .04em; padding: 6px 10px; border-radius: 999px; color: #fff; }
+.pg-mastered { background: var(--sme); } .pg-strong { background: #4f9e6b; }
+.pg-learning { background: var(--si); } .pg-weak { background: var(--rail); }
+.pg-unseen { background: #fff; color: var(--muted); border: 1px solid var(--line-strong); }
+.pg-row { margin-bottom: 14px; }
+.pg-row-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 5px; }
+.pg-name { font-weight: 700; }
+.pg-meta { font: 12px/1 var(--mono); color: var(--muted); }
+.pg-bar { height: 8px; background: var(--line); border-radius: 999px; overflow: hidden; }
+.pg-bar span { display: block; height: 100%; background: linear-gradient(90deg, var(--si), var(--sme)); border-radius: 999px; transition: width .3s ease; }
+.pg-tally { font: 12px/1 var(--mono); color: var(--muted); margin-left: auto; }
+.related a .pg-tally + .card-ref { margin-left: 12px; }
+
+@media (prefers-reduced-motion: reduce) { .card, .fchip, .dchip, .dbtn, .q-opt, .drill-bar span, .pg-bar span { transition: none; } }

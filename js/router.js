@@ -6,18 +6,20 @@
 import { search } from './search.js';
 import { renderList, renderEntry } from './reference.js';
 import { renderDrills } from './drills.js';
+import { renderProgress } from './progressview.js';
 
 const view = () => document.getElementById('view');
 
 function syncNav(h) {
-  const onDrills = h.startsWith('/drills');
+  const active = h.startsWith('/drills') ? 'drills' : h.startsWith('/progress') ? 'progress' : 'ref';
   document.querySelectorAll('[data-nav]').forEach((a) =>
-    a.classList.toggle('is-on', (a.getAttribute('data-nav') === 'drills') === onDrills));
+    a.classList.toggle('is-on', a.getAttribute('data-nav') === active));
 }
 
 export function route() {
   const h = location.hash.slice(1);
   syncNav(h);
+  if (h.startsWith('/progress')) { renderProgress(view()); window.scrollTo(0, 0); return; }
   if (h.startsWith('/drills')) { renderDrills(view()); window.scrollTo(0, 0); return; }
   const m = h.match(/^\/e\/(.+)$/);
   if (m) { renderEntry(view(), decodeURIComponent(m[1])); window.scrollTo(0, 0); return; }

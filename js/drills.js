@@ -6,6 +6,7 @@
 // ==========================================================================
 
 import { all, get } from './data.js';
+import { record, orderByWeakness, weakSpots } from './progress.js';
 
 const DOMAIN_LABEL = { defs: 'Definitions', signals: 'Signals', switching: 'Switching', operating: 'Operating' };
 const FORMATS = {
@@ -20,7 +21,7 @@ const shuffle = (a) => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) {
 const state = {
   screen: 'setup',
   formats: new Set(['flashcard', 'mcq', 'rulenum']),
-  domain: 'all', tag: 'all', count: 10,
+  domain: 'all', tag: 'all', count: 10, focus: false,
   queue: [], i: 0, results: [], revealed: false, picked: null,
 };
 
@@ -68,7 +69,7 @@ function makeQuestion(e, formats) {
 function build() {
   const formats = [...state.formats];
   if (!formats.length) formats.push('flashcard');
-  const src = shuffle(pool());
+  const src = state.focus ? orderByWeakness(pool()) : shuffle(pool());
   const take = state.count === 0 ? src.length : Math.min(state.count, src.length);
   state.queue = src.slice(0, take).map((e) => makeQuestion(e, formats));
   state.i = 0; state.results = []; state.revealed = false; state.picked = null;
@@ -81,6 +82,17 @@ function render() {
   else if (state.screen === 'run') host.innerHTML = runHTML();
   else host.innerHTML = doneHTML();
   wire();
+}
+
+function weakPanelHTML() {
+  const w = weakSpots(5);
+  if (!w.length) return '';
+  return `
+    <div class="ds-weak">
+      <span class="ds-label">You keep missing</span>
+      <ul class="ds-weak-list">${w.map((e) =>
+        `<li><a href="#/e/${encodeURIComponent(e.id)}"><span>${esc(e.title)}</span><span class="card-ref">${esc(e.ref)}</span></a></li>`).join('')}</ul>
+    </div>`;
 }
 
 function setupHTML() {
@@ -117,6 +129,16 @@ function setupHTML() {
         <div class="ds-chips">${[10, 20, 0].map((c) =>
           `<button class="dchip${state.count === c ? ' is-on' : ''}" data-dcount="${c}">${c === 0 ? 'All' : c}</button>`).join('')}</div>
       </div>
+
+      <div class="ds-group">
+        <span class="ds-label">Order</span>
+        <div class="ds-chips">
+          <button class="dchip${!state.focus ? ' is-on' : ''}" data-dfocus="0">Shuffle</button>
+          <button class="dchip${state.focus ? ' is-on' : ''}" data-dfocus="1">Focus weak spots</button>
+        </div>
+      </div>
+
+      ${weakPanelHTML()}
 
       <div class="ds-start">
         <button class="dbtn dbtn-go" data-start ${n === 0 ? 'disabled' : ''}>Start · ${state.count === 0 ? n : Math.min(state.count, n)} question${(state.count === 0 ? n : Math.min(state.count, n)) === 1 ? '' : 's'}</button>
@@ -193,7 +215,9 @@ function doneHTML() {
 
 // ----- interactions (re-bound every render; nodes are replaced each step) -----
 function answer(correct, picked) {
-  state.results.push({ id: state.queue[state.i].id, correct, type: state.queue[state.i].type });
+  const id = state.queue[state.i].id;
+  state.results.push({ id, correct, type: state.queue[state.i].type });
+  record(id, correct);                                    // persist to the progress model (L3)
   if (picked !== undefined) state.picked = picked;
 }
 function advance() {
@@ -214,6 +238,7 @@ function wire() {
   $$('[data-ddom]').forEach((b) => b.onclick = () => { state.domain = b.dataset.ddom; state.tag = 'all'; render(); });
   const sel = $('[data-dtag]'); if (sel) sel.onchange = () => { state.tag = sel.value; render(); };
   $$('[data-dcount]').forEach((b) => b.onclick = () => { state.count = +b.dataset.dcount; render(); });
+  $$('[data-dfocus]').forEach((b) => b.onclick = () => { state.focus = b.dataset.dfocus === '1'; render(); });
   const start = $('[data-start]'); if (start) start.onclick = () => { build(); state.screen = 'run'; render(); };
 
   // run — flashcard
@@ -237,6 +262,7 @@ function wire() {
 // ----- entry point (called by the router) -----
 export function renderDrills(view) {
   host = view;
-  if (state.screen === 'run' && !state.queue.length) state.screen = 'setup';
+  // entering via the nav always lands on setup; only an active run is resumed.
+  if (!(state.screen === 'run' && state.queue.length && state.i < state.queue.length)) state.screen = 'setup';
   render();
 }

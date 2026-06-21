@@ -2,6 +2,19 @@
 
 Phase log, newest first.
 
+## L3 (progress + gaps) — 2026-06-21
+- **Progress model** (`js/progress.js`) — drill results persist to `localStorage`
+  (`cror-progress-v1`) with a **Leitner box per entry** (0 new/missed … 5 mastered): a
+  correct answer promotes the box + grows a streak, a miss drops it to 0. Aggregates to
+  per-domain / per-tag mastery and a weakest-entries list.
+- **Progress page** (`js/progressview.js`, route `#/progress`) — overall mastery, bucket
+  pills (mastered/strong/learning/weak/unseen), a mastery bar per domain, your weakest
+  entries (linked to their cited reference), and an arm-then-confirm Reset.
+- **Drills now write to it** + gained a **Focus weak spots** order toggle (prioritizes
+  missed + never-seen) and a compact "you keep missing" panel on the setup screen.
+- New **Progress** top-bar tab. Fixed: opening Drills after finishing a quiz now lands on a
+  fresh setup instead of the stale results screen.
+
 ## L2 (derived drills) — 2026-06-21
 - **Drills layer** (`js/drills.js`) — quiz questions generated straight from the same
   `ENTRIES` (single source, zero duplicate content). Three formats:

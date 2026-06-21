@@ -1,6 +1,6 @@
 # HANDOFF — training-assistant
 
-_Last updated: 2026-06-21 (L2 drills added)_ · **This is the working source of truth.** Read it before
+_Last updated: 2026-06-21 (L3 progress added)_ · **This is the working source of truth.** Read it before
 building; update it the same session after any meaningful change (then bump the date).
 A stale source of truth is worse than none.
 
@@ -48,10 +48,18 @@ Static site, no build step.
   results screen that lists what to review (linked). Reference / Drills nav in the top bar.
 - Signal-aspect-ID format was deliberately deferred (additive — the renderer's already there).
 
+**L3 done — progress + gaps** (`js/progress.js` model + `js/progressview.js`, route `#/progress`):
+- Drill results persist to `localStorage` (`cror-progress-v1`) with a **Leitner box** per
+  entry (0 new/missed … 5 mastered); correct promotes + streaks, a miss resets to 0.
+- Progress page: overall mastery, bucket pills, per-domain bars, weakest entries (linked),
+  Reset. Drills write to it and gained a **Focus weak spots** order + a setup "missing" panel.
+
 ## 4. Roadmap (next)
-- **L1 content + L2 drills are done.** Further content entries are additive — drop them into
-  the relevant `content/*.js`. A signal-aspect-ID drill format is a small additive follow-on.
-- **L3 — progress/gaps:** persist drill results (localStorage), surface weak domains/tags.
+- **L0–L3 done.** Content + drills + progress all shipped. Remaining content/format additions
+  are additive (e.g. a signal-aspect-ID drill format).
+- **L4 — adaptive "study next" + recert mode:** schedule off the Leitner boxes (spaced
+  repetition / due-today), and a focused interview/recert prep flow.
+- **L5 — polish:** PWA/offline, printable cheat-sheets, switch-list link, Observatory spoke.
 - Then L3 progress/gaps · L4 adaptive study-next + recert mode · L5 polish.
 - **L2** drills (derived) · **L3** progress/gaps · **L4** adaptive "study next" + recert prep ·
   **L5** polish (PWA, cheat-sheets, switch-list link, Observatory spoke).
