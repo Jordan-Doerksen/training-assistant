@@ -31,6 +31,7 @@ const TOPICS = {
     { key: 'slow', label: 'Slow', tags: ['slow'] },
     { key: 'adv', label: 'Advance', tags: ['adv'] },
     { key: 'special', label: 'Special', tags: ['special'] },
+    { key: 'description', label: 'Description', tags: ['description'] },
   ],
   switching: [
     { key: 'kicking', label: 'Kicking', tags: ['kicking'] },
@@ -38,7 +39,7 @@ const TOPICS = {
     { key: 'coupling', label: 'Coupling & shoving', tags: ['coupling', 'shoving', 'fouling'] },
   ],
   operating: [
-    { key: 'control', label: 'Control systems', tags: ['ocs', 'ctc', 'abs', 'interlocking', 'scs', 'clearance'] },
+    { key: 'control', label: 'Control systems', tags: ['ocs', 'ctc', 'abs', 'interlocking', 'scs', 'sct', 'clearance'] },
     { key: 'signals', label: 'Signals', tags: ['signals', 'lights'] },
     { key: 'comms', label: 'Communication', tags: ['radio', 'comms'] },
     { key: 'protection', label: 'Protection', tags: ['protection', 'flagging', 'emergency'] },

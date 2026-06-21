@@ -525,6 +525,18 @@ export const operating = [
     'Switching at a controlled location. (a) Preferred — by signal indication: the RTC signals the movement over the controlled location with directional signals; if it can\'t clear when done, the RTC authorizes departure by Rule 566/577 (if the first move in was under Rule 564, operate to the next signal at RESTRICTED speed; Rule 566/577 isn\'t needed where the RTC verbally authorizes pulling ahead to the next signal with no dual-control switches). (b) Switching signals — a crew member requests the switching signal for multiple moves on a route; when done, advise the RTC to cancel it (first confirm all crew are and will remain clear of its limits); if unable to clear, the RTC verbally authorizes departure then cancels the signal, and the movement proceeds to the next signal at RESTRICTED speed. (c) With 566.1/577.1 signals suspended, the movement must be authorized into the block before the authority is issued, and must advise the RTC before leaving if it can\'t clear. (d) Taking head-room — provided the trailing end stays within non-main-track territory, a movement may accept a signal to enter a controlled location for that purpose.',
     ['ctc', 'switching', 'signals'], ['op-566', 'op-566-1', 'sw-104-2']),
 
+  O('op-577', '577', 'CTC — Work Authority (Optional to 566/567, with system)',
+    'Optional system-based work authority (alternative to Rules 566/567): a movement may be given written work authority to move in either direction within specified limits. The RTC first ensures no others are within or authorized into the limits and blocks at Stop all signals governing entry; others may be authorized to work within the limits only when restricted "Protect against work (number) between (location) and (location)." Where entry is by signal indication, the signal may be requested only within two controlled blocks of the limits (or 25 miles where none precedes), with the RTC ensuring it is the only movement to encounter the entry signal. Movements so authorized don\'t enter until a written understanding is established with each affected crew, kept until they have left the limits. The RTC maintains blocking until cancelled (each clear before cancellation; the last may be cancelled while inside, informing the RTC of direction). Controlled signals within the limits other than entry/exit showing STOP may be treated as "proceed at RESTRICTED speed" (not at automatic or foreign-railway interlockings); Rule 104.2(b) does not apply when the RTC advises the dual-control switches are lined for the route.',
+    ['ctc', 'authority', 'protection'], ['op-566', 'op-567', 'op-577-1']),
+
+  O('op-577-1', '577.1', 'CTC — Signal Indication Suspended While Switching (Optional to 566.1)',
+    'Optional system-based version of Rule 566.1: a movement may be authorized to manually operate specific dual-control switches at a controlled location (per Rule 104.2(d)), included with Rule 577 work authority; the governing signal indications may be considered suspended while those switches are in the "hand" position, but only while switching at the designated controlled locations (verbal permission may be given for switches not included). Over a spring switch within Rule 577 limits, the governing signal may be considered suspended if the switch is properly lined.',
+    ['ctc', 'switching', 'signals'], ['op-577', 'op-566-1']),
+
+  O('op-578', '578', 'CTC — Radio Broadcast Requirements',
+    'Within single track, a crew member on every train/transfer must broadcast on the designated standby channel the name of the signal displayed on the advance signal to the next controlled location, controlled point or interlocking. A crew member off the engine confirms the broadcast was made; if unable to confirm, immediate action must be taken to stop the movement before it reaches the next controlled location, controlled point or interlocking.',
+    ['ctc', 'radio', 'movement'], ['op-315', 'op-560']),
+
   // ----- ABS · Automatic Block Signal System (505–515) -----
   O('op-505', '505', 'ABS — Application',
     'Block signals govern the use of the blocks. They do not dispense with the use or observance of other signals whenever and wherever required, and do not authorize main-track occupancy.',
@@ -619,6 +631,10 @@ export const operating = [
     'Where an ECM or a computer-assisted system generates the required list, the relieving signalman signs into the system in the presence of the on-duty signalman and receives verbal and/or written transfer of other necessary instructions and information. Otherwise, before being relieved the signalman makes a written transfer (in a book or on a form) of TOPs and other authorities in effect, including the time and other necessary information, signed by both the relieved and the relieving signalman.',
     ['interlocking', 'crew'], ['op-147']),
 
+  O('op-620', '620', 'Interlocking — Non-Interlocked Drawbridges and Railway Crossings at Grade',
+    'A movement must stop before any part of it passes the governing stop sign at a non-interlocked drawbridge or a non-interlocked railway crossing at grade. If no conflicting movement is evident and the route is properly lined, the movement may resume. Special instructions govern when there is an attendant in charge.',
+    ['interlocking', 'signals'], ['op-615', 'op-601']),
+
   // ----- SCS · Special Control System (351–353) -----
   O('op-351', '351', 'SCS — Application',
     'On portions of the railway specified by special instructions, the use of the main track is governed by the Special Control System.',
@@ -631,4 +647,25 @@ export const operating = [
   O('op-353', '353', 'SCS — Special Instructions',
     'Special instructions necessary to govern this method of operation will be issued; except as affected by those instructions and Rules 351 and 352, all Operating Rules remain in force.',
     ['scs'], ['op-351', 'op-352']),
+
+  // ----- SCT · Siding Control Territory (360–364) -----
+  O('op-360', '360', 'SCT — Application',
+    'Where specified by special instructions, the use of non-signalled sidings within CTC is governed by the Siding Control Territory (SCT) rules.',
+    ['sct', 'authority'], ['op-361', 'def-ctc']),
+
+  O('op-361', '361', 'SCT — Supervision',
+    'Movements, protection of track work and operation of track units under SCT are, unless otherwise provided, supervised by the RTC, who issues instructions as required.',
+    ['sct', 'authority'], ['op-360', 'def-rtc']),
+
+  O('op-362', '362', 'SCT — Clear of Equipment',
+    'Sidings are considered clear of equipment unless the RTC informs otherwise. Before permitting a movement to enter a siding occupied by other equipment, the RTC must advise a crew member that other equipment occupies it.',
+    ['sct'], ['op-360']),
+
+  O('op-363', '363', 'SCT — Hand Operated Switches',
+    'Hand-operated switches in sidings may be considered lined for the normal position unless advised otherwise by the RTC, GBO or special instruction.',
+    ['sct', 'switching'], ['op-360']),
+
+  O('op-364', '364', 'SCT — Protection of Track Work and Operation of Track Units',
+    'A foreman must hold a TOP for the protection of track work and operation of track units; Rule 41/841 is not applicable.',
+    ['sct', 'protection'], ['op-360', 'op-41']),
 ];

@@ -8,6 +8,66 @@
 
 export const signals = [
  {
+  "id": "sig-401",
+  "domain": "signals",
+  "ref": "CROR 401",
+  "source": "Canadian Rail Operating Rules — Jan 28, 2025",
+  "trust": "rulebook",
+  "title": "Location of Fixed Signals",
+  "body": "Wherever practicable, fixed signals other than switches are located above, or to the right of, the track they govern; other placements are indicated by GBO or special instructions. Exception: a block or interlocking signal required to be placed to the left need not be indicated, provided that location does not place it to the right of another signalled track.",
+  "tags": ["signals", "description"]
+ },
+ {
+  "id": "sig-401-1",
+  "domain": "signals",
+  "ref": "CROR 401.1",
+  "source": "Canadian Rail Operating Rules — Jan 28, 2025",
+  "trust": "rulebook",
+  "title": "Signal Displayed",
+  "body": "The indications displayed on block and interlocking signals govern operation to the next signal or block-end sign. Unless special instructions specify otherwise, a signal to leave the main track for non-main track applies to the block-end sign, or until the leading end has passed entirely through the controlled location onto non-main track. Speed requirements protecting turnouts must be complied with until the entire movement has cleared the turnout.",
+  "tags": ["signals", "description"]
+ },
+ {
+  "id": "sig-401-2",
+  "domain": "signals",
+  "ref": "CROR 401.2",
+  "source": "Canadian Rail Operating Rules — Jan 28, 2025",
+  "trust": "rulebook",
+  "title": "No Advance Signal",
+  "body": "Where there is no advance signal to the signal governing movements into CTC, or where movements are re-entering CTC from a siding, all movements must approach the governing signal prepared to stop until it can be observed displaying a more favourable indication than Stop.",
+  "tags": ["signals", "description"]
+ },
+ {
+  "id": "sig-402",
+  "domain": "signals",
+  "ref": "CROR 402",
+  "source": "Canadian Rail Operating Rules — Jan 28, 2025",
+  "trust": "rulebook",
+  "title": "Positioning",
+  "body": "Where conditions allow, block and interlocking signal heads are positioned with respect to the tracks whose movements they affect; bridges, cantilevers, dummy masts and other structures are used and must be illustrated in company instructions to ensure proper understanding of signal intent.",
+  "tags": ["signals", "description"]
+ },
+ {
+  "id": "sig-403",
+  "domain": "signals",
+  "ref": "CROR 403",
+  "source": "Canadian Rail Operating Rules — Jan 28, 2025",
+  "trust": "rulebook",
+  "title": "Appearance of Colour Light Signals",
+  "body": "Block and interlocking signal aspects are displayed by the colour, position, flashing of lights, or combinations thereof. The indication of such a signal may be qualified or modified by an attached arrow and/or plate.",
+  "tags": ["signals", "description"]
+ },
+ {
+  "id": "sig-404",
+  "domain": "signals",
+  "ref": "CROR 404",
+  "source": "Canadian Rail Operating Rules — Jan 28, 2025",
+  "trust": "rulebook",
+  "title": "Standard Indications",
+  "body": "The illustrations in Rules 405–440 are the standard aspects and indications. Other signal aspects and indications necessary will be illustrated in special instructions.",
+  "tags": ["signals", "description"]
+ },
+ {
   "id": "sig-405",
   "domain": "signals",
   "ref": "CROR 405",
