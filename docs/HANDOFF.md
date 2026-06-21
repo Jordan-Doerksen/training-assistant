@@ -23,17 +23,24 @@ Static site, no build step.
 **L0 done:** schema, validator, defs domain (12 CROR definitions), reference shell
 (search + list→detail + trust/citation chips + related-links, hash routing), rail-ops theme.
 
-**L1 in progress — signals done:** ported the audited signal SVG renderer (`js/signal.js`)
-+ all CROR 405–440 indications (`content/signals.js`, 42 entries, 38 with aspect drawings;
-names+meanings = rulebook, drawings reproduced + cross-checked). Detail view renders the SVG
-aspect + a study-notes block; the list got a **domain filter** (All / Definitions / Signals).
-**54 entries, validator green.** Source: the audited `cn-conductor-trainer` Signal Reading module.
+**L1 mostly done — signals + full definitions + switching:**
+- **Signals** (`content/signals.js`) — all CROR 405–440 indications (42, 38 drawn) + the SVG
+  renderer (`js/signal.js`); detail renders the aspect + study notes.
+- **Definitions** (`content/defs.js`) — full CROR Definitions section: equipment/movements,
+  track & territory, control systems, signals/blocks, bulletins, occupational terms, switches,
+  and speeds (67 entries, all verbatim + cited).
+- **Switching** (`content/switching.js`) — CROR 104 / 104.1 / 104.2 / 104.4 / 104.5 / 105 /
+  112 / 113.0–113.7 / 114 / 115 (17 entries, faithful cited condensations; GP specifics flagged
+  as S.I./SME, not invented).
+- Detail view renders SVG aspects + study notes + SME notes; list has a **domain filter**.
+- **126 entries, validator green.** Sourced from the Jan 2025 CROR PDF + the audited cn-conductor-trainer.
 
 ## 4. Roadmap (next)
-- **L1 remaining — switching + operating rules:** port 104/105/112/113/114 (+ securing 112,
-  kicking 113.x, fouling 114, yard speed 105) and core operating rules into `content/switching.js`
-  / `content/operating.js`, each CROR-cited + trust-flagged. Reuse the audited cn-conductor-trainer
-  citations; verify against the PDF.
+- **Optional L1 extra — operating rules:** a few core operating/communication rules (hand
+  signals, radio/communication, Rule 41 end-of-track) if wanted → `content/operating.js`.
+- **L2 — drills (derived):** generate recall / multiple-choice / signal-aspect questions from
+  the entries; pick a domain/tag to quiz. The content's ready for it.
+- Then L3 progress/gaps · L4 adaptive study-next + recert mode · L5 polish.
 - **L2** drills (derived) · **L3** progress/gaps · **L4** adaptive "study next" + recert prep ·
   **L5** polish (PWA, cheat-sheets, switch-list link, Observatory spoke).
 
