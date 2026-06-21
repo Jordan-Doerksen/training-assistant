@@ -47,11 +47,12 @@ function runScene(canvas, make) {
 
 // ---- the scene -------------------------------------------------------------
 const INK = '#2f3742', INK2 = '#3a434f', STEEL = '#586577', ACCENT = '#b3322c';
-const SIGNAL_COLORS = ['#2f7a4d', '#b06a12', '#b3322c'];   // green / amber / red, theme-matched
+const GREEN = '#2f7a4d', AMBER = '#b06a12';                 // dual-aspect lamps — never red boards
+const dualAspect = () => ({ top: Math.random() < 0.6 ? GREEN : AMBER, bottom: Math.random() < 0.6 ? GREEN : AMBER });
 
 function railRun(w, h) {
   const railY = Math.round(h * 0.72), groundY = railY + 4, trainX = Math.round(Math.min(w * 0.30, 240)), speed = 52;
-  let dist = 0, t = 0, smoke = [], pines = [], signalX = null, signalColor = SIGNAL_COLORS[0], signalIn = 4 + Math.random() * 4;
+  let dist = 0, t = 0, smoke = [], pines = [], signalX = null, signalAsp = dualAspect(), signalIn = 4 + Math.random() * 4;
   let pineIn = 0;
   const spawnPine = () => pines.push({ x: w + 14, h: 8 + Math.random() * 12, layer: Math.random() < 0.5 ? 1 : 0.62 });
   for (let i = 0; i < 5; i++) pines.push({ x: Math.random() * w, h: 8 + Math.random() * 12, layer: Math.random() < 0.5 ? 1 : 0.62 });
@@ -62,12 +63,15 @@ function railRun(w, h) {
     ctx.beginPath(); ctx.moveTo(x, groundY - ph); ctx.lineTo(x - wd, groundY); ctx.lineTo(x + wd, groundY); ctx.closePath(); ctx.fill();
     ctx.beginPath(); ctx.moveTo(x, groundY - ph * 0.62); ctx.lineTo(x - wd * 1.2, groundY + 1); ctx.lineTo(x + wd * 1.2, groundY + 1); ctx.closePath(); ctx.fill();
   }
-  function signal(ctx, x, color) {
+  function signal(ctx, x, asp) {
     ctx.strokeStyle = 'rgba(88,101,119,.55)'; ctx.lineWidth = 1.4;
-    ctx.beginPath(); ctx.moveTo(x, groundY); ctx.lineTo(x, groundY - 22); ctx.stroke();
-    ctx.fillStyle = 'rgba(47,55,66,.95)'; roundRect(ctx, x - 3, groundY - 28, 6, 10, 2); ctx.fill();
-    ctx.globalAlpha = 0.3; ctx.fillStyle = color; ctx.beginPath(); ctx.arc(x, groundY - 23, 4, 0, 6.28); ctx.fill();
-    ctx.globalAlpha = 1; ctx.beginPath(); ctx.arc(x, groundY - 23, 2, 0, 6.28); ctx.fill();
+    ctx.beginPath(); ctx.moveTo(x, groundY); ctx.lineTo(x, groundY - 21); ctx.stroke();
+    ctx.fillStyle = 'rgba(47,55,66,.95)'; roundRect(ctx, x - 3.2, groundY - 36, 6.4, 15, 2); ctx.fill();
+    const lamp = (cy, c) => {
+      ctx.globalAlpha = 0.3; ctx.fillStyle = c; ctx.beginPath(); ctx.arc(x, cy, 3, 0, 6.28); ctx.fill();
+      ctx.globalAlpha = 1; ctx.beginPath(); ctx.arc(x, cy, 1.7, 0, 6.28); ctx.fill();
+    };
+    lamp(groundY - 31, asp.top); lamp(groundY - 25, asp.bottom);
   }
   function car(ctx, x, y, ww, fill) {
     ctx.fillStyle = fill; roundRect(ctx, x, y - 11, ww, 11, 2); ctx.fill();
@@ -121,8 +125,8 @@ function railRun(w, h) {
     pineIn -= dt; if (pineIn <= 0) { spawnPine(); pineIn = 0.9 + Math.random() * 1.4; }
     // passing signal
     signalIn -= dt;
-    if (signalX === null && signalIn <= 0) { signalX = w + 12; signalColor = SIGNAL_COLORS[Math.floor(Math.random() * 3)]; }
-    if (signalX !== null) { signalX -= speed * dt; signal(ctx, signalX, signalColor); if (signalX < -8) { signalX = null; signalIn = 6 + Math.random() * 6; } }
+    if (signalX === null && signalIn <= 0) { signalX = w + 12; signalAsp = dualAspect(); }
+    if (signalX !== null) { signalX -= speed * dt; signal(ctx, signalX, signalAsp); if (signalX < -8) { signalX = null; signalIn = 6 + Math.random() * 6; } }
     // rail + ties
     ctx.strokeStyle = 'rgba(88,101,119,.5)'; ctx.lineWidth = 1.4; ctx.beginPath(); ctx.moveTo(0, railY + 3); ctx.lineTo(w, railY + 3); ctx.stroke();
     ctx.strokeStyle = 'rgba(88,101,119,.26)'; ctx.lineWidth = 2;
